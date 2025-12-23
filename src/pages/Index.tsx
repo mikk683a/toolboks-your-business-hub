@@ -1,13 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Helmet } from "react-helmet-async";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import AppShowcase from "@/components/AppShowcase";
+import PricingSection from "@/components/PricingSection";
+import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <>
+      <Helmet>
+        <title>Toolboks - Admin Tool for Carpenters & Handymen</title>
+        <meta
+          name="description"
+          content="The all-in-one admin tool for blue collar businesses. Manage leads, schedule jobs, and send invoices from your phone. Start your free trial today."
+        />
+        <meta name="keywords" content="handyman software, carpenter management, trade business software, job scheduling, invoicing app" />
+      </Helmet>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <main>
+          <HeroSection />
+          <FeaturesSection />
+          <AppShowcase />
+          <PricingSection />
+          <CTASection />
+        </main>
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };
 
