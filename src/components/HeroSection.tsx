@@ -1,13 +1,29 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, CheckCircle } from "lucide-react";
+import { ArrowRight, Play, CheckCircle, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import appMockup from "@/assets/app-mockup.png";
+
+const BOOKING_URL = "https://cal.com/mikkel-ovesen-9jlpze/toolboks-onboarding";
+
+const openCalPopup = () => {
+  if ((window as any).Cal) {
+    (window as any).Cal("ui", {
+      styles: { branding: { brandColor: "#000000" } },
+      hideEventTypeDetails: false,
+    });
+    (window as any).Cal("modal", {
+      calLink: "mikkel-ovesen-9jlpze/toolboks-onboarding",
+    });
+  } else {
+    window.open(BOOKING_URL, "_blank");
+  }
+};
 
 const HeroSection = () => {
   const benefits = [
     "Håndter leads & jobs ét sted",
     "Send professionelle fakturaer",
-    "3 måneder gratis — ingen betalingskort",
+    "Gratis onboarding — vi sætter det op",
   ];
 
   return (
@@ -38,8 +54,9 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <Button variant="hero" size="xl" onClick={() => document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" })}>
-                Start gratis prøveperiode
+              <Button variant="hero" size="xl" onClick={openCalPopup}>
+                <Calendar className="w-5 h-5" />
+                Book et gratis opkald
                 <ArrowRight className="w-5 h-5" />
               </Button>
               <Button variant="heroOutline" size="xl">
