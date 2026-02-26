@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 
-// TODO: Replace with Cal.com link once Mikkel creates account at cal.com
-const BOOKING_URL = "mailto:admin@toolboks.dk?subject=Onboarding%20-%20Toolboks&body=Hej%20Mikkel%2C%0A%0AJeg%20vil%20gerne%20booke%20et%20onboarding-opkald.%0A%0AMit%20navn%3A%20%0AMit%20telefonnummer%3A%20";
+const BOOKING_URL = "https://cal.com/mikkel-ovesen-9jlpze/toolboks-onboarding";
 
 const CTASection = () => {
   const [step, setStep] = useState<"idle" | "form" | "success">("idle");
