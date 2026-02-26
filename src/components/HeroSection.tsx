@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, CheckCircle, Calendar } from "lucide-react";
+import { ArrowRight, Play, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import appMockup from "@/assets/app-mockup.png";
 
-const scrollToBooking = () => {
+const scrollToSignup = () => {
   document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" });
 };
 
@@ -42,9 +42,8 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <Button variant="hero" size="xl" onClick={scrollToBooking}>
-                <Calendar className="w-5 h-5" />
-                Book et gratis opkald
+              <Button variant="hero" size="xl" onClick={scrollToSignup}>
+                Opret gratis konto
                 <ArrowRight className="w-5 h-5" />
               </Button>
               <Button variant="heroOutline" size="xl">

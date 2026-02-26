@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Wrench } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const APP_URL = "https://app.toolboks.dk";
+
+const scrollToSignup = () => {
+  document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" });
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,8 +45,12 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost">Log ind</Button>
-            <Button variant="hero">Start gratis</Button>
+            <Button variant="ghost" asChild>
+              <a href={APP_URL}>Log ind</a>
+            </Button>
+            <Button variant="hero" onClick={scrollToSignup}>
+              Prøv gratis
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -74,11 +84,18 @@ const Navbar = () => {
                   </a>
                 ))}
                 <div className="pt-4 space-y-3">
-                  <Button variant="ghost" className="w-full">
-                    Log in
+                  <Button variant="ghost" className="w-full" asChild>
+                    <a href={APP_URL}>Log ind</a>
                   </Button>
-                  <Button variant="hero" className="w-full">
-                    Start Free Trial
+                  <Button
+                    variant="hero"
+                    className="w-full"
+                    onClick={() => {
+                      setIsOpen(false);
+                      scrollToSignup();
+                    }}
+                  >
+                    Prøv gratis
                   </Button>
                 </div>
               </div>
