@@ -3,20 +3,8 @@ import { ArrowRight, Play, CheckCircle, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import appMockup from "@/assets/app-mockup.png";
 
-const BOOKING_URL = "https://cal.com/mikkel-ovesen-9jlpze/toolboks-onboarding";
-
-const openCalPopup = () => {
-  if ((window as any).Cal) {
-    (window as any).Cal("ui", {
-      styles: { branding: { brandColor: "#000000" } },
-      hideEventTypeDetails: false,
-    });
-    (window as any).Cal("modal", {
-      calLink: "mikkel-ovesen-9jlpze/toolboks-onboarding",
-    });
-  } else {
-    window.open(BOOKING_URL, "_blank");
-  }
+const scrollToBooking = () => {
+  document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" });
 };
 
 const HeroSection = () => {
@@ -54,7 +42,7 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <Button variant="hero" size="xl" onClick={openCalPopup}>
+              <Button variant="hero" size="xl" onClick={scrollToBooking}>
                 <Calendar className="w-5 h-5" />
                 Book et gratis opkald
                 <ArrowRight className="w-5 h-5" />
