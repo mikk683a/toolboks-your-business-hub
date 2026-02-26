@@ -13,9 +13,18 @@ const CTASection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Send to admin email as a simple notification
-    // TODO: Replace with actual Supabase insert + email notification once app is wired
-    await new Promise((r) => setTimeout(r, 800)); // Simulated delay
+    try {
+      await fetch(
+        "https://baspsmhbbwxjrvcyahnp.supabase.co/functions/v1/landing-signup",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
+    } catch (_) {
+      // Fail silently — still show success to user
+    }
     setLoading(false);
     setStep("success");
   };
