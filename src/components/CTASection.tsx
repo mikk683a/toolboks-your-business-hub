@@ -76,7 +76,7 @@ const CTASection = () => {
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Tak, {name.split(" ")[0]}! 🎉</h3>
               <p className="text-muted-foreground">
-                Vi har modtaget din tilmelding og sender dig en bekræftelse på email. Vi kontakter dig snart for at booke et gratis opkald.
+                Tak! Du hører fra os inden for 1 hverdagsdag. Tjek din email for næste skridt.
               </p>
             </div>
           ) : (

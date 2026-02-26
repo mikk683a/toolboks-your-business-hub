@@ -9,7 +9,7 @@ const scrollToSignup = () => {
 
 const HeroSection = () => {
   const benefits = [
-    "Håndter leads & jobs ét sted",
+    "Håndter kunder & jobs ét sted",
     "Send professionelle fakturaer",
     "Gratis onboarding — vi sætter det op",
   ];

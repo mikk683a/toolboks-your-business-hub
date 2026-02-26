@@ -10,7 +10,7 @@ const plans = [
     currency: "kr",
     period: "/md",
     features: [
-      "Ubegrænsede leads",
+      "Ubegrænsede forespørgsler",
       "Job-planlægning & kalender",
       "Tilbud & fakturaer",
       "Dashboard med overblik",

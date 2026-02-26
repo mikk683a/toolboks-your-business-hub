@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 const features = [
   {
     icon: Users,
-    title: "Lead-håndtering",
-    description: "Hold styr på alle henvendelser ét sted. Se hvem der er ny, hvem der mangler et tilbud, og hvem der er klar til at booke.",
+    title: "Kundehenvendelser",
+    description: "Hold styr på alle forespørgsler ét sted. Se hvem der er ny, hvem der mangler et tilbud, og hvem der er klar til at booke.",
     color: "bg-primary/10 text-primary",
   },
   {
