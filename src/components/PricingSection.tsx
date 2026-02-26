@@ -102,6 +102,7 @@ const PricingSection = () => {
               <Button
                 variant={plan.highlighted ? "hero" : "heroOutline"}
                 className="w-full"
+                onClick={() => document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Start gratis — 3 måneder
               </Button>
