@@ -5,9 +5,9 @@ import appMockup from "@/assets/app-mockup.png";
 
 const HeroSection = () => {
   const benefits = [
-    "Manage leads & jobs in one place",
-    "Send professional invoices",
-    "14-day free trial",
+    "Håndter leads & jobs ét sted",
+    "Send professionelle fakturaer",
+    "3 måneder gratis — ingen betalingskort",
   ];
 
   return (
@@ -23,28 +23,28 @@ const HeroSection = () => {
           >
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              Trusted by 500+ tradespeople
+              🚀 Nu i tidlig adgang — 3 måneder gratis
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-              Run your{" "}
-              <span className="text-gradient">trade business</span>{" "}
-              like a pro
+              Styr din{" "}
+              <span className="text-gradient">håndværkerforretning</span>{" "}
+              fra mobilen
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              The all-in-one admin tool for carpenters, handymen, and blue collar pros. 
-              Manage leads, schedule jobs, and send invoices — all from your phone.
+              Toolboks er admin-værktøjet til tømrere, håndværkere og andre selvstændige.
+              Håndter leads, planlæg jobs og send fakturaer — alt fra din telefon.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <Button variant="hero" size="xl">
-                Start Free Trial
+                Start gratis prøveperiode
                 <ArrowRight className="w-5 h-5" />
               </Button>
               <Button variant="heroOutline" size="xl">
                 <Play className="w-5 h-5" />
-                Watch Demo
+                Se demo
               </Button>
             </div>
 
@@ -84,24 +84,6 @@ const HeroSection = () => {
             {/* Decorative Elements */}
             <div className="absolute -top-8 -right-8 w-72 h-72 bg-primary/10 rounded-full blur-3xl -z-10" />
             <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-accent/10 rounded-full blur-3xl -z-10" />
-
-            {/* Floating Stats Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="absolute -bottom-4 -left-4 md:left-8 bg-card rounded-xl shadow-card p-4 border border-border"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
-                  <span className="text-accent font-bold">+32%</span>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground">Revenue increase</p>
-                  <p className="text-sm font-semibold text-foreground">This month</p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>

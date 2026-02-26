@@ -1,42 +1,30 @@
-import { Users, Calendar, FileText, TrendingUp, Phone, Clock } from "lucide-react";
+import { Users, Calendar, FileText, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
   {
     icon: Users,
-    title: "Lead Management",
-    description: "Track all your leads in one place. See who's new, who needs a quote, and who's ready to book.",
+    title: "Lead-håndtering",
+    description: "Hold styr på alle henvendelser ét sted. Se hvem der er ny, hvem der mangler et tilbud, og hvem der er klar til at booke.",
     color: "bg-primary/10 text-primary",
   },
   {
     icon: Calendar,
-    title: "Job Scheduling",
-    description: "Plan your day with an intuitive calendar. Never double-book or miss an appointment again.",
+    title: "Job-planlægning",
+    description: "Planlæg din arbejdsdag med en overskuelig kalender. Aldrig dobbeltoverbooking eller glemte aftaler igen.",
     color: "bg-accent/10 text-accent",
   },
   {
     icon: FileText,
-    title: "Professional Invoices",
-    description: "Create and send invoices in seconds. Get paid faster with online payment options.",
+    title: "Professionelle fakturaer",
+    description: "Opret og send fakturaer på få sekunder. Angiv et tilbud direkte fra appen — kunden modtager det med det samme.",
     color: "bg-warning/10 text-warning",
   },
   {
     icon: TrendingUp,
-    title: "Business Dashboard",
-    description: "See your business at a glance. Track revenue, pending payments, and daily tasks.",
+    title: "Overblik over forretningen",
+    description: "Se din forretning på ét overblik. Følg igangværende jobs, udestående fakturaer og dagens opgaver.",
     color: "bg-primary/10 text-primary",
-  },
-  {
-    icon: Phone,
-    title: "One-Tap Contact",
-    description: "Call or text customers directly from the app. All communication history in one place.",
-    color: "bg-accent/10 text-accent",
-  },
-  {
-    icon: Clock,
-    title: "Time Tracking",
-    description: "Log hours on each job automatically. Perfect for billing and productivity insights.",
-    color: "bg-warning/10 text-warning",
   },
 ];
 
@@ -52,18 +40,18 @@ const FeaturesSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
-            Features
+            Funktioner
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Everything you need to{" "}
-            <span className="text-gradient">grow your business</span>
+            Alt hvad du har brug for til at{" "}
+            <span className="text-gradient">drive din forretning</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From first contact to final invoice, Toolboks handles it all so you can focus on what you do best.
+            Fra første kontakt til betalt faktura — Toolboks klarer det hele, så du kan fokusere på det du er bedst til.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}

@@ -4,51 +4,35 @@ import { motion } from "framer-motion";
 
 const plans = [
   {
-    name: "Starter",
-    description: "Perfect for solo tradespeople",
+    name: "Solo",
+    description: "Til den selvstændige håndværker",
     price: "149",
     currency: "kr",
-    period: "/mo",
+    period: "/md",
     features: [
-      "Unlimited leads",
-      "Job scheduling",
-      "Basic invoicing",
-      "Mobile app access",
-      "Email support",
+      "Ubegrænsede leads",
+      "Job-planlægning & kalender",
+      "Tilbud & fakturaer",
+      "Dashboard med overblik",
+      "Adgang via mobil og browser",
+      "E-mail support",
     ],
     highlighted: false,
   },
   {
-    name: "Professional",
-    description: "For growing businesses",
+    name: "Team",
+    description: "Til dig med ansatte eller partnere",
     price: "299",
     currency: "kr",
-    period: "/mo",
+    period: "/md",
     features: [
-      "Everything in Starter",
-      "Team management (up to 5)",
-      "Advanced reporting",
-      "Online payments",
-      "Priority support",
-      "Custom branding",
+      "Alt i Solo",
+      "Op til 5 teammedlemmer",
+      "Delt kalender & jobfordeling",
+      "Avanceret rapportering",
+      "Prioriteret support",
     ],
     highlighted: true,
-  },
-  {
-    name: "Business",
-    description: "For larger teams",
-    price: "599",
-    currency: "kr",
-    period: "/mo",
-    features: [
-      "Everything in Professional",
-      "Unlimited team members",
-      "API access",
-      "Advanced integrations",
-      "Dedicated account manager",
-      "Custom training",
-    ],
-    highlighted: false,
   },
 ];
 
@@ -64,17 +48,17 @@ const PricingSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
-            Pricing
+            Priser
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Simple, <span className="text-gradient">transparent pricing</span>
+            Simpel, <span className="text-gradient">ærlig prissætning</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Start with a 14-day free trial. No credit card required. Cancel anytime.
+            Start med 3 måneders gratis prøveperiode. Intet betalingskort kræves. Afmeld når som helst.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -91,7 +75,7 @@ const PricingSection = () => {
               {plan.highlighted && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <span className="bg-hero-gradient text-primary-foreground text-sm font-medium px-4 py-1 rounded-full">
-                    Most Popular
+                    Mest populær
                   </span>
                 </div>
               )}
@@ -119,11 +103,21 @@ const PricingSection = () => {
                 variant={plan.highlighted ? "hero" : "heroOutline"}
                 className="w-full"
               >
-                Start Free Trial
+                Start gratis — 3 måneder
               </Button>
             </motion.div>
           ))}
         </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center text-sm text-muted-foreground mt-8"
+        >
+          Ingen binding. Ingen betalingskort ved tilmelding. Priserne er ekskl. moms.
+        </motion.p>
       </div>
     </section>
   );

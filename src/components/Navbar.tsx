@@ -7,9 +7,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Features", href: "#features" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "About", href: "#about" },
+    { name: "Funktioner", href: "#features" },
+    { name: "Priser", href: "#pricing" },
+    { name: "Om os", href: "#about" },
   ];
 
   return (
@@ -39,8 +39,8 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost">Log in</Button>
-            <Button variant="hero">Start Free Trial</Button>
+            <Button variant="ghost">Log ind</Button>
+            <Button variant="hero">Start gratis</Button>
           </div>
 
           {/* Mobile Menu Button */}

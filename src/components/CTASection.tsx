@@ -20,18 +20,17 @@ const CTASection = () => {
 
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
-              Ready to take control of your business?
+              Klar til at tage kontrol over din forretning?
             </h2>
             <p className="text-lg md:text-xl text-primary-foreground/90 mb-8">
-              Join 500+ tradespeople who save hours every week with Toolboks. 
-              Start your free trial today — no credit card required.
+              Tilmeld dig gratis i dag og få 3 måneder på os. Vi hjælper dig med at komme godt i gang.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="xl"
                 className="bg-card text-foreground hover:bg-card/90 shadow-lg hover:shadow-xl"
               >
-                Start Free Trial
+                Start gratis prøveperiode
                 <ArrowRight className="w-5 h-5" />
               </Button>
               <Button
@@ -39,7 +38,7 @@ const CTASection = () => {
                 variant="ghost"
                 className="text-primary-foreground border-2 border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground"
               >
-                Contact Sales
+                Book et opkald
               </Button>
             </div>
           </div>
