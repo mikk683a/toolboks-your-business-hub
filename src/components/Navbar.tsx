@@ -6,16 +6,17 @@ import { motion, AnimatePresence } from "framer-motion";
 const APP_URL = "https://app.toolboks.dk";
 
 const scrollToSignup = () => {
-  document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" });
+  const el = document.getElementById("signup");
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+  else window.location.href = "/#signup";
 };
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Funktioner", href: "#features" },
-    { name: "Priser", href: "#pricing" },
-    { name: "Om os", href: "#about" },
+    { name: "Funktioner", href: "/#features" },
+    { name: "Priser", href: "/#pricing" },
   ];
 
   return (

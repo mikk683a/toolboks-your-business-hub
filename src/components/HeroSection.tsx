@@ -10,7 +10,7 @@ const scrollToSignup = () => {
 const HeroSection = () => {
   const benefits = [
     "Håndter kunder & jobs ét sted",
-    "Send professionelle fakturaer",
+    "Send tilbud og fakturaer",
     "Gratis onboarding — vi sætter det op",
   ];
 
@@ -27,7 +27,7 @@ const HeroSection = () => {
           >
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              🚀 Nu i tidlig adgang — 3 måneder gratis
+              Nu i tidlig adgang — 3 måneder gratis
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
@@ -38,7 +38,7 @@ const HeroSection = () => {
 
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
               Toolboks er admin-værktøjet til tømrere, håndværkere og andre selvstændige.
-              Håndter leads, planlæg jobs og send fakturaer — alt fra din telefon.
+              Håndter kundeforespørgsler, planlæg jobs og send fakturaer — alt fra din telefon.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
@@ -46,7 +46,7 @@ const HeroSection = () => {
                 Opret gratis konto
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button variant="heroOutline" size="xl">
+              <Button variant="heroOutline" size="xl" onClick={() => document.getElementById("showcase")?.scrollIntoView({ behavior: "smooth" })}>
                 <Play className="w-5 h-5" />
                 Se demo
               </Button>
@@ -79,7 +79,7 @@ const HeroSection = () => {
               <div className="bg-card rounded-3xl shadow-card-hover p-4 md:p-6 border border-border">
                 <img
                   src={appMockup}
-                  alt="Toolboks Dashboard"
+                  alt="Toolboks i brug"
                   className="w-full rounded-2xl"
                 />
               </div>

@@ -1,4 +1,4 @@
-import { Star, MessageSquare } from "lucide-react";
+import { Gift, Phone, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 
 const TestimonialsSection = () => {
@@ -28,17 +28,17 @@ const TestimonialsSection = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {[
             {
-              icon: "🎁",
+              icon: Gift,
               title: "3 måneder gratis",
               description: "Ingen betalingskort kræves. Prøv alt i 3 måneder helt gratis.",
             },
             {
-              icon: "📞",
+              icon: Phone,
               title: "Personlig onboarding",
               description: "Book et gratis opkald med os. Vi hjælper dig i gang og sætter det op til din forretning.",
             },
             {
-              icon: "💬",
+              icon: MessageSquare,
               title: "Din mening tæller",
               description: "Som early-access bruger er din feedback med til at forme de næste funktioner.",
             },
@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-card rounded-2xl p-8 border border-border shadow-card text-center"
             >
-              <div className="text-4xl mb-4">{item.icon}</div>
+              <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4"><item.icon className="w-7 h-7" /></div>
               <h3 className="text-xl font-semibold text-foreground mb-3">{item.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{item.description}</p>
             </motion.div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 
@@ -74,7 +75,7 @@ const CTASection = () => {
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-8 h-8 text-accent" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Tak, {name.split(" ")[0]}! 🎉</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Tak, {name.split(" ")[0]}!</h3>
               <p className="text-muted-foreground">
                 Tak! Du hører fra os inden for 1 hverdagsdag. Tjek din email for næste skridt.
               </p>
@@ -142,9 +143,9 @@ const CTASection = () => {
 
               <p className="text-center text-xs text-muted-foreground pt-1">
                 Ved at tilmelde dig accepterer du vores{" "}
-                <a href="#" className="underline hover:text-foreground">vilkår</a>{" "}
+                <Link to="/vilkaar" className="underline hover:text-foreground">vilkår</Link>{" "}
                 og{" "}
-                <a href="#" className="underline hover:text-foreground">privatlivspolitik</a>.
+                <Link to="/privatliv" className="underline hover:text-foreground">privatlivspolitik</Link>.
               </p>
             </form>
           )}

@@ -1,29 +1,29 @@
-import { Users, Calendar, FileText, TrendingUp } from "lucide-react";
+import { Users, Calendar, FileText, Receipt } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
   {
     icon: Users,
-    title: "Kundehenvendelser",
-    description: "Hold styr på alle forespørgsler ét sted. Se hvem der er ny, hvem der mangler et tilbud, og hvem der er klar til at booke.",
+    title: "Kundeforespørgsler",
+    description: "Modtag forespørgsler direkte fra din hjemmeside via web-formular eller booking-link — samlet ét sted.",
     color: "bg-primary/10 text-primary",
   },
   {
-    icon: Calendar,
-    title: "Job-planlægning",
-    description: "Planlæg din arbejdsdag med en overskuelig kalender. Aldrig dobbeltoverbooking eller glemte aftaler igen.",
-    color: "bg-accent/10 text-accent",
-  },
-  {
     icon: FileText,
-    title: "Professionelle fakturaer",
-    description: "Opret og send fakturaer på få sekunder. Angiv et tilbud direkte fra appen — kunden modtager det med det samme.",
+    title: "Tilbud kunden kan acceptere",
+    description: "Send tilbud som PDF på e-mail og SMS. Kunden accepterer med ét tryk via et link.",
     color: "bg-warning/10 text-warning",
   },
   {
-    icon: TrendingUp,
-    title: "Overblik over forretningen",
-    description: "Se din forretning på ét overblik. Følg igangværende jobs, udestående fakturaer og dagens opgaver.",
+    icon: Calendar,
+    title: "Jobplanlægning",
+    description: "Planlæg jobs i kalenderen og få forslag til tider, der tager højde for køretid via Google Maps.",
+    color: "bg-accent/10 text-accent",
+  },
+  {
+    icon: Receipt,
+    title: "Fakturaer og påmindelser",
+    description: "Fakturaen laves automatisk, når jobbet er færdigt, og Toolboks sender betalingspåmindelser for dig.",
     color: "bg-primary/10 text-primary",
   },
 ];
