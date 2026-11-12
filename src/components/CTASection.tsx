@@ -59,7 +59,7 @@ const CTASection = () => {
             Klar til at komme i gang?
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Opret dig gratis — ingen kreditkort, ingen binding. Vi kontakter dig og sætter det hele op.
+            Opret dig gratis, uden kreditkort og uden binding. Vi kontakter dig og sætter det hele op.
           </p>
         </motion.div>
 

@@ -21,7 +21,7 @@ const AppShowcase = () => {
             Bygget til <span className="text-gradient">håndværkere</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Lavet til din hverdag. Nemt at bruge — fra første forespørgsel til betalt faktura.
+            Lavet til din hverdag. Nemt at bruge, fra første forespørgsel til betalt faktura.
           </p>
         </motion.div>
 

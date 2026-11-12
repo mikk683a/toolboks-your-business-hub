@@ -71,3 +71,14 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## SEO and prerender
+
+The site is a client rendered Vite SPA. `npm run build` also runs a prerender step (`vite-prerender.ts`) that renders
+every route in `src/lib/routes.ts` to static HTML (`dist/<route>/index.html`) with per route title, description,
+canonical, Open Graph and JSON-LD. The step never fails the build; if it breaks, the plain SPA output is kept.
+
+- Content for trade pages: `src/lib/trades.ts`. Feature pages: `src/lib/features.ts`. Tools: `src/lib/tools.ts` and `src/lib/calculators.ts`.
+- New route? Add it to `ALL_ROUTES` (derived in `src/lib/routes.ts`), then run `npm run seo:sitemap` to refresh `public/sitemap.xml`.
+- Check the output: `npm run build && node scripts/check-dist.mjs && npm run seo:words`.
+- Set `SKIP_PRERENDER=1` to skip the step.

@@ -11,7 +11,7 @@ const HeroSection = () => {
   const benefits = [
     "Håndter kunder & jobs ét sted",
     "Send tilbud og fakturaer",
-    "Gratis onboarding — vi sætter det op",
+    "Gratis onboarding, vi sætter det op",
   ];
 
   return (
@@ -27,7 +27,7 @@ const HeroSection = () => {
           >
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              Nu i tidlig adgang — 3 måneder gratis
+              Nu i tidlig adgang. 3 måneder gratis
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
@@ -37,8 +37,9 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Toolboks er admin-værktøjet til tømrere, håndværkere og andre selvstændige.
-              Håndter kundeforespørgsler, planlæg jobs og send fakturaer — alt fra din telefon.
+              Toolboks er admin-værktøjet til små servicevirksomheder, der kører ud til kunder.
+              Håndter forespørgsler, send tilbud, planlæg jobs med køretid, registrer timer og send fakturaer.
+              Det koster 49 kr pr. bruger pr. måned, og de første 3 måneder er gratis, uden kort.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">

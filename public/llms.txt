@@ -1,0 +1,45 @@
+# Toolboks
+
+> Toolboks er en dansk admin-app til små servicevirksomheder med 1 til 20 medarbejdere, der kører ud til kunder. Den samler forespørgsler, tilbud, kalender med køretid, jobs, faktura, timeregistrering og kundebeskeder ét sted.
+
+Pris: 49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og man skal ikke oplyse betalingskort for at starte. Prisen er ekskl. moms. App: https://app.toolboks.dk
+
+## Hvad Toolboks kan
+
+- Forespørgsler: nye henvendelser fra hjemmesiden og kundernes beskeder lander i en indbakke.
+- Tilbud: send tilbud som PDF på SMS og e-mail. Kunden accepterer med ét tryk.
+- Planlægning: fælles kalender for holdet og forslag til tider, hvor køretiden er regnet med.
+- Faktura: fakturaen laves, når jobbet er færdigt, med betalingslink og automatiske påmindelser.
+- Timeregistrering: registrering af medarbejdernes daglige arbejdstid med eksport til løn. Fra 1. juli 2024 skal arbejdsgivere registrere daglig arbejdstid, og registreringerne skal gemmes i 5 år.
+- Beskeder samlet: e-mail, SMS, Messenger og Instagram i samme indbakke.
+- Gratis hjemmeside, hvor kunder kan sende en forespørgsel.
+
+## Funktioner
+
+- [Planlægning med køretid](https://toolboks.dk/funktioner/planlaegning)
+- [Timeregistrering](https://toolboks.dk/funktioner/timeregistrering)
+- [Tilbud](https://toolboks.dk/funktioner/tilbud)
+- [Faktura](https://toolboks.dk/funktioner/faktura)
+- [Beskeder samlet ét sted](https://toolboks.dk/funktioner/beskeder)
+
+## Brancher
+
+- [Oversigt over brancher](https://toolboks.dk/brancher)
+- [Træfældning](https://toolboks.dk/brancher/traefaeldning)
+- [Anlægsgartner](https://toolboks.dk/brancher/anlaegsgartner)
+- [Haveservice](https://toolboks.dk/brancher/haveservice)
+- [Vinduespudser](https://toolboks.dk/brancher/vinduespudser)
+- [Skadedyrsbekæmper](https://toolboks.dk/brancher/skadedyrsbekaemper)
+- [Algerens](https://toolboks.dk/brancher/algerens)
+- [Rengøring](https://toolboks.dk/brancher/rengoering)
+- [Flisebelægning](https://toolboks.dk/brancher/flisebelaegning)
+- [Kloakservice](https://toolboks.dk/brancher/kloakservice)
+- [Maler](https://toolboks.dk/brancher/maler)
+- [Tømrer](https://toolboks.dk/brancher/toemrer)
+- [Murer](https://toolboks.dk/brancher/murer)
+
+## Gratis værktøjer
+
+- [Timepris-beregner](https://toolboks.dk/vaerktoej/timepris)
+- [Dækningsgrad-beregner](https://toolboks.dk/vaerktoej/daekningsgrad)
+- [Hvad koster din admin-tid?](https://toolboks.dk/vaerktoej/admin-tid)

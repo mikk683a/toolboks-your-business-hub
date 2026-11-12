@@ -16,6 +16,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Funktioner", href: "/#features" },
+    { name: "Brancher", href: "/brancher" },
+    { name: "Værktøjer", href: "/vaerktoej" },
     { name: "Priser", href: "/#pricing" },
   ];
 
@@ -32,7 +34,7 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}

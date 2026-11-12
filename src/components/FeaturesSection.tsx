@@ -1,30 +1,49 @@
-import { Users, Calendar, FileText, Receipt } from "lucide-react";
+import { Users, Calendar, FileText, Receipt, Clock, MessagesSquare } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const features = [
   {
     icon: Users,
     title: "Kundeforespørgsler",
-    description: "Modtag forespørgsler direkte fra din hjemmeside via web-formular eller booking-link — samlet ét sted.",
+    description: "Modtag forespørgsler direkte fra din hjemmeside via web-formular eller booking-link, samlet ét sted. Du får en gratis hjemmeside med i prisen.",
     color: "bg-primary/10 text-primary",
+    href: "/funktioner/beskeder",
   },
   {
     icon: FileText,
     title: "Tilbud kunden kan acceptere",
     description: "Send tilbud som PDF på e-mail og SMS. Kunden accepterer med ét tryk via et link.",
     color: "bg-warning/10 text-warning",
+    href: "/funktioner/tilbud",
   },
   {
     icon: Calendar,
-    title: "Jobplanlægning",
-    description: "Planlæg jobs i kalenderen og få forslag til tider, der tager højde for køretid via Google Maps.",
+    title: "Planlægning med køretid",
+    description: "Planlæg jobs i teamets kalender og få forslag til tider, der tager højde for køretid via Google Maps.",
     color: "bg-accent/10 text-accent",
+    href: "/funktioner/planlaegning",
   },
   {
     icon: Receipt,
     title: "Fakturaer og påmindelser",
-    description: "Fakturaen laves automatisk, når jobbet er færdigt, og Toolboks sender betalingspåmindelser for dig.",
+    description: "Fakturaen laves automatisk, når jobbet er færdigt, og Toolboks sender betalingspåmindelser for dig. Kunden betaler via et betalingslink.",
     color: "bg-primary/10 text-primary",
+    href: "/funktioner/faktura",
+  },
+  {
+    icon: Clock,
+    title: "Timeregistrering",
+    description: "Registrer medarbejdernes daglige arbejdstid, som arbejdsgivere skal fra 1. juli 2024, og eksporter timerne til løn.",
+    color: "bg-warning/10 text-warning",
+    href: "/funktioner/timeregistrering",
+  },
+  {
+    icon: MessagesSquare,
+    title: "Alle beskeder samlet",
+    description: "E-mail, SMS, Messenger og Instagram i samme indbakke, så ingen kunder bliver overset.",
+    color: "bg-accent/10 text-accent",
+    href: "/funktioner/beskeder",
   },
 ];
 
@@ -47,7 +66,7 @@ const FeaturesSection = () => {
             <span className="text-gradient">drive din forretning</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Fra første kontakt til betalt faktura — Toolboks klarer det hele, så du kan fokusere på det du er bedst til.
+            Fra første kontakt til betalt faktura. Toolboks klarer det hele, så du kan fokusere på det du er bedst til.
           </p>
         </motion.div>
 
@@ -65,7 +84,9 @@ const FeaturesSection = () => {
                 <feature.icon className="w-7 h-7" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">
-                {feature.title}
+                <Link to={feature.href} className="hover:underline underline-offset-4">
+                  {feature.title}
+                </Link>
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 {feature.description}

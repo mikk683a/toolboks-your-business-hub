@@ -1,32 +1,34 @@
-import { Helmet } from "react-helmet-async";
+import Seo, { faqJsonLd, organizationJsonLd, softwareJsonLd } from "@/components/Seo";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import AppShowcase from "@/components/AppShowcase";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import BranchesSection from "@/components/BranchesSection";
 import PricingSection from "@/components/PricingSection";
+import HomeFaq, { HOME_FAQ } from "@/components/HomeFaq";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <>
-      <Helmet>
-        <title>Toolboks – Admin-app til håndværkere</title>
-        <meta
-          name="description"
-          content="Toolboks er admin-appen til tømrere, håndværkere og selvstændige. Håndter leads, planlæg jobs og send fakturaer fra din telefon. 3 måneder gratis."
-        />
-        <meta name="keywords" content="håndværker app, tømrer software, admin håndværker, fakturaprogram håndværker, joboversigt håndværker" />
-      </Helmet>
+      <Seo
+        title="Toolboks | Admin-app til håndværkere og servicefirmaer"
+        description="Toolboks samler forespørgsler, tilbud, kalender med køretid, faktura, timeregistrering og kundebeskeder. 49 kr pr. bruger pr. måned. 3 måneder gratis, uden kort."
+        path="/"
+        jsonLd={[organizationJsonLd, softwareJsonLd, faqJsonLd(HOME_FAQ)]}
+      />
       <div className="min-h-screen bg-background">
         <Navbar />
         <main>
           <HeroSection />
           <FeaturesSection />
           <AppShowcase />
+          <BranchesSection />
           <TestimonialsSection />
           <PricingSection />
+          <HomeFaq />
           <CTASection />
         </main>
         <Footer />

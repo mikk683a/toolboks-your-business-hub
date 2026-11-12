@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
             <span className="text-gradient">starten</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Toolboks er i tidlig adgang. Tilmeld dig gratis og vær med til at forme produktet — din feedback betyder alt.
+            Toolboks er i tidlig adgang. Tilmeld dig gratis og vær med til at forme produktet. Din feedback betyder alt.
           </p>
         </motion.div>
 
