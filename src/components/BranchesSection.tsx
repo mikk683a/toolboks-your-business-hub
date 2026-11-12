@@ -21,7 +21,7 @@ const BranchesSection = () => (
           <li key={t.slug}>
             <Link
               to={tradePath(t.slug)}
-              className="inline-block px-5 py-2.5 rounded-full border border-border bg-card text-foreground font-medium hover:border-primary hover:text-primary transition-colors"
+              className="inline-flex items-center min-h-[44px] px-5 rounded-full border border-border bg-card text-foreground font-medium hover:border-primary hover:text-primary transition-colors"
             >
               {t.name}
             </Link>
@@ -29,7 +29,7 @@ const BranchesSection = () => (
         ))}
       </ul>
       <p className="text-center mt-8">
-        <Link to="/brancher" className="text-primary font-medium underline-offset-4 hover:underline">
+        <Link to="/brancher" className="inline-flex items-center min-h-[44px] px-2 text-primary font-medium underline-offset-4 hover:underline">
           Se alle brancher
         </Link>
       </p>

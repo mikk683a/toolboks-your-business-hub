@@ -8,6 +8,7 @@ const LegalPage = ({ title, path }: { title: string; path: string }) => (
       title={`${title} | Toolboks`}
       description={`${title} for Toolboks, admin-appen til små servicevirksomheder.`}
       path={path}
+      noindex
     />
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />

@@ -37,24 +37,24 @@ const Footer = () => (
 
         <div>
           <h4 className="font-semibold text-foreground mb-4">Produkt</h4>
-          <ul className="space-y-3">
+          <ul>
             {productLinks.map((l) => (
               <li key={l.name}>
-                <a href={l.href} className="text-muted-foreground hover:text-foreground transition-colors">{l.name}</a>
+                <a href={l.href} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{l.name}</a>
               </li>
             ))}
             <li>
-              <a href={APP_URL} className="text-muted-foreground hover:text-foreground transition-colors">Log ind</a>
+              <a href={APP_URL} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">Log ind</a>
             </li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-semibold text-foreground mb-4">Funktioner</h4>
-          <ul className="space-y-3">
+          <ul>
             {FEATURE_PAGES.map((f) => (
               <li key={f.slug}>
-                <Link to={featurePath(f.slug)} className="text-muted-foreground hover:text-foreground transition-colors">{FEATURE_BLURBS[f.key].name}</Link>
+                <Link to={featurePath(f.slug)} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{FEATURE_BLURBS[f.key].name}</Link>
               </li>
             ))}
           </ul>
@@ -62,24 +62,24 @@ const Footer = () => (
 
         <div>
           <h4 className="font-semibold text-foreground mb-4">Brancher</h4>
-          <ul className="space-y-3">
+          <ul>
             {TRADES.map((t) => (
               <li key={t.slug}>
-                <Link to={tradePath(t.slug)} className="text-muted-foreground hover:text-foreground transition-colors">{t.name}</Link>
+                <Link to={tradePath(t.slug)} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{t.name}</Link>
               </li>
             ))}
             <li>
-              <Link to="/brancher" className="text-muted-foreground hover:text-foreground transition-colors">Alle brancher</Link>
+              <Link to="/brancher" className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">Alle brancher</Link>
             </li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-semibold text-foreground mb-4">Gratis værktøjer</h4>
-          <ul className="space-y-3">
+          <ul>
             {TOOLS.map((t) => (
               <li key={t.slug}>
-                <Link to={toolPath(t.slug)} className="text-muted-foreground hover:text-foreground transition-colors">{t.name}</Link>
+                <Link to={toolPath(t.slug)} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{t.name}</Link>
               </li>
             ))}
           </ul>
@@ -87,10 +87,10 @@ const Footer = () => (
 
         <div>
           <h4 className="font-semibold text-foreground mb-4">Juridisk</h4>
-          <ul className="space-y-3">
+          <ul>
             {legalLinks.map((l) => (
               <li key={l.name}>
-                <Link to={l.to} className="text-muted-foreground hover:text-foreground transition-colors">{l.name}</Link>
+                <Link to={l.to} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{l.name}</Link>
               </li>
             ))}
           </ul>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Wrench } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "@/lib/motion";
 
 const APP_URL = "https://app.toolboks.dk";
 
@@ -80,7 +80,7 @@ const Navbar = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="block text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                    className="block text-muted-foreground hover:text-foreground transition-colors font-medium py-3"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}

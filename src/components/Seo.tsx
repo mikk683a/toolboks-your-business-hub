@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/site";
+import { DEFAULT_OG_IMAGE, PRICE_PER_USER, SITE_NAME, SITE_URL, TRIAL_MONTHS, absoluteUrl } from "@/lib/site";
 import type { Faq } from "@/lib/features";
 
 export const organizationJsonLd = {
@@ -24,9 +24,18 @@ export const softwareJsonLd = {
     "Admin-app til små servicevirksomheder: forespørgsler, tilbud, kalender med køretid, jobs, faktura, timeregistrering og kundebeskeder samlet ét sted.",
   offers: {
     "@type": "Offer",
-    price: "49",
+    price: String(PRICE_PER_USER),
     priceCurrency: "DKK",
-    description: "Pr. bruger pr. måned. De første 3 måneder er gratis, uden kort.",
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: String(PRICE_PER_USER),
+      priceCurrency: "DKK",
+      unitText: "pr. bruger pr. måned",
+      billingDuration: 1,
+      billingIncrement: 1,
+      valueAddedTaxIncluded: false,
+    },
+    description: `Pr. bruger pr. måned, ekskl. moms. De første ${TRIAL_MONTHS} måneder er gratis, uden kort.`,
     url: `${SITE_URL}/#pricing`,
   },
 };

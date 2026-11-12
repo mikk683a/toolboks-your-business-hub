@@ -1,6 +1,6 @@
 import { Users, Calendar, FileText, Receipt, Clock, MessagesSquare } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 
 const features = [
   {
@@ -34,7 +34,7 @@ const features = [
   {
     icon: Clock,
     title: "Timeregistrering",
-    description: "Registrer medarbejdernes daglige arbejdstid, som arbejdsgivere skal fra 1. juli 2024, og eksporter timerne til løn.",
+    description: "Registrer medarbejdernes daglige arbejdstid og eksporter timerne til løn. Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system til det.",
     color: "bg-warning/10 text-warning",
     href: "/funktioner/timeregistrering",
   },

@@ -1,17 +1,50 @@
 import { DK_VAT_RATE } from "./site";
 
-/** Parse a user typed number. Accepts Danish format ("1.250,50") and plain ("1250.5"). */
+/**
+ * Parse a user typed number in Danish or plain format.
+ * - With a comma: dots are thousands separators and the comma is the decimal mark ("1.250,50" -> 1250.5).
+ * - Without a comma: dots are thousands separators when they form groups of exactly three digits
+ *   ("60.000", "7.500", "1.000.000"). Otherwise a single dot is a decimal point ("12.5", "0.5").
+ */
 export function parseNumber(input: string | null | undefined): number | null {
   if (input === null || input === undefined) return null;
-  let s = String(input).trim().replace(/\s/g, "");
+  let s = String(input).trim().replace(/[\s\u00a0]/g, "");
   if (s === "") return null;
   if (s.includes(",")) {
     s = s.replace(/\./g, "").replace(",", ".");
-  } else if ((s.match(/\./g) || []).length > 1) {
+  } else if (/^-?[1-9]\d{0,2}(\.\d{3})+$/.test(s)) {
     s = s.replace(/\./g, "");
+  } else if ((s.match(/\./g) || []).length > 1) {
+    return null;
   }
+  if (!/^-?\d+(\.\d+)?$/.test(s)) return null;
   const n = Number(s);
   return Number.isFinite(n) ? n : null;
+}
+
+export interface FieldRules {
+  /** Value must be at least this */
+  min?: number;
+  /** Value must be strictly greater than this */
+  gt?: number;
+  /** Value must be strictly less than this */
+  lt?: number;
+  integer?: boolean;
+  required?: boolean;
+}
+
+/** Returns a Danish error message for a typed value, or null if it is fine. */
+export function fieldError(raw: string, rules: FieldRules = {}): string | null {
+  if (raw.trim() === "") return rules.required === false ? null : "Udfyld feltet med et tal.";
+  const n = parseNumber(raw);
+  if (n === null) return "Skriv et tal, for eksempel 1500 eller 1.500,50.";
+  if (rules.integer && !Number.isInteger(n)) return "Skriv et helt tal, uden decimaler.";
+  if (rules.min !== undefined && n < rules.min) {
+    return rules.min === 0 ? "Tallet må ikke være negativt." : `Tallet skal være mindst ${rules.min}.`;
+  }
+  if (rules.gt !== undefined && n <= rules.gt) return `Tallet skal være større end ${rules.gt}.`;
+  if (rules.lt !== undefined && n >= rules.lt) return `Tallet skal være mindre end ${rules.lt}.`;
+  return null;
 }
 
 const round2 = (n: number) => Math.round((n + Number.EPSILON) * 100) / 100;
@@ -106,7 +139,7 @@ export interface AdminTimeResult {
 
 export function adminTimeCost(i: AdminTimeInput): AdminTimeResult | null {
   if (![i.hoursPerWeek, i.hourValue, i.people].every(Number.isFinite)) return null;
-  if (i.hoursPerWeek < 0 || i.hourValue < 0 || i.people <= 0) return null;
+  if (i.hoursPerWeek < 0 || i.hourValue < 0 || i.people < 1 || !Number.isInteger(i.people)) return null;
   const hoursPerMonth = i.hoursPerWeek * WEEKS_PER_MONTH * i.people;
   const costPerMonth = hoursPerMonth * i.hourValue;
   return {

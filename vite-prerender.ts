@@ -11,7 +11,8 @@ import react from "@vitejs/plugin-react-swc";
  * ALL_ROUTES to an HTML string and writes it to dist/<route>/index.html using dist/index.html as the template.
  * The browser still boots the normal React app on top of the HTML.
  *
- * It never fails the build: if anything goes wrong it logs a warning and leaves the plain SPA output in place.
+ * Default (local and Lovable builds): if anything goes wrong it prints a loud warning and leaves the plain SPA output
+ * in place, so publishing is never blocked. With CI=1/true or PRERENDER_STRICT=1 a failure fails the build.
  */
 export function prerender(): Plugin {
   let config: ResolvedConfig;
@@ -52,7 +53,7 @@ export function prerender(): Plugin {
 
         const mod = await import(pathToFileURL(path.join(ssrDir, "entry-server.mjs")).href);
         const template = fs.readFileSync(templatePath, "utf-8");
-        const routes: string[] = mod.ALL_ROUTES;
+        const routes: string[] = mod.PRERENDER_ROUTES;
 
         const stripped = template
           .replace(/<title[^>]*>[\s\S]*?<\/title>\s*/i, "")
@@ -72,7 +73,17 @@ export function prerender(): Plugin {
         }
         config.logger.info(`[prerender] wrote ${routes.length} pages`);
       } catch (err) {
-        config.logger.warn(`[prerender] skipped, plain SPA output kept: ${(err as Error).message}`);
+        const strict = ["1", "true"].includes(process.env.CI ?? "") || ["1", "true"].includes(process.env.PRERENDER_STRICT ?? "");
+        const msg = (err as Error).message;
+        if (strict) {
+          throw new Error(`[prerender] FAILED, failing the build (strict mode): ${msg}`);
+        }
+        const bar = "!".repeat(72);
+        config.logger.error(
+          `\n${bar}\n[prerender] FAILED: pages were NOT prerendered. The plain SPA was built instead, so search engines\n` +
+            `that do not run JavaScript will see an empty page. Reason: ${msg}\n` +
+            `Set PRERENDER_STRICT=1 to fail the build on this.\n${bar}\n`,
+        );
       }
     },
   };

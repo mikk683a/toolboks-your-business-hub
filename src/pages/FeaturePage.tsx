@@ -82,7 +82,7 @@ const FeaturePage = ({ slug }: { slug: string }) => {
               <li key={f.slug}>
                 <Link
                   to={featurePath(f.slug)}
-                  className="inline-block px-4 py-2 rounded-full border border-border bg-card text-sm text-foreground hover:border-primary"
+                  className="inline-flex items-center min-h-[44px] px-4 rounded-full border border-border bg-card text-sm text-foreground hover:border-primary"
                 >
                   {FEATURE_BLURBS[f.key].name}
                 </Link>

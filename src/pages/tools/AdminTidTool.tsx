@@ -1,4 +1,4 @@
-import { adminTimeCost, fmtKr, fmtNum, parseNumber } from "@/lib/calculators";
+import { adminTimeCost, fieldError, fmtKr, fmtNum, parseNumber } from "@/lib/calculators";
 import { CopyLinkButton, Field, ResultRow, ToolLayout, useUrlState } from "./shared";
 
 const AdminTidTool = () => {
@@ -8,6 +8,12 @@ const AdminTidTool = () => {
     hourValue: parseNumber(v.vaerdi) ?? NaN,
     people: parseNumber(v.personer) ?? NaN,
   });
+
+  const errors = {
+    timer: fieldError(v.timer, { min: 0 }),
+    vaerdi: fieldError(v.vaerdi, { min: 0 }),
+    personer: fieldError(v.personer, { min: 1, integer: true }),
+  };
 
   return (
     <ToolLayout
@@ -38,6 +44,7 @@ const AdminTidTool = () => {
             label="Admin-timer pr. uge, pr. person"
             unit="timer / uge"
             hint="Tilbud, fakturaer, beskeder, kalender, timer til løn."
+            error={errors.timer}
             value={v.timer}
             onChange={(x) => set("timer", x)}
           />
@@ -46,6 +53,7 @@ const AdminTidTool = () => {
             label="Hvad er en time værd?"
             unit="kr / time"
             hint="Din timepris, eller din egen løn pr. time."
+            error={errors.vaerdi}
             value={v.vaerdi}
             onChange={(x) => set("vaerdi", x)}
           />
@@ -53,6 +61,7 @@ const AdminTidTool = () => {
             id="personer"
             label="Antal personer, der bruger tid på admin"
             unit="personer"
+            error={errors.personer}
             value={v.personer}
             onChange={(x) => set("personer", x)}
           />
@@ -67,7 +76,7 @@ const AdminTidTool = () => {
               <ResultRow label="Værdi af 1 time mindre admin pr. uge, pr. måned" value={fmtKr(result.oneHourLessPerMonth)} />
             </>
           ) : (
-            <p className="text-muted-foreground">Udfyld alle felter med tal. Antal personer skal være mere end 0.</p>
+            <p className="text-muted-foreground">Ret felterne til venstre, så vises resultatet her.</p>
           )}
           <div className="mt-6">
             <CopyLinkButton />

@@ -1,10 +1,11 @@
 import type { Faq } from "@/lib/features";
 import { FaqList } from "@/components/PageShell";
+import { PRICE_ANSWER } from "@/lib/site";
 
 export const HOME_FAQ: Faq[] = [
   {
     q: "Hvad koster Toolboks?",
-    a: "49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og du skal ikke oplyse betalingskort for at starte.",
+    a: PRICE_ANSWER,
   },
   {
     q: "Hvem er Toolboks til?",
@@ -12,7 +13,7 @@ export const HOME_FAQ: Faq[] = [
   },
   {
     q: "Kan Toolboks registrere mine medarbejderes arbejdstid?",
-    a: "Ja. Fra 1. juli 2024 skal arbejdsgivere registrere medarbejdernes daglige arbejdstid, og registreringerne skal gemmes i 5 år. Toolboks har timeregistrering med eksport til løn.",
+    a: "Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres. Registreringerne skal gemmes i 5 år. Toolboks har timeregistrering med eksport til løn. Er du i tvivl om reglerne, så spørg din brancheorganisation eller en rådgiver.",
   },
   {
     q: "Kan jeg samle beskeder fra kunderne?",

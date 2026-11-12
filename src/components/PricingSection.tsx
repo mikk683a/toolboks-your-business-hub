@@ -1,7 +1,7 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { PRICE_PER_USER } from "@/lib/site";
+import { motion } from "@/lib/motion";
+import { PRICE_LINE, PRICE_PER_USER, TRIAL_LINE, TRIAL_MONTHS } from "@/lib/site";
 
 const plan = {
   name: "Toolboks",
@@ -10,7 +10,7 @@ const plan = {
   currency: "kr",
   period: " pr. bruger pr. måned",
   features: [
-    "3 måneder gratis, uden kort",
+    TRIAL_LINE,
     "Forespørgsler, tilbud og jobs ét sted",
     "Kalender med køretid for hele holdet",
     "Faktura med betalingslink og påmindelser",
@@ -39,7 +39,7 @@ const PricingSection = () => {
             Simpel, <span className="text-gradient">ærlig prissætning</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Du betaler 49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og du skal ikke oplyse betalingskort. Afmeld når som helst.
+            Du betaler {PRICE_LINE}. De første {TRIAL_MONTHS} måneder er gratis, og du skal ikke oplyse betalingskort. Afmeld når som helst.
           </p>
         </motion.div>
 
@@ -75,7 +75,7 @@ const PricingSection = () => {
               className="w-full"
               onClick={() => document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Start gratis, 3 måneder
+              Start gratis, {TRIAL_MONTHS} måneder
             </Button>
           </motion.div>
         </div>

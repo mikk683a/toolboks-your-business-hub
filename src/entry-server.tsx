@@ -4,9 +4,9 @@ import { HelmetProvider, type HelmetServerState } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AppRoutes } from "./App";
-import { ALL_ROUTES } from "./lib/routes";
+import { PRERENDER_ROUTES } from "./lib/routes";
 
-export { ALL_ROUTES };
+export { PRERENDER_ROUTES };
 
 /** Render one route to an HTML string plus its <head> tags. Used by the build time prerender. */
 export function render(url: string) {

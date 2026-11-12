@@ -36,8 +36,10 @@ export const Field = ({
   unit,
   value,
   onChange,
+  error,
 }: {
   id: string;
+  error?: string | null;
   label: string;
   hint?: string;
   unit: string;
@@ -56,10 +58,17 @@ export const Field = ({
         autoComplete="off"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? `${id}-error` : undefined}
+        className={`w-full px-4 py-3 rounded-xl border bg-background ${error ? "border-destructive" : "border-border"} text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition`}
       />
       <span className="text-muted-foreground text-sm w-20 flex-shrink-0">{unit}</span>
     </div>
+    {error && (
+      <p id={`${id}-error`} role="alert" className="text-sm text-destructive mt-1.5">
+        {error}
+      </p>
+    )}
     {hint && <p className="text-xs text-muted-foreground mt-1.5">{hint}</p>}
   </div>
 );
@@ -71,6 +80,12 @@ export const ResultRow = ({ label, value, big = false }: { label: string; value:
       {value}
     </span>
   </div>
+);
+
+export const Warning = ({ children }: { children: ReactNode }) => (
+  <p role="status" className="mt-4 rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-foreground">
+    {children}
+  </p>
 );
 
 export const CopyLinkButton = () => {
@@ -140,7 +155,7 @@ export const ToolLayout = ({
               <li key={t.slug}>
                 <Link
                   to={toolPath(t.slug)}
-                  className="inline-block px-4 py-2 rounded-full border border-border bg-card text-sm text-foreground hover:border-primary"
+                  className="inline-flex items-center min-h-[44px] px-4 rounded-full border border-border bg-card text-sm text-foreground hover:border-primary"
                 >
                   {t.name}
                 </Link>

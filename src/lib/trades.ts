@@ -1,4 +1,5 @@
 import type { Faq, FeatureKey } from "./features";
+import { PRICE_LINE } from "./site";
 
 export interface TradeFeature {
   key: FeatureKey;
@@ -42,11 +43,11 @@ export const TRADES: Trade[] = [
     features: [
       {
         key: "forespoergsler",
-        text: "Forespørgsler fra hjemmesiden og beskeder lander i en indbakke. Du kan se dem, når du står af saven.",
+        text: "Forespørgsler fra hjemmesiden og beskeder lander i en indbakke. Du ser dem samlet, også de der kom, mens du arbejdede.",
       },
       {
         key: "planlaegning",
-        text: "Saml besigtigelser i samme område på samme dag. Toolboks regner køretiden med, når du vælger tid.",
+        text: "Læg besigtigelser tæt på hinanden i kalenderen. Når du vælger tid, bruger Toolboks køretiden til de jobs, der ligger ved siden af.",
       },
       {
         key: "tilbud",
@@ -72,11 +73,11 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Skal mine folk registrere arbejdstid?",
-        a: "Som arbejdsgiver skal du registrere medarbejdernes daglige arbejdstid fra 1. juli 2024. Toolboks har timeregistrering med eksport til løn.",
+        a: "Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres. Toolboks har timeregistrering med eksport til løn.",
       },
       {
         q: "Hvad koster Toolboks til et lille fældehold?",
-        a: "49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og du skal ikke oplyse kort.",
+        a: `${PRICE_LINE}. De første 3 måneder er gratis, og du skal ikke oplyse kort.`,
       },
     ],
   },
@@ -95,12 +96,12 @@ export const TRADES: Trade[] = [
       "Hold og maskiner skal fordeles på flere pladser, og planen ændrer sig med vejret.",
       "Tilbud på terrasser, belægning og beplantning tager tid at skrive, og kunden vil have svar hurtigt.",
       "Timer fra flere hold skal samles, før lønnen kan køres.",
-      "Der er mange små aftaler med kunden undervejs, som ender i sms'er og mails.",
+      "Der er mange små aftaler med kunden undervejs, som ender i SMS'er og e-mails.",
     ],
     features: [
       {
         key: "planlaegning",
-        text: "Fælles kalender for alle hold. Når vejret ændrer planen, flytter du jobbet og kan se, hvad det betyder for resten af ugen.",
+        text: "Fælles kalender for alle hold. Når vejret ændrer planen, flytter du jobbet i kalenderen.",
       },
       {
         key: "tilbud",
@@ -108,7 +109,7 @@ export const TRADES: Trade[] = [
       },
       {
         key: "beskeder",
-        text: "Kundens mails, sms'er og beskeder på Messenger og Instagram ligger samlet, så aftalerne ikke forsvinder.",
+        text: "Kundens e-mails, SMS'er og beskeder på Messenger og Instagram ligger samlet, så aftalerne ikke forsvinder.",
       },
       {
         key: "timer",
@@ -134,7 +135,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster det, hvis jeg har fem ansatte?",
-        a: "49 kr pr. bruger pr. måned. Du betaler for de brugere, du opretter. De første 3 måneder er gratis.",
+        a: `${PRICE_LINE}. Du betaler for de brugere, du opretter. De første 3 måneder er gratis.`,
       },
     ],
   },
@@ -144,7 +145,7 @@ export const TRADES: Trade[] = [
     audience: "haveservicefirmaer",
     title: "Administration for haveservice og havemænd | Toolboks",
     description:
-      "Planlæg mange små havejobs med køretid, send tilbud og faktura med betalingslink. Til haveservice med faste og nye kunder. 3 måneder gratis.",
+      "Planlæg mange små havejobs med køretid, send tilbud og faktura med betalingslink. Til haveservice. 3 måneder gratis.",
     h1: "Administration til haveservice",
     intro:
       "Haveservice er mange små jobs hos mange kunder. Det betyder mange adresser, mange fakturaer og mange beskeder. Toolboks holder styr på det, så du kan holde fokus på haven.",
@@ -162,7 +163,7 @@ export const TRADES: Trade[] = [
       },
       {
         key: "beskeder",
-        text: "Kunderne skriver på mail, SMS, Messenger eller Instagram. Du svarer fra samme indbakke og finder samtalen igen næste gang.",
+        text: "Kunderne skriver på e-mail, SMS, Messenger eller Instagram. Du svarer fra samme indbakke og finder samtalen igen næste gang.",
       },
       {
         key: "tilbud",
@@ -192,7 +193,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Skal jeg bruge et betalingskort for at prøve?",
-        a: "Nej. De første 3 måneder er gratis, og du skal ikke oplyse kort. Bagefter koster det 49 kr pr. bruger pr. måned.",
+        a: `Nej. De første 3 måneder er gratis, og du skal ikke oplyse kort. Bagefter koster det ${PRICE_LINE}.`,
       },
     ],
   },
@@ -202,14 +203,14 @@ export const TRADES: Trade[] = [
     audience: "vinduespudsere",
     title: "Administration for vinduespudsere | Toolboks",
     description:
-      "Planlæg mange små jobs om dagen med køretid, hold styr på faste kunder og send faktura med betalingslink. Til vinduespudsere. 3 måneder gratis.",
+      "Planlæg mange små jobs om dagen med køretid, saml kundernes beskeder og send faktura med betalingslink. Til vinduespudsere. 3 måneder gratis.",
     h1: "Administration til vinduespudsere",
     intro:
-      "En vinduespudser har mange kunder på en dag og kører mellem dem hele tiden. Toolboks hjælper dig med at lægge en rute, der giver mening, og holde styr på beskeder og fakturaer.",
+      "En vinduespudser har mange kunder på en dag og kører mellem dem hele tiden. Toolboks hjælper dig med at finde tider i kalenderen, hvor køretiden til nabojobs er regnet med, og samle beskeder og fakturaer.",
     problemsHeading: "Det bruger vinduespudsere tid på",
     problems: [
       "Mange små jobs betyder mange adresser og meget kørsel.",
-      "Faste kunder skriver og vil have en ny tid, når det passer dem.",
+      "Kunder skriver og vil have en ny tid, når det passer dem.",
       "Små beløb pr. kunde gør det besværligt at bruge tid på hver enkelt faktura.",
       "Medarbejdere skal vide, hvilke adresser de har i dag, og i hvilken rækkefølge.",
     ],
@@ -237,7 +238,7 @@ export const TRADES: Trade[] = [
     ],
     faq: [
       {
-        q: "Kan mine medarbejdere se deres ruter?",
+        q: "Kan mine medarbejdere se deres jobs?",
         a: "De kan se de jobs, der ligger i kalenderen til dem. Du inviterer dem som brugere.",
       },
       {
@@ -246,7 +247,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Er det for dyrt, når jeg kun har små jobs?",
-        a: "Toolboks koster 49 kr pr. bruger pr. måned. De første 3 måneder er gratis, så du kan se, om det sparer dig tid.",
+        a: `Toolboks koster ${PRICE_LINE}. De første 3 måneder er gratis, så du kan se, om det sparer dig tid.`,
       },
       {
         q: "Kan kunder bestille via en hjemmeside?",
@@ -269,7 +270,7 @@ export const TRADES: Trade[] = [
       "Akutte henvendelser kommer ind, mens dagen allerede er planlagt.",
       "Mange små besøg betyder meget kørsel mellem kunderne.",
       "Mange sager kræver et opfølgende besøg, og kunden skriver imellem.",
-      "Små og store kunder skal have hver sin faktura, og det tager tid.",
+      "Hver sag skal faktureres for sig, og det tager tid.",
     ],
     features: [
       {
@@ -278,7 +279,7 @@ export const TRADES: Trade[] = [
       },
       {
         key: "planlaegning",
-        text: "Mange små jobs om dagen. Toolboks foreslår tider med køretid, så du kan presse et akut besøg ind på et fornuftigt sted.",
+        text: "Mange små jobs om dagen. Toolboks foreslår tider med køretid, så du kan finde en tid til et akut besøg, hvor køretiden til nabojobs er regnet med.",
       },
       {
         key: "beskeder",
@@ -308,7 +309,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster det?",
-        a: "49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og du skal ikke oplyse kort.",
+        a: `${PRICE_LINE}. De første 3 måneder er gratis, og du skal ikke oplyse kort.`,
       },
     ],
   },
@@ -321,7 +322,7 @@ export const TRADES: Trade[] = [
       "Tilbud på SMS, kalender med køretid og faktura med betalingslink til algerens og facaderens. Mindre papirarbejde, flere jobs. 3 måneder gratis.",
     h1: "Administration til algerens",
     intro:
-      "Algerens er sæsonarbejde med mange forespørgsler på de samme få uger. Toolboks hjælper dig med at svare hurtigt, få tilbud ud og lægge jobs i en fornuftig rækkefølge.",
+      "Algerens er sæsonarbejde med mange forespørgsler på de samme få uger. Toolboks hjælper dig med at svare hurtigt, få tilbud ud og flytte jobs i kalenderen, når planen ændrer sig.",
     problemsHeading: "Det bruger algerensere tid på",
     problems: [
       "Forespørgslerne kommer i bølger, når det bliver forår og efterår.",
@@ -366,7 +367,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster det?",
-        a: "49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og du skal ikke oplyse kort.",
+        a: `${PRICE_LINE}. De første 3 måneder er gratis, og du skal ikke oplyse kort.`,
       },
     ],
   },
@@ -390,7 +391,7 @@ export const TRADES: Trade[] = [
     features: [
       {
         key: "timer",
-        text: "Fra 1. juli 2024 skal arbejdsgivere registrere medarbejdernes daglige arbejdstid. Toolboks har timeregistrering med eksport til løn.",
+        text: "Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres. Toolboks har timeregistrering med eksport til løn.",
       },
       {
         key: "planlaegning",
@@ -398,7 +399,7 @@ export const TRADES: Trade[] = [
       },
       {
         key: "beskeder",
-        text: "Kunder skriver på mail, SMS, Messenger eller Instagram. Du svarer fra samme indbakke.",
+        text: "Kunder skriver på e-mail, SMS, Messenger eller Instagram. Du svarer fra samme indbakke.",
       },
       {
         key: "tilbud",
@@ -412,7 +413,7 @@ export const TRADES: Trade[] = [
     faq: [
       {
         q: "Skal jeg registrere mine medarbejderes arbejdstid?",
-        a: "Ja, som arbejdsgiver skal du fra 1. juli 2024 registrere den daglige arbejdstid. Registreringerne skal gemmes i 5 år.",
+        a: "Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres. Registreringerne skal gemmes i 5 år.",
       },
       {
         q: "Kan jeg bruge timerne til løn?",
@@ -424,7 +425,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster det til et firma med ti ansatte?",
-        a: "49 kr pr. bruger pr. måned for de brugere, du opretter. De første 3 måneder er gratis.",
+        a: `${PRICE_LINE} for de brugere, du opretter. De første 3 måneder er gratis.`,
       },
     ],
   },
@@ -482,7 +483,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster det?",
-        a: "49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og du skal ikke oplyse kort.",
+        a: `${PRICE_LINE}. De første 3 måneder er gratis, og du skal ikke oplyse kort.`,
       },
     ],
   },
@@ -499,7 +500,7 @@ export const TRADES: Trade[] = [
     problemsHeading: "Det bruger kloakfirmaer tid på",
     problems: [
       "Akutte opkald vælter planen, og de andre kunder skal have besked.",
-      "Du skal hurtigt vide, hvor holdene er, og hvem der er tættest på kunden.",
+      "Du skal hurtigt finde en ledig tid i kalenderen til et akut job.",
       "Opgaver skal dokumenteres, og kunden skal have en klar faktura bagefter.",
       "Medarbejdere arbejder på skæve tidspunkter, og arbejdstiden skal registreres.",
     ],
@@ -536,11 +537,11 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Skal medarbejdere registrere arbejdstid?",
-        a: "Som arbejdsgiver skal du registrere medarbejdernes daglige arbejdstid fra 1. juli 2024. Toolboks har timeregistrering.",
+        a: "Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres. Toolboks har timeregistrering.",
       },
       {
         q: "Hvad koster det?",
-        a: "49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og du skal ikke oplyse kort.",
+        a: `${PRICE_LINE}. De første 3 måneder er gratis, og du skal ikke oplyse kort.`,
       },
     ],
   },
@@ -558,7 +559,7 @@ export const TRADES: Trade[] = [
     problems: [
       "Tilbud skal skrives efter besigtigelse, og kunden sammenligner flere priser.",
       "Jobs varer ofte flere dage, og man skal vide, hvem der er hvor.",
-      "Kunder ændrer ønsker undervejs, og aftalerne står i sms'er og mails.",
+      "Kunder ændrer ønsker undervejs, og aftalerne står i SMS'er og e-mails.",
       "Faktura og timer skal samles, når jobbet er slut.",
     ],
     features: [
@@ -598,7 +599,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster det?",
-        a: "49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og du skal ikke oplyse kort.",
+        a: `${PRICE_LINE}. De første 3 måneder er gratis, og du skal ikke oplyse kort.`,
       },
     ],
   },
@@ -617,7 +618,7 @@ export const TRADES: Trade[] = [
       "Tilbud skal skrives, og kunden vil have svar hurtigt.",
       "Små serviceopgaver og større projekter skal passes ind i samme kalender.",
       "Svende og lærlinge skal registrere arbejdstid, og timerne skal til løn.",
-      "Ekstra arbejde aftales på pladsen, og skal huskes, når der faktureres.",
+      "Ekstra arbejde aftales på pladsen og skal huskes, når der faktureres.",
     ],
     features: [
       {
@@ -634,7 +635,7 @@ export const TRADES: Trade[] = [
       },
       {
         key: "beskeder",
-        text: "Kundens beskeder fra mail, SMS, Messenger og Instagram ligger samlet, så aftaler om ekstra arbejde ikke forsvinder.",
+        text: "Kundens beskeder fra e-mail, SMS, Messenger og Instagram ligger samlet, så aftaler om ekstra arbejde ikke forsvinder.",
       },
       {
         key: "faktura",
@@ -648,7 +649,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Kan jeg registrere timer for mine svende?",
-        a: "Ja. Medarbejderne registrerer deres daglige arbejdstid, og du eksporterer til løn. Fra 1. juli 2024 skal arbejdsgivere registrere arbejdstid.",
+        a: "Ja. Medarbejderne registrerer deres daglige arbejdstid, og du eksporterer til løn. Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres.",
       },
       {
         q: "Kan jeg få en hjemmeside til mit firma?",
@@ -656,7 +657,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster det?",
-        a: "49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og du skal ikke oplyse kort.",
+        a: `${PRICE_LINE}. De første 3 måneder er gratis, og du skal ikke oplyse kort.`,
       },
     ],
   },
@@ -684,7 +685,7 @@ export const TRADES: Trade[] = [
       },
       {
         key: "planlaegning",
-        text: "Kalender for alle hold. Når et job rykker, kan du se, hvordan det påvirker resten af ugen. Køretiden er med i forslagene.",
+        text: "Kalender for alle hold. Når et job rykker, flytter du det i kalenderen. Køretiden til nabojobs er med i forslagene til nye tider.",
       },
       {
         key: "timer",
@@ -714,7 +715,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster det?",
-        a: "49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og du skal ikke oplyse kort.",
+        a: `${PRICE_LINE}. De første 3 måneder er gratis, og du skal ikke oplyse kort.`,
       },
     ],
   },

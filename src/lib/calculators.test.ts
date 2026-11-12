@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { adminTimeCost, coverage, hourlyRate, parseNumber, priceForCoverage } from "./calculators";
+import { adminTimeCost, coverage, fieldError, hourlyRate, parseNumber, priceForCoverage } from "./calculators";
 
 describe("parseNumber", () => {
   it("parses plain and Danish formatted numbers", () => {
@@ -8,6 +8,20 @@ describe("parseNumber", () => {
     expect(parseNumber("60 000")).toBe(60000);
     expect(parseNumber("1.250.000")).toBe(1250000);
     expect(parseNumber("12,5")).toBe(12.5);
+  });
+  it("reads a Danish thousands dot as thousands, not decimals", () => {
+    expect(parseNumber("60.000")).toBe(60000);
+    expect(parseNumber("7.500")).toBe(7500);
+    expect(parseNumber("1.000.000")).toBe(1000000);
+    expect(parseNumber("1.250,50")).toBe(1250.5);
+  });
+  it("reads commas as decimals and keeps plain decimals", () => {
+    expect(parseNumber("1,5")).toBe(1.5);
+    expect(parseNumber("0,5")).toBe(0.5);
+    expect(parseNumber("12.5")).toBe(12.5);
+    expect(parseNumber("0.5")).toBe(0.5);
+    expect(parseNumber("1250.5")).toBe(1250.5);
+    expect(parseNumber("-5")).toBe(-5);
   });
   it("returns null for empty or invalid input", () => {
     expect(parseNumber("")).toBeNull();
@@ -70,7 +84,26 @@ describe("adminTimeCost", () => {
   it("multiplies by people", () => {
     expect(adminTimeCost({ hoursPerWeek: 3, hourValue: 500, people: 2 })?.costPerMonth).toBe(13000);
   });
+  it("rejects fractional people", () => {
+    expect(adminTimeCost({ hoursPerWeek: 3, hourValue: 500, people: 1.5 })).toBeNull();
+  });
   it("rejects zero people", () => {
     expect(adminTimeCost({ hoursPerWeek: 3, hourValue: 500, people: 0 })).toBeNull();
+  });
+});
+
+describe("fieldError", () => {
+  it("flags empty, invalid and negative input in Danish", () => {
+    expect(fieldError("")).toMatch(/Udfyld/);
+    expect(fieldError("abc")).toMatch(/Skriv et tal/);
+    expect(fieldError("-5", { min: 0 })).toBe("Tallet må ikke være negativt.");
+    expect(fieldError("0", { gt: 0 })).toMatch(/større end 0/);
+  });
+  it("checks integers and ranges", () => {
+    expect(fieldError("1,5", { integer: true, min: 1 })).toMatch(/helt tal/);
+    expect(fieldError("2", { integer: true, min: 1 })).toBeNull();
+    expect(fieldError("100", { min: 0, lt: 100 })).toMatch(/mindre end 100/);
+    expect(fieldError("99,5", { min: 0, lt: 100 })).toBeNull();
+    expect(fieldError("", { required: false })).toBeNull();
   });
 });

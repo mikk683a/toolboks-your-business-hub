@@ -142,10 +142,10 @@ export const FEATURE_PAGES: FeaturePage[] = [
     key: "timer",
     title: "Timeregistrering for små virksomheder | Toolboks",
     description:
-      "Siden 1. juli 2024 skal arbejdsgivere registrere medarbejdernes daglige arbejdstid. Med Toolboks registrerer du tiden og eksporterer til løn. 3 måneder gratis.",
-    h1: "Timeregistrering, der lever op til reglerne",
+      "Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system til daglig arbejdstid. Med Toolboks registrerer du tiden og eksporterer til løn. 3 måneder gratis.",
+    h1: "Timeregistrering, der er nem at holde styr på",
     intro:
-      "Som arbejdsgiver skal du registrere, hvor længe dine medarbejdere arbejder hver dag. Toolboks gør det enkelt, og du kan sende timerne videre til lønkørslen.",
+      "Som arbejdsgiver skal du som udgangspunkt kunne registrere, hvor længe dine medarbejdere arbejder hver dag. Toolboks gør det enkelt, og du kan sende timerne videre til lønkørslen.",
     problemHeading: "Det sker, når timerne ikke bliver skrevet ned",
     problems: [
       "Timerne bliver samlet op fra hukommelsen om fredagen.",
@@ -161,7 +161,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         title: "Overblik for dig",
-        text: "Du kan se, hvem der har arbejdet hvor længe, uden at jage nogen på sms.",
+        text: "Du kan se, hvem der har arbejdet hvor længe, uden at jage nogen på SMS.",
       },
       {
         title: "Eksport til løn",
@@ -175,14 +175,14 @@ export const FEATURE_PAGES: FeaturePage[] = [
     note: {
       title: "Kravet om registrering af arbejdstid",
       paragraphs: [
-        "Fra 1. juli 2024 skal arbejdsgivere i Danmark registrere medarbejdernes daglige arbejdstid. Registreringerne skal gemmes i 5 år.",
+        "Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres. Registreringerne skal gemmes i 5 år.",
         "Er du i tvivl om, hvad reglerne kræver af netop din virksomhed, så spørg din brancheorganisation eller en rådgiver. Denne side er ikke juridisk rådgivning.",
       ],
     },
     faq: [
       {
         q: "Hvornår skal jeg registrere arbejdstid?",
-        a: "Reglen gælder fra 1. juli 2024. Du skal registrere den daglige arbejdstid for dine medarbejdere.",
+        a: "Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres.",
       },
       {
         q: "Hvor længe skal registreringerne gemmes?",
@@ -194,7 +194,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         q: "Er Toolboks juridisk rådgivning?",
-        a: "Nej. Toolboks er et værktøj til at registrere tiden. Spørg din brancheorganisation eller en rådgiver, hvis du er i tvivl om reglerne.",
+        a: "Nej. Toolboks er et værktøj til at registrere tiden og giver ingen garanti for, at du lever op til reglerne. Spørg din brancheorganisation eller en rådgiver, hvis du er i tvivl om reglerne.",
       },
     ],
   },
@@ -309,18 +309,18 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "beskeder",
     key: "beskeder",
-    title: "Alle kundebeskeder ét sted: mail, SMS, Messenger | Toolboks",
+    title: "Alle kundebeskeder ét sted: e-mail, SMS, Messenger | Toolboks",
     description:
-      "Samle e-mail, SMS, Messenger og Instagram i én indbakke. Ingen forespørgsler går tabt, og hele holdet ved, hvad kunden har skrevet. 3 måneder gratis.",
+      "Saml e-mail, SMS, Messenger og Instagram i én indbakke. Ingen forespørgsler går tabt, og hele holdet ved, hvad kunden har skrevet. 3 måneder gratis.",
     h1: "Alle kundebeskeder ét sted",
     intro:
-      "Kunderne skriver, hvor det passer dem. Nogle på mail, nogle på SMS, nogle på Messenger eller Instagram. I Toolboks lander det hele i samme indbakke.",
+      "Kunderne skriver, hvor det passer dem. Nogle på e-mail, nogle på SMS, nogle på Messenger eller Instagram. I Toolboks lander det hele i samme indbakke.",
     problemHeading: "Det sker, når beskederne er spredt",
     problems: [
-      "En kunde skriver på Messenger, mens du kigger i din mail.",
+      "En kunde skriver på Messenger, mens du kigger i din e-mail.",
       "Du svarer fra din private telefon, og kollegaen ved ikke, hvad du har lovet.",
       "En ny forespørgsel bliver liggende, fordi den kom på Instagram.",
-      "Du kan ikke finde den sms, hvor kunden skrev adressen.",
+      "Du kan ikke finde den SMS, hvor kunden skrev adressen.",
     ],
     howHeading: "Sådan hjælper Toolboks",
     how: [

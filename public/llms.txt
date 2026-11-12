@@ -10,7 +10,7 @@ Pris: 49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og man skal 
 - Tilbud: send tilbud som PDF på SMS og e-mail. Kunden accepterer med ét tryk.
 - Planlægning: fælles kalender for holdet og forslag til tider, hvor køretiden er regnet med.
 - Faktura: fakturaen laves, når jobbet er færdigt, med betalingslink og automatiske påmindelser.
-- Timeregistrering: registrering af medarbejdernes daglige arbejdstid med eksport til løn. Fra 1. juli 2024 skal arbejdsgivere registrere daglig arbejdstid, og registreringerne skal gemmes i 5 år.
+- Timeregistrering: registrering af medarbejdernes daglige arbejdstid med eksport til løn. Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres. Registreringerne skal gemmes i 5 år. Ikke juridisk rådgivning.
 - Beskeder samlet: e-mail, SMS, Messenger og Instagram i samme indbakke.
 - Gratis hjemmeside, hvor kunder kan sende en forespørgsel.
 

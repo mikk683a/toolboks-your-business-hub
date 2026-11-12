@@ -16,17 +16,17 @@ export const PageShell = ({ children }: { children: ReactNode }) => (
 );
 
 export const Breadcrumbs = ({ items }: { items: { name: string; to?: string }[] }) => (
-  <nav aria-label="Brødkrumme" className="text-sm text-muted-foreground mb-6">
+  <nav aria-label="Brødkrumme" className="text-sm text-muted-foreground mb-4">
     <ol className="flex flex-wrap items-center gap-1">
       {items.map((it, i) => (
         <li key={it.name} className="flex items-center gap-1">
           {i > 0 && <ChevronRight className="w-3 h-3" />}
           {it.to ? (
-            <Link to={it.to} className="hover:text-foreground underline-offset-4 hover:underline">
+            <Link to={it.to} className="inline-flex items-center min-h-[44px] px-1 hover:text-foreground underline-offset-4 hover:underline">
               {it.name}
             </Link>
           ) : (
-            <span className="text-foreground">{it.name}</span>
+            <span className="text-foreground inline-flex items-center min-h-[44px] px-1">{it.name}</span>
           )}
         </li>
       ))}

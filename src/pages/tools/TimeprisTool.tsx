@@ -1,4 +1,4 @@
-import { fmtKr, hourlyRate, parseNumber } from "@/lib/calculators";
+import { fieldError, fmtKr, hourlyRate, parseNumber } from "@/lib/calculators";
 import { CopyLinkButton, Field, ResultRow, ToolLayout, useUrlState } from "./shared";
 
 const TimeprisTool = () => {
@@ -8,6 +8,12 @@ const TimeprisTool = () => {
     desiredProfit: parseNumber(v.overskud) ?? NaN,
     billableHours: parseNumber(v.timer) ?? NaN,
   });
+
+  const errors = {
+    faste: fieldError(v.faste, { min: 0 }),
+    overskud: fieldError(v.overskud, { min: 0 }),
+    timer: fieldError(v.timer, { gt: 0 }),
+  };
 
   return (
     <ToolLayout
@@ -39,6 +45,7 @@ const TimeprisTool = () => {
             label="Faste omkostninger pr. måned"
             unit="kr / md."
             hint="Løn til dig og dine ansatte, bil, forsikring, leasing, software, telefon."
+            error={errors.faste}
             value={v.faste}
             onChange={(x) => set("faste", x)}
           />
@@ -46,6 +53,7 @@ const TimeprisTool = () => {
             id="overskud"
             label="Ønsket overskud pr. måned"
             unit="kr / md."
+            error={errors.overskud}
             value={v.overskud}
             onChange={(x) => set("overskud", x)}
           />
@@ -54,6 +62,7 @@ const TimeprisTool = () => {
             label="Fakturerbare timer pr. måned"
             unit="timer / md."
             hint="Kun timer du kan sende regning for. Træk kørsel og admin fra."
+            error={errors.timer}
             value={v.timer}
             onChange={(x) => set("timer", x)}
           />
@@ -68,7 +77,7 @@ const TimeprisTool = () => {
             </>
           ) : (
             <p className="text-muted-foreground">
-              Udfyld alle felter med tal. Fakturerbare timer skal være mere end 0.
+              Ret felterne til venstre, så vises timeprisen her.
             </p>
           )}
           <div className="mt-6">

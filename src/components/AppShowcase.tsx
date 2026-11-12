@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import leadsImage from "@/assets/leads-screen.png";
 import jobsImage from "@/assets/jobs-screen.png";
 

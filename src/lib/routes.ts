@@ -4,7 +4,7 @@ import { TRADES, tradePath } from "./trades";
 
 export const LEGAL_ROUTES = ["/privatliv", "/vilkaar", "/databehandleraftale"];
 
-/** Every public, indexable route. Used by the sitemap and the prerender step. */
+/** Every indexable route. Used by the sitemap. The legal pages are left out until they have real text. */
 export const ALL_ROUTES: string[] = [
   "/",
   "/brancher",
@@ -12,5 +12,7 @@ export const ALL_ROUTES: string[] = [
   ...FEATURE_PAGES.map((f) => featurePath(f.slug)),
   "/vaerktoej",
   ...TOOLS.map((t) => toolPath(t.slug)),
-  ...LEGAL_ROUTES,
 ];
+
+/** Routes written to static HTML at build time: the indexable ones plus the (noindex) legal pages. */
+export const PRERENDER_ROUTES: string[] = [...ALL_ROUTES, ...LEGAL_ROUTES];

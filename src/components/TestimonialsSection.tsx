@@ -1,5 +1,5 @@
 import { Gift, Phone, MessageSquare } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 
 const TestimonialsSection = () => {
   return (

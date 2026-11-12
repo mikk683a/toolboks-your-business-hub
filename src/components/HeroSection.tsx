@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, CheckCircle } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
+import { PRICE_LINE, TRIAL_MONTHS } from "@/lib/site";
 import appMockup from "@/assets/app-mockup.png";
 
 const scrollToSignup = () => {
@@ -11,7 +12,7 @@ const HeroSection = () => {
   const benefits = [
     "Håndter kunder & jobs ét sted",
     "Send tilbud og fakturaer",
-    "Gratis onboarding, vi sætter det op",
+    "Gratis onboarding. Vi sætter det op.",
   ];
 
   return (
@@ -39,7 +40,7 @@ const HeroSection = () => {
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
               Toolboks er admin-værktøjet til små servicevirksomheder, der kører ud til kunder.
               Håndter forespørgsler, send tilbud, planlæg jobs med køretid, registrer timer og send fakturaer.
-              Det koster 49 kr pr. bruger pr. måned, og de første 3 måneder er gratis, uden kort.
+              Det koster {PRICE_LINE}, og de første {TRIAL_MONTHS} måneder er gratis, uden kort.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
