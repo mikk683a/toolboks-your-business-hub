@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { useInView } from "framer-motion";
-import { Appear, Chip, ModeProvider, usePrefersReducedMotion } from "./primitives";
+import type { ReactNode } from "react";
+import { Appear, Chip, useShown } from "./primitives";
 
 export const COMING_SOON = [
   {
@@ -20,40 +19,31 @@ export const COMING_SOON = [
   },
 ];
 
-/** Reveals once when scrolled into view. Server render and reduced motion show the final state. */
-function useReveal() {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduced = usePrefersReducedMotion();
-  const inView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
-  const [armed, setArmed] = useState(false);
-  useEffect(() => setArmed(!reduced), [reduced]);
-  return { ref, shown: !armed || inView };
-}
-
 const Card = ({ title, text, render }: { title: string; text: string; render: (shown: boolean) => ReactNode }) => {
-  const { ref, shown } = useReveal();
-  const reduced = usePrefersReducedMotion();
+  const { ref, shown } = useShown<HTMLElement>("0px 0px -20% 0px");
   return (
-    <ModeProvider value={{ mode: "fade", reduced }}>
-      <article ref={ref} className="flex flex-col rounded-2xl border border-border bg-card p-5 shadow-card">
-        <div className="mb-3">
-          <span className="inline-flex items-center rounded-full bg-warning/15 px-3 py-1 text-xs font-semibold text-warning">
-            Kommer snart
-          </span>
+    <article
+      ref={ref}
+      className="flex flex-col rounded-2xl border-2 border-dashed border-primary/30 bg-card/40 p-5 transition-colors hover:border-primary/60"
+    >
+      <div className="mb-3">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-warning/15 px-3 py-1 text-xs font-semibold text-warning">
+          <span className="h-1.5 w-1.5 rounded-full bg-warning" />
+          Kommer snart
+        </span>
+      </div>
+      <h3 className="mb-2 text-lg font-semibold text-foreground">{title}</h3>
+      <p className="mb-4 leading-relaxed text-muted-foreground">{text}</p>
+      <div
+        role="img"
+        aria-label={`Illustration af idéen. Kommer snart: ${title}.`}
+        className="mt-auto rounded-xl border border-dashed border-border bg-background/60 p-3 text-[12px] leading-snug"
+      >
+        <div aria-hidden="true" className="min-h-[170px] space-y-1.5">
+          {render(shown)}
         </div>
-        <h3 className="mb-2 text-lg font-semibold text-foreground">{title}</h3>
-        <p className="mb-4 text-muted-foreground leading-relaxed">{text}</p>
-        <div
-          role="img"
-          aria-label={`Illustration af idéen. Kommer snart: ${title}.`}
-          className="mt-auto rounded-xl bg-secondary/50 p-3 text-[12px] leading-snug"
-        >
-          <div aria-hidden="true" className="min-h-[170px] space-y-1.5">
-            {render(shown)}
-          </div>
-        </div>
-      </article>
-    </ModeProvider>
+      </div>
+    </article>
   );
 };
 

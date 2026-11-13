@@ -1,16 +1,27 @@
 import StorySection from "@/components/story/StorySection";
 import ComingSoon from "@/components/story/ComingSoon";
+import Converge from "@/components/story/Converge";
 import { DayMock, FlowMock, InboxMock } from "@/components/story/mocks";
 import { DAY_STORY, FLOW_STORY, INBOX_STORY } from "@/components/story/story-data";
 
 export const InboxStory = () => (
-  <StorySection {...INBOX_STORY} title="Alle beskeder lander i samme indbakke" renderMock={(a) => <InboxMock active={a} />} />
+  <StorySection
+    {...INBOX_STORY}
+    lead={<Converge />}
+    phoneState={(a) => ({ tab: 1, badge: a >= 4 ? 0 : a + 1, notify: a < 4 })}
+    renderMock={(a) => <InboxMock active={a} />}
+  />
 );
 export const FlowStory = () => (
-  <StorySection {...FLOW_STORY} tint renderMock={(a) => <FlowMock active={a} />} />
+  <StorySection
+    {...FLOW_STORY}
+    tint
+    phoneState={(a) => ({ tab: a >= 4 ? 3 : a >= 3 ? 2 : 1, notify: a === 0 })}
+    renderMock={(a) => <FlowMock active={a} />}
+  />
 );
 export const DayStory = () => (
-  <StorySection {...DAY_STORY} renderMock={(a) => <DayMock active={a} />} />
+  <StorySection {...DAY_STORY} phoneState={() => ({ tab: 2 })} renderMock={(a) => <DayMock active={a} />} />
 );
 
 export const ComingSoonSection = () => (

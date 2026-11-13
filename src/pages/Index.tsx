@@ -2,7 +2,6 @@ import Seo, { faqJsonLd, organizationJsonLd, softwareJsonLd } from "@/components
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
-import AppShowcase from "@/components/AppShowcase";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import BranchesSection from "@/components/BranchesSection";
 import { ComingSoonSection, DayStory, FlowStory, InboxStory } from "@/components/HomeStories";
@@ -29,7 +28,6 @@ const Index = () => {
           <InboxStory />
           <FlowStory />
           <DayStory />
-          <AppShowcase />
           <ComingSoonSection />
           <IntegrationsStrip />
           <BranchesSection />

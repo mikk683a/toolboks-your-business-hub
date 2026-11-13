@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, CheckCircle } from "lucide-react";
 import { motion } from "@/lib/motion";
 import { PRICE_LINE, TRIAL_MONTHS } from "@/lib/site";
-import appMockup from "@/assets/app-mockup.png";
+import { FloatingPhone } from "@/components/story/primitives";
+import { HeroMock } from "@/components/story/mocks";
 
 const scrollToSignup = () => {
   document.getElementById("signup")?.scrollIntoView({ behavior: "smooth" });
@@ -48,7 +49,7 @@ const HeroSection = () => {
                 Opret gratis konto
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button variant="heroOutline" size="xl" onClick={() => document.getElementById("showcase")?.scrollIntoView({ behavior: "smooth" })}>
+              <Button variant="heroOutline" size="xl" onClick={() => document.getElementById("alle-kunder")?.scrollIntoView({ behavior: "smooth" })}>
                 <Play className="w-5 h-5" />
                 Se demo
               </Button>
@@ -77,14 +78,16 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative z-10">
-              <div className="bg-card rounded-3xl shadow-card-hover p-4 md:p-6 border border-border">
-                <img
-                  src={appMockup}
-                  alt="Toolboks i brug"
-                  className="w-full rounded-2xl"
-                />
-              </div>
+            <div className="relative z-10 flex justify-center">
+              <FloatingPhone
+                label="Eksempel på Toolboks i mobilen med opdigtede kunder: en indbakke, et tilbud der er accepteret og en dag i kalenderen."
+                scale={0.92}
+                tab={0}
+                badge={2}
+                notify
+              >
+                <HeroMock />
+              </FloatingPhone>
             </div>
 
             {/* Decorative Elements */}

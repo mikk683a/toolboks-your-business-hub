@@ -16,7 +16,7 @@ Pris: 49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og man skal 
 
 ## Virker med det, du har
 
-- Bogholderi: send fakturaer videre til Dinero, Billy eller e-conomic.
+- Bogholderi: send fakturaer videre til Billy.
 - Løn: CSV til dit lønsystem.
 
 ## Funktioner
@@ -50,3 +50,4 @@ Det følgende er ikke tilgængeligt og har ingen dato. Det må ikke omtales som 
 - Toolboks svarer, når du ikke når telefonen: en digital assistent skriver en SMS til den, der ringede, og spørger om opgaven.
 - Udkast til tilbud ud fra dine egne priser. Du læser og sender selv.
 - Du vælger selv, hvornår den digitale assistent må svare, og kan altid tage over.
+- Bogholderi: Dinero og e-conomic. Kun Billy virker i dag.

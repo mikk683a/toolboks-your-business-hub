@@ -133,3 +133,24 @@ describe("coming soon features stay out of present-tense copy", () => {
     expect(TRADES.length).toBe(6);
   });
 });
+
+describe("bookkeeping integrations", () => {
+  const files = [
+    "index.html", "src/components/Seo.tsx", "src/components/HomeFaq.tsx", "src/components/FeaturesSection.tsx",
+    "src/components/HeroSection.tsx", "src/lib/features.ts", "src/lib/trades.ts", "src/lib/tools.ts", "src/pages/Index.tsx",
+  ];
+  it("never names Dinero or e-conomic outside the strip and the Kommer snart list", () => {
+    for (const f of files) expect(fs.readFileSync(f, "utf-8"), f).not.toMatch(/Dinero|e-conomic/i);
+    const llms = fs.readFileSync("public/llms.txt", "utf-8");
+    const idx = llms.indexOf("## Kommer snart");
+    expect(llms.slice(0, idx)).not.toMatch(/Dinero|e-conomic/i);
+    expect(llms.slice(idx)).toMatch(/Dinero/);
+  });
+  it("marks Dinero and e-conomic as coming soon in the strip", () => {
+    const strip = fs.readFileSync("src/components/IntegrationsStrip.tsx", "utf-8");
+    expect(strip).toMatch(/name: "Billy", live: true/);
+    expect(strip).toMatch(/name: "Dinero", live: false/);
+    expect(strip).toMatch(/name: "e-conomic", live: false/);
+    expect(strip).toMatch(/Kommer snart/);
+  });
+});
