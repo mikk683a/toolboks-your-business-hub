@@ -13,7 +13,7 @@ export const TOOLS: ToolMeta[] = [
   {
     slug: "timepris",
     name: "Timepris-beregner",
-    title: "Beregn din timepris som håndværker | Gratis værktøj",
+    title: "Beregn din timepris | Gratis værktøj",
     description:
       "Find den timepris, du skal have for at dække dine faste omkostninger og få det overskud, du ønsker. Gratis, uden login. Del resultatet med et link.",
     h1: "Beregn din timepris",

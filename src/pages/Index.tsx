@@ -5,6 +5,8 @@ import FeaturesSection from "@/components/FeaturesSection";
 import AppShowcase from "@/components/AppShowcase";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import BranchesSection from "@/components/BranchesSection";
+import { ComingSoonSection, DayStory, FlowStory, InboxStory } from "@/components/HomeStories";
+import IntegrationsStrip from "@/components/IntegrationsStrip";
 import PricingSection from "@/components/PricingSection";
 import HomeFaq, { HOME_FAQ } from "@/components/HomeFaq";
 import CTASection from "@/components/CTASection";
@@ -14,7 +16,7 @@ const Index = () => {
   return (
     <>
       <Seo
-        title="Toolboks | Admin-app til håndværkere og servicefirmaer"
+        title="Toolboks | Admin-app til servicefirmaer, der kører ud til kunder"
         description="Toolboks samler forespørgsler, tilbud, kalender med køretid, faktura, timeregistrering og kundebeskeder. 49 kr pr. bruger pr. måned. 3 måneder gratis, uden kort."
         path="/"
         jsonLd={[organizationJsonLd, softwareJsonLd, faqJsonLd(HOME_FAQ)]}
@@ -24,7 +26,12 @@ const Index = () => {
         <main>
           <HeroSection />
           <FeaturesSection />
+          <InboxStory />
+          <FlowStory />
+          <DayStory />
           <AppShowcase />
+          <ComingSoonSection />
+          <IntegrationsStrip />
           <BranchesSection />
           <TestimonialsSection />
           <PricingSection />

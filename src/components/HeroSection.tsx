@@ -33,7 +33,7 @@ const HeroSection = () => {
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
               Styr din{" "}
-              <span className="text-gradient">håndværkerforretning</span>{" "}
+              <span className="text-gradient">servicevirksomhed</span>{" "}
               fra mobilen
             </h1>
 

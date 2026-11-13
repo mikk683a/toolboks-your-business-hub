@@ -6,7 +6,7 @@ import { TOOLS, toolPath } from "@/lib/tools";
 const ToolsIndex = () => (
   <PageShell>
     <Seo
-      title="Gratis værktøjer til håndværkere og servicefirmaer | Toolboks"
+      title="Gratis værktøjer til servicefirmaer | Toolboks"
       description="Tre gratis regnemaskiner: beregn din timepris, din dækningsgrad og hvad din admin-tid koster. Uden login. Del resultatet med et link."
       path="/vaerktoej"
       jsonLd={[breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Værktøjer", path: "/vaerktoej" }])]}

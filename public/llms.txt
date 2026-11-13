@@ -14,6 +14,11 @@ Pris: 49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og man skal 
 - Beskeder samlet: e-mail, SMS, Messenger og Instagram i samme indbakke.
 - Gratis hjemmeside, hvor kunder kan sende en forespørgsel.
 
+## Virker med det, du har
+
+- Bogholderi: send fakturaer videre til Dinero, Billy eller e-conomic.
+- Løn: CSV til dit lønsystem.
+
 ## Funktioner
 
 - [Planlægning med køretid](https://toolboks.dk/funktioner/planlaegning)
@@ -26,20 +31,22 @@ Pris: 49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og man skal 
 
 - [Oversigt over brancher](https://toolboks.dk/brancher)
 - [Træfældning](https://toolboks.dk/brancher/traefaeldning)
-- [Anlægsgartner](https://toolboks.dk/brancher/anlaegsgartner)
 - [Haveservice](https://toolboks.dk/brancher/haveservice)
 - [Vinduespudser](https://toolboks.dk/brancher/vinduespudser)
 - [Skadedyrsbekæmper](https://toolboks.dk/brancher/skadedyrsbekaemper)
 - [Algerens](https://toolboks.dk/brancher/algerens)
 - [Rengøring](https://toolboks.dk/brancher/rengoering)
-- [Flisebelægning](https://toolboks.dk/brancher/flisebelaegning)
-- [Kloakservice](https://toolboks.dk/brancher/kloakservice)
-- [Maler](https://toolboks.dk/brancher/maler)
-- [Tømrer](https://toolboks.dk/brancher/toemrer)
-- [Murer](https://toolboks.dk/brancher/murer)
 
 ## Gratis værktøjer
 
 - [Timepris-beregner](https://toolboks.dk/vaerktoej/timepris)
 - [Dækningsgrad-beregner](https://toolboks.dk/vaerktoej/daekningsgrad)
 - [Hvad koster din admin-tid?](https://toolboks.dk/vaerktoej/admin-tid)
+
+## Kommer snart (findes ikke endnu)
+
+Det følgende er ikke tilgængeligt og har ingen dato. Det må ikke omtales som en funktion, der findes i dag.
+
+- Toolboks svarer, når du ikke når telefonen: en digital assistent skriver en SMS til den, der ringede, og spørger om opgaven.
+- Udkast til tilbud ud fra dine egne priser. Du læser og sender selv.
+- Du vælger selv, hvornår den digitale assistent må svare, og kan altid tage over.

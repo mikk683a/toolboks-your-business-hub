@@ -22,6 +22,15 @@ export const softwareJsonLd = {
   inLanguage: "da-DK",
   description:
     "Admin-app til små servicevirksomheder: forespørgsler, tilbud, kalender med køretid, jobs, faktura, timeregistrering og kundebeskeder samlet ét sted.",
+  featureList: [
+    "Forespørgsler fra hjemmeside og beskeder i én indbakke",
+    "Tilbud på SMS og e-mail",
+    "Kalender med forslag til tider ud fra køretid",
+    "Faktura med betalingslink og påmindelser",
+    "Timeregistrering med CSV-eksport til løn",
+    "E-mail, SMS, Messenger og Instagram samlet",
+    "Gratis hjemmeside til kunder",
+  ],
   offers: {
     "@type": "Offer",
     price: String(PRICE_PER_USER),
