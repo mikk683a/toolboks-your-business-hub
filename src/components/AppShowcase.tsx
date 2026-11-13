@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import leadsImage from "@/assets/leads-screen.png";
 import jobsImage from "@/assets/jobs-screen.png";
 
@@ -21,7 +21,7 @@ const AppShowcase = () => {
             Bygget til <span className="text-gradient">håndværkere</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Lavet til din hverdag. Nemt at bruge — fra første forespørgsel til betalt faktura.
+            Lavet til din hverdag. Nemt at bruge, fra første forespørgsel til betalt faktura.
           </p>
         </motion.div>
 

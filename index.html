@@ -3,18 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Toolboks – Admin-app til håndværkere</title>
-    <meta name="description" content="Toolboks er admin-appen til tømrere og håndværkere. Modtag forespørgsler, send tilbud, planlæg jobs og fakturér — fra din telefon." />
+    <!-- Default tags for the app shell. Each route replaces them (react-helmet-async manages data-rh tags),
+         and the build time prerender writes route specific tags into every page. -->
+    <title data-rh="true">Toolboks | Admin-app til håndværkere og servicefirmaer</title>
+    <meta data-rh="true" name="description" content="Toolboks samler forespørgsler, tilbud, kalender med køretid, faktura, timeregistrering og kundebeskeder. 49 kr pr. bruger pr. måned. 3 måneder gratis, uden kort." />
     <meta name="author" content="Toolboks" />
-    <meta name="keywords" content="håndværker app, tømrer software, tilbud og faktura, jobplanlægning, håndværker CRM" />
-    <link rel="canonical" href="https://toolboks.dk" />
-
-    <meta property="og:title" content="Toolboks – Admin-app til håndværkere" />
-    <meta property="og:description" content="Modtag forespørgsler, send tilbud, planlæg jobs og fakturér — alt fra din telefon." />
-    <meta property="og:type" content="website" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Toolboks" />
+    <meta data-rh="true" property="og:title" content="Toolboks | Admin-app til håndværkere og servicefirmaer" />
+    <meta data-rh="true" property="og:description" content="Forespørgsler, tilbud, kalender med køretid, faktura og timeregistrering. 3 måneder gratis, uden kort." />
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
     <!-- Cal.com Embed -->
     <script>
       (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");

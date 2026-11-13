@@ -1,5 +1,8 @@
 import { Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FEATURE_BLURBS, FEATURE_PAGES, featurePath } from "@/lib/features";
+import { TRADES, tradePath } from "@/lib/trades";
+import { TOOLS, toolPath } from "@/lib/tools";
 
 const APP_URL = "https://app.toolboks.dk";
 
@@ -19,8 +22,8 @@ const legalLinks = [
 const Footer = () => (
   <footer className="bg-card border-t border-border py-12 lg:py-16">
     <div className="container mx-auto px-4">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
-        <div className="lg:col-span-2">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10 mb-12">
+        <div className="sm:col-span-2 lg:col-span-2">
           <Link to="/" className="flex items-center gap-2 mb-4">
             <div className="w-10 h-10 rounded-xl bg-hero-gradient flex items-center justify-center">
               <Wrench className="w-5 h-5 text-primary-foreground" />
@@ -28,30 +31,66 @@ const Footer = () => (
             <span className="text-xl font-bold text-foreground">Toolboks</span>
           </Link>
           <p className="text-muted-foreground max-w-sm">
-            Admin-appen til tømrere, håndværkere og andre selvstændige. Styr din forretning hvor du end er.
+            Admin-appen til små servicevirksomheder, der kører ud til kunder. Styr din forretning hvor du end er.
           </p>
         </div>
 
         <div>
           <h4 className="font-semibold text-foreground mb-4">Produkt</h4>
-          <ul className="space-y-3">
+          <ul>
             {productLinks.map((l) => (
               <li key={l.name}>
-                <a href={l.href} className="text-muted-foreground hover:text-foreground transition-colors">{l.name}</a>
+                <a href={l.href} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{l.name}</a>
               </li>
             ))}
             <li>
-              <a href={APP_URL} className="text-muted-foreground hover:text-foreground transition-colors">Log ind</a>
+              <a href={APP_URL} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">Log ind</a>
             </li>
           </ul>
         </div>
 
         <div>
+          <h4 className="font-semibold text-foreground mb-4">Funktioner</h4>
+          <ul>
+            {FEATURE_PAGES.map((f) => (
+              <li key={f.slug}>
+                <Link to={featurePath(f.slug)} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{FEATURE_BLURBS[f.key].name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-semibold text-foreground mb-4">Brancher</h4>
+          <ul>
+            {TRADES.map((t) => (
+              <li key={t.slug}>
+                <Link to={tradePath(t.slug)} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{t.name}</Link>
+              </li>
+            ))}
+            <li>
+              <Link to="/brancher" className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">Alle brancher</Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-semibold text-foreground mb-4">Gratis værktøjer</h4>
+          <ul>
+            {TOOLS.map((t) => (
+              <li key={t.slug}>
+                <Link to={toolPath(t.slug)} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{t.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
           <h4 className="font-semibold text-foreground mb-4">Juridisk</h4>
-          <ul className="space-y-3">
+          <ul>
             {legalLinks.map((l) => (
               <li key={l.name}>
-                <Link to={l.to} className="text-muted-foreground hover:text-foreground transition-colors">{l.name}</Link>
+                <Link to={l.to} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{l.name}</Link>
               </li>
             ))}
           </ul>
