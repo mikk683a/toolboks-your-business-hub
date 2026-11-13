@@ -86,7 +86,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "planlaegning",
     key: "planlaegning",
-    title: "Planlægning med køretid for håndværkere | Toolboks",
+    title: "Planlægning med køretid til servicefirmaer | Toolboks",
     description:
       "Fælles kalender til holdet og forslag til tider, hvor køretiden er regnet med. Planlæg flere jobs om dagen uden at spilde tid i bilen. 3 måneder gratis.",
     h1: "Planlægning med køretid",

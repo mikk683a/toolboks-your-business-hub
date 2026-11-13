@@ -6,8 +6,8 @@ import { TRADES, tradePath } from "@/lib/trades";
 const TradesIndex = () => (
   <PageShell>
     <Seo
-      title="Brancher | Administration til håndværkere og servicefirmaer | Toolboks"
-      description="Toolboks er lavet til små servicevirksomheder, der kører ud til kunder. Se hvordan det hjælper træfældere, gartnere, malere, tømrere, murere og flere."
+      title="Brancher | Administration til servicefirmaer | Toolboks"
+      description="Toolboks er lavet til små servicevirksomheder, der kører ud til kunder. Se hvordan det hjælper træfældere, haveservice, skadedyrsbekæmpere, algerens, vinduespudsere og rengøringsfirmaer."
       path="/brancher"
       jsonLd={[breadcrumbJsonLd([{ name: "Forside", path: "/" }, { name: "Brancher", path: "/brancher" }])]}
     />

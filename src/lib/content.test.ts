@@ -9,11 +9,10 @@ import { TRADES } from "./trades";
 const allText = JSON.stringify([TRADES, FEATURE_PAGES, TOOLS, TOOL_FAQ]);
 
 describe("trade data", () => {
-  it("has the 12 requested trades with unique slugs", () => {
+  it("has the 6 trades with unique slugs", () => {
     expect(TRADES.map((t) => t.slug).sort()).toEqual(
       [
-        "algerens", "anlaegsgartner", "flisebelaegning", "haveservice", "kloakservice", "maler",
-        "murer", "rengoering", "skadedyrsbekaemper", "toemrer", "traefaeldning", "vinduespudser",
+        "algerens", "haveservice", "rengoering", "skadedyrsbekaemper", "traefaeldning", "vinduespudser",
       ].sort(),
     );
   });
@@ -48,7 +47,7 @@ describe("routes and sitemap", () => {
   it("lists every indexable route once and keeps the legal pages out of the sitemap", () => {
     expect(new Set(ALL_ROUTES).size).toBe(ALL_ROUTES.length);
     for (const r of LEGAL_ROUTES) expect(ALL_ROUTES).not.toContain(r);
-    expect(ALL_ROUTES.length).toBe(1 + 1 + 12 + 5 + 1 + 3);
+    expect(ALL_ROUTES.length).toBe(1 + 1 + 6 + 5 + 1 + 3);
   });
   it("still prerenders the legal pages", () => {
     for (const r of LEGAL_ROUTES) expect(PRERENDER_ROUTES).toContain(r);
@@ -101,5 +100,57 @@ describe("time registration wording", () => {
     for (const f of FEATURE_PAGES) expect(f.h1).not.toMatch(/reglerne|lovlig|compliant/i);
     expect(allText).toContain("Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt");
     expect(allText).toContain("5 år");
+  });
+});
+
+describe("coming soon features stay out of present-tense copy", () => {
+  const upcoming = /digital assistent|AI-tilbud|udkast til tilbud|svarer, når du ikke/i;
+  const files = [
+    "index.html",
+    "src/components/Seo.tsx",
+    "src/components/HomeFaq.tsx",
+    "src/components/FeaturesSection.tsx",
+    "src/components/HeroSection.tsx",
+    "src/lib/features.ts",
+    "src/lib/trades.ts",
+    "src/lib/tools.ts",
+    "src/pages/Index.tsx",
+  ];
+  it("only mentions them in the Kommer snart section", () => {
+    for (const f of files) expect(fs.readFileSync(f, "utf-8"), f).not.toMatch(upcoming);
+  });
+  it("lists them in llms.txt only under the Kommer snart heading", () => {
+    const llms = fs.readFileSync("public/llms.txt", "utf-8");
+    const idx = llms.indexOf("## Kommer snart");
+    expect(idx).toBeGreaterThan(0);
+    expect(llms.slice(0, idx)).not.toMatch(upcoming);
+  });
+  it("does not name unsupported payroll systems as integrations", () => {
+    const all = fs.readFileSync("public/llms.txt", "utf-8") + fs.readFileSync("src/components/IntegrationsStrip.tsx", "utf-8");
+    expect(all).not.toMatch(/Danløn|DataLøn|Zenegy/i);
+  });
+  it("lists exactly six trades in the footer data", () => {
+    expect(TRADES.length).toBe(6);
+  });
+});
+
+describe("bookkeeping integrations", () => {
+  const files = [
+    "index.html", "src/components/Seo.tsx", "src/components/HomeFaq.tsx", "src/components/FeaturesSection.tsx",
+    "src/components/HeroSection.tsx", "src/lib/features.ts", "src/lib/trades.ts", "src/lib/tools.ts", "src/pages/Index.tsx",
+  ];
+  it("never names Dinero or e-conomic outside the strip and the Kommer snart list", () => {
+    for (const f of files) expect(fs.readFileSync(f, "utf-8"), f).not.toMatch(/Dinero|e-conomic/i);
+    const llms = fs.readFileSync("public/llms.txt", "utf-8");
+    const idx = llms.indexOf("## Kommer snart");
+    expect(llms.slice(0, idx)).not.toMatch(/Dinero|e-conomic/i);
+    expect(llms.slice(idx)).toMatch(/Dinero/);
+  });
+  it("marks Dinero and e-conomic as coming soon in the strip", () => {
+    const strip = fs.readFileSync("src/components/IntegrationsStrip.tsx", "utf-8");
+    expect(strip).toMatch(/name: "Billy", live: true/);
+    expect(strip).toMatch(/name: "Dinero", live: false/);
+    expect(strip).toMatch(/name: "e-conomic", live: false/);
+    expect(strip).toMatch(/Kommer snart/);
   });
 });

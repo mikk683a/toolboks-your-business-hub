@@ -9,7 +9,7 @@ export const HOME_FAQ: Faq[] = [
   },
   {
     q: "Hvem er Toolboks til?",
-    a: "Små servicevirksomheder med 1 til 20 medarbejdere, der kører ud til kunder. For eksempel træfældere, gartnere, malere, tømrere, murere, vinduespudsere og rengøringsfirmaer.",
+    a: "Små servicevirksomheder med 1 til 20 medarbejdere, der kører ud til kunder. For eksempel træfældere, haveservice, skadedyrsbekæmpere, algerens, vinduespudsere og rengøringsfirmaer.",
   },
   {
     q: "Kan Toolboks registrere mine medarbejderes arbejdstid?",

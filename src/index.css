@@ -137,3 +137,41 @@
     50% { transform: translateY(-20px); }
   }
 }
+
+/* Story mocks: slow, transform/opacity only loops. They pause when the phone is off screen. */
+@keyframes tbx-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.35; }
+  30% { transform: translateY(-3px); opacity: 1; }
+}
+@keyframes tbx-ripple {
+  0% { transform: scale(0.4); opacity: 0.55; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes tbx-ping {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+@keyframes tbx-pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+.tbx-anim { animation-play-state: running; }
+[data-play="false"] .tbx-anim { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .tbx-anim { animation: none !important; }
+}
+.tbx-grid {
+  background-image:
+    linear-gradient(to right, hsl(var(--primary) / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at 70% 40%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 40%, black 0%, transparent 70%);
+}
+
+@keyframes tbx-travel {
+  0% { offset-distance: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
