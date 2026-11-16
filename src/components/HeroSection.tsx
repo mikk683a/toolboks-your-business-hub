@@ -73,9 +73,9 @@ const HeroSection = () => {
                 Opret gratis konto
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button variant="heroOutline" size="xl" onClick={() => document.getElementById("hele-forloebet")?.scrollIntoView({ behavior: "smooth" })}>
+              <Button variant="heroOutline" size="xl" onClick={() => document.getElementById("en-tirsdag")?.scrollIntoView({ behavior: "smooth" })}>
                 <Play className="w-5 h-5" />
-                Se, hvordan det virker
+                Se en dag med Toolboks
               </Button>
             </div>
 
@@ -102,7 +102,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div ref={stageRef} id="en-tirsdag" className="relative z-10 scroll-mt-24">
+            <div ref={stageRef} className="relative z-10">
               <div className="flex justify-center">
                 <FloatingPhone
                   label={`${TUESDAY_STORY.mockLabel} Viser trin ${active + 1} af ${STEPS.length}.`}
@@ -129,10 +129,6 @@ const HeroSection = () => {
                   ))}
                 </div>
               </div>
-              {/* The whole day as text, for screen readers and search engines */}
-              <ol className="sr-only">
-                {STEPS.map((s) => <li key={s.title}>{s.time}, {s.scene}: {s.title}. {s.text}</li>)}
-              </ol>
             </div>
 
             {/* Decorative Elements */}
