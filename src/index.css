@@ -169,6 +169,14 @@
   -webkit-mask-image: radial-gradient(ellipse at 70% 40%, black 0%, transparent 70%);
 }
 
+/* A dot that runs down a line of any length (the sync lines under "Hele forløbet"). */
+@keyframes tbx-drop {
+  0% { top: 0; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
 @keyframes tbx-travel {
   0% { offset-distance: 0%; opacity: 0; }
   15% { opacity: 1; }
