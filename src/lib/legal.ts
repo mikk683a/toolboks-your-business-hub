@@ -73,7 +73,7 @@ const privacy: LegalDoc = {
     {
       heading: "Overførsel uden for EU",
       paragraphs: [
-        "Nogle underleverandører er amerikanske. Overførsler sker efter EU-Kommissionens standardkontraktbestemmelser eller EU-U.S. Data Privacy Framework.",
+        "Databasen ligger hos Supabase i London (Storbritannien). EU-Kommissionen har vurderet, at Storbritannien beskytter persondata på samme niveau som EU. Nogle underleverandører er amerikanske. Overførsler til dem sker efter EU-Kommissionens standardkontraktbestemmelser eller EU-U.S. Data Privacy Framework.",
       ],
     },
     {

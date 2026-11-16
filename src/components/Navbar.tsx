@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Wrench } from "lucide-react";
+import { Menu, X, BriefcaseBusiness } from "lucide-react";
 import { motion, AnimatePresence } from "@/lib/motion";
 
 const APP_URL = "https://app.toolboks.dk";
@@ -27,8 +27,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-hero-gradient flex items-center justify-center">
-              <Wrench className="w-5 h-5 text-primary-foreground" />
+            <div className="w-10 h-10 rounded-xl bg-[#0b6fb0] flex items-center justify-center">
+              <BriefcaseBusiness className="w-6 h-6 text-white" strokeWidth={2.2} />
             </div>
             <span className="text-xl font-bold text-foreground">Toolboks</span>
           </a>

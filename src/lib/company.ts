@@ -6,6 +6,6 @@ export const COMPANY = {
   cvr: "46920171",
   /** Registered address. Empty until it is confirmed; the pages then leave it out. */
   address: "",
-  email: "admin@toolboks.dk",
+  email: "kontakt@toolboks.dk",
   site: "toolboks.dk",
 } as const;
