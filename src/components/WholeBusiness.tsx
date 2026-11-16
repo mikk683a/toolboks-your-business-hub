@@ -62,10 +62,10 @@ const WholeBusiness = () => {
   const run = armed && live;
 
   return (
-    <section id="hele-forloebet" aria-labelledby="forloeb-title" className="bg-secondary/30 py-16 lg:py-24">
+    <section id="hele-forloebet" aria-labelledby="forloeb-title" className="scroll-mt-20 py-16 lg:py-24">
       <div className="container mx-auto max-w-7xl px-4">
         <header className="mb-10 max-w-2xl lg:mb-12">
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">Hele forløbet</span>
+          <span id="saadan-virker-det" className="mb-3 inline-block scroll-mt-24 text-sm font-semibold uppercase tracking-wider text-primary">Sådan virker det</span>
           <h2 id="forloeb-title" className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Ét system fra første besked til løn</h2>
           <p className="text-lg text-muted-foreground">Du skriver kundens oplysninger én gang. Resten følger med hele vejen, helt over i det regnskabsprogram og lønsystem, du bruger i dag.</p>
         </header>

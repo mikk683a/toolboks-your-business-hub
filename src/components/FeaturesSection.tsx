@@ -47,12 +47,6 @@ const features = [
   },
 ];
 
-const steps = [
-  { title: "En kunde skriver, mens du arbejder", text: "Hun bruger dit bookinglink eller din hjemmeside. Henvendelsen lander i Toolboks, og du får en SMS med det samme." },
-  { title: "Tilbud og tid er klar", text: "Toolboks laver et udkast til tilbuddet ud fra dine priser og foreslår en tid, der passer i ruten. Du retter og godkender." },
-  { title: "Jobbet er lavet, fakturaen er klar", text: "Jobbet står i kalenderen. Når du afslutter det, er fakturaen klar til at blive sendt." },
-];
-
 const FeaturesSection = () => {
   return (
     <section id="features" className="py-20 lg:py-28 bg-secondary/30">
@@ -74,19 +68,6 @@ const FeaturesSection = () => {
             Toolboks tager sig af det, der ellers venter til om aftenen: svare kunder, skrive tilbud, planlægge og fakturere.
           </p>
         </motion.div>
-
-        <div id="saadan-virker-det" className="max-w-4xl mx-auto mb-16 scroll-mt-24">
-          <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Sådan virker det</h3>
-          <ol className="grid md:grid-cols-3 gap-6">
-            {steps.map((step, index) => (
-              <li key={step.title} className="bg-card rounded-2xl p-6 border border-border">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold mb-4">{index + 1}</span>
-                <p className="font-semibold text-foreground mb-2">{step.title}</p>
-                <p className="text-muted-foreground leading-relaxed">{step.text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
           {features.map((feature, index) => (
