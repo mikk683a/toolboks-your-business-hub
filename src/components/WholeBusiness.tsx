@@ -8,7 +8,7 @@ import { Calendar, Clock, FileText, Globe, Hammer, Inbox, MessageCircle, Message
 import { useLive, usePrefersReducedMotion } from "@/components/story/primitives";
 
 interface Channel { label: string; text: string; Icon: LucideIcon }
-interface Station { label: string; text: string; tag: string; Icon: LucideIcon }
+interface Station { label: string; text: string; tag: string; Icon: LucideIcon; works?: string[] }
 
 const CHANNELS_IN: Channel[] = [
   { label: "Telefon", text: "Assistenten svarer med en SMS", Icon: PhoneForwarded },
@@ -17,13 +17,15 @@ const CHANNELS_IN: Channel[] = [
   { label: "Hjemmeside", text: "Bookinglink og prisberegner", Icon: Globe },
 ];
 
+// Each step says what the owner gets out of it. The last two point at the
+// systems the firm already uses: Toolboks hands over to them, it does not replace them.
 const CHAIN: Station[] = [
-  { label: "Henvendelse", text: "Alt lander i én indbakke.", tag: "Anne, hæk 30 m", Icon: Inbox },
-  { label: "Tilbud", text: "Udkast ud fra dine priser. Kunden siger ja på SMS.", tag: "Ja på SMS", Icon: FileText },
-  { label: "Planlægning", text: "Forslag til tid og medarbejder ud fra ruten.", tag: "Tirsdag kl. 8", Icon: Calendar },
-  { label: "Job", text: "Dagens rute og billeder før og efter.", tag: "Før og efter", Icon: Hammer },
-  { label: "Faktura", text: "Lavet, når jobbet er færdigt.", tag: "Sendt til kunden", Icon: Receipt },
-  { label: "Timer og løn", text: "Stempling på mobilen og eksport til løn.", tag: "3,5 timer", Icon: Clock },
+  { label: "Henvendelse", text: "Alle henvendelser samlet ét sted, så ingen kunde bliver glemt.", tag: "Anne, hæk 30 m", Icon: Inbox },
+  { label: "Tilbud", text: "AI skriver udkastet ud fra dine egne priser. Kunden svarer med ét tryk.", tag: "Kunden sagde ja", Icon: FileText },
+  { label: "Planlægning", text: "AI kigger i din kalender og finder den tid, der giver mindst kørsel.", tag: "Tirsdag kl. 8", Icon: Calendar },
+  { label: "Job", text: "Dagens rute i den rigtige rækkefølge. Billeder før og efter ligger på jobbet.", tag: "Før og efter", Icon: Hammer },
+  { label: "Faktura", text: "Klar, når jobbet er færdigt, og sendt over i dit regnskabsprogram.", tag: "Sendt og bogført", Icon: Receipt, works: ["Billy", "Dinero", "e-conomic"] },
+  { label: "Timer og løn", text: "Stempling på mobilen. Godkendte timer går direkte til dit lønsystem.", tag: "Timer sendt til løn", Icon: Clock, works: ["Danløn", "DataLøn", "Zenegy"] },
 ];
 
 const LAST = CHAIN.length - 1;
@@ -53,16 +55,16 @@ const WholeBusiness = () => {
 
   return (
     <section id="hele-forloebet" aria-labelledby="forloeb-title" className="bg-secondary/30 py-16 lg:py-24">
-      <div className="container mx-auto max-w-6xl px-4">
+      <div className="container mx-auto max-w-7xl px-4">
         <header className="mb-10 max-w-2xl lg:mb-12">
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-wider text-primary">Hele forløbet</span>
           <h2 id="forloeb-title" className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Ét system fra første besked til løn</h2>
-          <p className="text-lg text-muted-foreground">Du skriver kundens oplysninger én gang. Resten følger med hele vejen.</p>
+          <p className="text-lg text-muted-foreground">Du skriver kundens oplysninger én gang. Resten følger med hele vejen, helt over i det regnskabsprogram og lønsystem, du bruger i dag.</p>
         </header>
 
-        <div ref={ref} data-play={run ? "true" : "false"} className="mx-auto max-w-xl lg:mx-0 lg:flex lg:max-w-none lg:items-start">
+        <div ref={ref} data-play={run ? "true" : "false"} className="mx-auto max-w-xl xl:mx-0 xl:flex xl:max-w-none xl:items-start">
           {/* Where the customer comes from */}
-          <ul aria-label="Her kommer kunderne fra" className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:w-64 lg:shrink-0 lg:grid-cols-1">
+          <ul aria-label="Her kommer kunderne fra" className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:w-64 xl:shrink-0 xl:grid-cols-1">
             {CHANNELS_IN.map((c) => (
               <li key={c.label} className="flex h-[52px] items-center gap-3 rounded-xl border border-border bg-card px-3">
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><c.Icon className="h-4 w-4" aria-hidden="true" /></span>
@@ -75,10 +77,10 @@ const WholeBusiness = () => {
           </ul>
 
           {/* The channels run together. Desktop: four curves into one point. Mobile: a short line down. */}
-          <svg aria-hidden="true" viewBox={`0 0 64 ${MID * 2}`} width="64" height={MID * 2} fill="none" className="hidden shrink-0 lg:block">
+          <svg aria-hidden="true" viewBox={`0 0 56 ${MID * 2}`} width="56" height={MID * 2} fill="none" className="hidden shrink-0 xl:block">
             {CHANNELS_IN.map((c, i) => {
               const y = ROW / 2 + i * (ROW + GAP);
-              const d = `M0 ${y} C 34 ${y}, 30 ${MID}, 64 ${MID}`;
+              const d = `M0 ${y} C 30 ${y}, 26 ${MID}, 56 ${MID}`;
               return (
                 <g key={c.label}>
                   <path d={d} className="stroke-primary/40" strokeWidth="2" strokeLinecap="round" />
@@ -87,33 +89,41 @@ const WholeBusiness = () => {
               );
             })}
           </svg>
-          <span aria-hidden="true" className="ml-6 block h-6 w-0.5 -translate-x-1/2 bg-primary/40 lg:hidden" />
+          <span aria-hidden="true" className="ml-6 block h-6 w-0.5 -translate-x-1/2 bg-primary/40 xl:hidden" />
 
           {/* One customer, one line */}
-          <ol aria-label="Forløbet fra henvendelse til løn" className="lg:grid lg:flex-1 lg:grid-cols-6">
+          <ol aria-label="Forløbet fra henvendelse til løn" className="xl:grid xl:flex-1 xl:grid-cols-6">
             {CHAIN.map((s, i) => {
               const reached = i <= step;
               const current = i === step && run;
               return (
-                <li key={s.label} className="relative flex gap-4 pb-8 last:pb-0 lg:flex-col lg:items-center lg:gap-0 lg:px-2 lg:pb-0 lg:text-center">
+                <li key={s.label} className="relative flex gap-4 pb-8 last:pb-0 xl:flex-col xl:items-center xl:gap-0 xl:px-2 xl:pb-0 xl:text-center">
                   {/* desktop: what this step added, floating above the line */}
-                  <span className="hidden items-end pb-3 lg:flex" style={{ height: MID - 28 }}><Tag on={reached}>{s.tag}</Tag></span>
+                  <span className="hidden items-end pb-3 xl:flex" style={{ height: MID - 28 }}><Tag on={reached}>{s.tag}</Tag></span>
                   {/* the line into the first station (desktop) */}
-                  {i === 0 && <span aria-hidden="true" className="absolute right-1/2 hidden h-0.5 w-1/2 bg-primary/40 lg:block" style={{ top: MID - 1 }} />}
+                  {i === 0 && <span aria-hidden="true" className="absolute right-1/2 hidden h-0.5 w-1/2 bg-primary/40 xl:block" style={{ top: MID - 1 }} />}
                   {/* the line on to the next station: down on mobile, across on desktop */}
                   {i < LAST && (
-                    <span aria-hidden="true" className="absolute left-6 top-12 h-[calc(100%-3rem)] w-0.5 -translate-x-1/2 bg-border lg:left-1/2 lg:top-[var(--mid)] lg:h-0.5 lg:w-full lg:translate-x-0" style={{ "--mid": `${MID - 1}px` } as CSSProperties}>
-                      <span className={`block h-full w-full origin-top bg-primary transition-transform ease-out lg:origin-left ${i < step ? "scale-y-100 duration-700 lg:scale-x-100" : "scale-y-0 duration-0 lg:scale-x-0 lg:scale-y-100"}`} />
+                    <span aria-hidden="true" className="absolute left-6 top-12 h-[calc(100%-3rem)] w-0.5 -translate-x-1/2 bg-border xl:left-1/2 xl:top-[var(--mid)] xl:h-0.5 xl:w-full xl:translate-x-0" style={{ "--mid": `${MID - 1}px` } as CSSProperties}>
+                      <span className={`block h-full w-full origin-top bg-primary transition-transform ease-out xl:origin-left ${i < step ? "scale-y-100 duration-700 xl:scale-x-100" : "scale-y-0 duration-0 xl:scale-x-0 xl:scale-y-100"}`} />
                     </span>
                   )}
-                  <span className={`relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 transition-colors duration-500 lg:h-14 lg:w-14 ${reached ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card text-muted-foreground"}`}>
+                  <span className={`relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 transition-colors duration-500 xl:h-14 xl:w-14 ${reached ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card text-muted-foreground"}`}>
                     {current && <span aria-hidden="true" className="tbx-anim absolute inset-0 rounded-full border-2 border-primary" style={{ animation: "tbx-pulse-ring 1.4s infinite ease-out" }} />}
-                    <s.Icon className="h-5 w-5 lg:h-6 lg:w-6" aria-hidden="true" />
+                    <s.Icon className="h-5 w-5 xl:h-6 xl:w-6" aria-hidden="true" />
                   </span>
-                  <div className="min-w-0 pt-1 lg:pt-4">
+                  <div className="min-w-0 pt-1 xl:pt-4">
                     <h3 className="font-semibold text-foreground"><span className="mr-1.5 tabular-nums text-muted-foreground">{i + 1}.</span>{s.label}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
-                    <Tag on={reached} className="mt-2 lg:hidden">{s.tag}</Tag>
+                    {s.works && (
+                      <div className="mt-2">
+                        <p className="mb-1 text-xs font-semibold text-foreground">Spiller sammen med</p>
+                        <ul className="flex flex-wrap gap-1.5 xl:justify-center">
+                          {s.works.map((w) => <li key={w} className="rounded-md border border-border bg-card px-2 py-0.5 text-xs font-medium text-foreground">{w}</li>)}
+                        </ul>
+                      </div>
+                    )}
+                    <Tag on={reached} className="mt-2 xl:hidden">{s.tag}</Tag>
                   </div>
                 </li>
               );
