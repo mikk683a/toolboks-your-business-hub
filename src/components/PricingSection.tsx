@@ -1,23 +1,23 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "@/lib/motion";
-import { PRICE_LINE, PRICE_PER_USER, TRIAL_LINE, TRIAL_MONTHS } from "@/lib/site";
+import { INCLUDED_EMPLOYEES, PRICE_EXTRA_LINE, PRICE_FIRM, PRICE_LINE, TRIAL_LINE, TRIAL_MONTHS } from "@/lib/site";
 
 const plan = {
   name: "Toolboks",
-  description: "Til små servicevirksomheder, der kører ud til kunder",
-  price: String(PRICE_PER_USER),
+  description: `Hele appen for dig og op til ${INCLUDED_EMPLOYEES} medarbejdere`,
+  price: String(PRICE_FIRM),
   currency: "kr",
-  period: " pr. bruger pr. måned",
+  period: " pr. måned for firmaet",
   features: [
     TRIAL_LINE,
-    "Forespørgsler, tilbud og jobs ét sted",
-    "Kalender med køretid for hele holdet",
-    "Faktura med betalingslink og påmindelser",
+    "Kunder, tilbud, jobs og faktura ét sted",
+    "Tilbud ud fra dine egne priser",
+    "Kalender, der foreslår tid og rute",
+    "Bookinglink og prisberegner til dine kunder",
     "Timeregistrering med eksport til løn",
-    "E-mail, SMS, Messenger og Instagram samlet",
-    "Gratis hjemmeside til dine kunder",
-    "Adgang via mobil og browser",
+    "Gratis hjælp til opsætning",
+    PRICE_EXTRA_LINE.charAt(0).toUpperCase() + PRICE_EXTRA_LINE.slice(1),
   ],
 };
 
@@ -36,10 +36,10 @@ const PricingSection = () => {
             Priser
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Simpel, <span className="text-gradient">ærlig prissætning</span>
+            Én pris. <span className="text-gradient">Ingen binding.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Du betaler {PRICE_LINE}. De første {TRIAL_MONTHS} måneder er gratis, og du skal ikke oplyse betalingskort. Afmeld når som helst.
+            {PRICE_LINE.charAt(0).toUpperCase() + PRICE_LINE.slice(1)}. {PRICE_EXTRA_LINE.charAt(0).toUpperCase() + PRICE_EXTRA_LINE.slice(1)}. De første {TRIAL_MONTHS} måneder er gratis, og du skal ikke oplyse betalingskort.
           </p>
         </motion.div>
 

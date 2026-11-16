@@ -24,7 +24,7 @@ const who = [
 export const SUBPROCESSORS = [
   "Lovable (Lovable Labs Incorporated): drift af app og hjemmeside, database, login og login-mails (notify.toolboks.dk).",
   "Supabase: database og filer bag Lovable Cloud.",
-  "Resend: afsendelse af mails fra noreply@toolboks.dk (tilbud, regninger, påmindelser, invitationer).",
+  "Resend: afsendelse af mails fra noreply@toolboks.dk (tilbud, fakturaer, påmindelser om besøg, invitationer).",
   "GatewayAPI (OnlineCity.IO ApS, Danmark): afsendelse af SMS fra firmaets eget navn eller nummer.",
   "Twilio: telefonnummer og SMS til tilvalget \"Toolboks svarer\", kun for firmaer der har slået det til.",
   "Google: køretider og adresser (Google Maps) og AI-modellen bag tilbudsforslag og \"Toolboks svarer\" (Gemini via Lovables AI-tjeneste).",
@@ -106,7 +106,7 @@ const terms: LegalDoc = {
     {
       heading: "Pris og prøveperiode",
       list: [
-        "Basispakken koster 49 kr. pr. bruger pr. måned ekskl. moms.",
+        "Toolboks koster 249 kr. pr. måned ekskl. moms for firmaet med op til 2 medarbejdere. Hver ekstra medarbejder koster 49 kr. pr. måned ekskl. moms.",
         "De første 3 måneder er gratis. Det kræver ikke betalingskort.",
         "Tilvalg som \"Toolboks svarer\" har deres egen pris, som står i appen, før du slår dem til.",
         "Prisændringer varsles mindst 30 dage før.",

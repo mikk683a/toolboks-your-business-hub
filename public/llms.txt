@@ -1,18 +1,19 @@
 # Toolboks
 
-> Toolboks er en dansk admin-app til små servicevirksomheder med 1 til 20 medarbejdere, der kører ud til kunder. Den samler forespørgsler, tilbud, kalender med køretid, jobs, faktura, timeregistrering og kundebeskeder ét sted.
+> Toolboks er en dansk admin-app til små servicevirksomheder med 1 til 20 medarbejdere, der kører ud til kunder. Den samler henvendelser, tilbud, kalender med køretid, jobs, faktura, timeregistrering og kundebeskeder ét sted.
 
-Pris: 49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og man skal ikke oplyse betalingskort for at starte. Prisen er ekskl. moms. App: https://app.toolboks.dk
+Pris: 249 kr pr. måned for firmaet med op til 2 medarbejdere. 49 kr pr. ekstra medarbejder. De første 3 måneder er gratis, og man skal ikke oplyse betalingskort for at starte. Prisen er ekskl. moms. App: https://app.toolboks.dk
 
 ## Hvad Toolboks kan
 
-- Forespørgsler: nye henvendelser fra hjemmesiden og kundernes beskeder lander i en indbakke.
+- Henvendelser: nye henvendelser fra hjemmesiden og kundernes beskeder lander i en indbakke.
 - Tilbud: send tilbud som PDF på SMS og e-mail. Kunden accepterer med ét tryk.
 - Planlægning: fælles kalender for holdet og forslag til tider, hvor køretiden er regnet med.
-- Faktura: fakturaen laves, når jobbet er færdigt, med betalingslink og automatiske påmindelser.
+- Faktura: fakturaen laves, når jobbet er færdigt, og sendes på SMS eller e-mail. Kan sendes videre til Billy.
+- Tilbud ud fra egne priser: Toolboks laver et udkast ud fra firmaets egen prisliste. Ejeren læser og sender selv.
 - Timeregistrering: registrering af medarbejdernes daglige arbejdstid med eksport til løn. Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres. Registreringerne skal gemmes i 5 år. Ikke juridisk rådgivning.
-- Beskeder samlet: e-mail, SMS, Messenger og Instagram i samme indbakke.
-- Gratis hjemmeside, hvor kunder kan sende en forespørgsel.
+- Beskeder samlet: SMS, e-mail og henvendelser fra hjemmeside, bookinglink og prisberegner i samme indbakke.
+- Gratis hjemmeside, hvor kunder kan sende en henvendelse.
 
 ## Virker med det, du har
 
@@ -48,6 +49,6 @@ Pris: 49 kr pr. bruger pr. måned. De første 3 måneder er gratis, og man skal 
 Det følgende er ikke tilgængeligt og har ingen dato. Det må ikke omtales som en funktion, der findes i dag.
 
 - Toolboks svarer, når du ikke når telefonen: en digital assistent skriver en SMS til den, der ringede, og spørger om opgaven.
-- Udkast til tilbud ud fra dine egne priser. Du læser og sender selv.
+- Beskeder fra Messenger og Instagram i samme indbakke. Afventer godkendelse fra Meta.
 - Du vælger selv, hvornår den digitale assistent må svare, og kan altid tage over.
 - Bogholderi: Dinero og e-conomic. Kun Billy virker i dag.

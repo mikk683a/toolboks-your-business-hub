@@ -152,7 +152,7 @@ const CTASection = () => {
         </motion.div>
 
         <p className="text-center text-muted-foreground text-sm mt-6">
-          Ingen betalingskort. Ingen binding. Kom i gang på 15 minutter.
+          Ingen betalingskort. Ingen binding. Vi hjælper dig i gang, gratis.
         </p>
       </div>
     </section>

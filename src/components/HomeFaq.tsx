@@ -9,19 +9,27 @@ export const HOME_FAQ: Faq[] = [
   },
   {
     q: "Hvem er Toolboks til?",
-    a: "Små servicevirksomheder med 1 til 20 medarbejdere, der kører ud til kunder. For eksempel træfældere, haveservice, skadedyrsbekæmpere, algerens, vinduespudsere og rengøringsfirmaer.",
+    a: "Firmaer med 1 til 20 medarbejdere, der kører ud til kunder. For eksempel træfældere, haveservice, skadedyrsbekæmpere, algerens, vinduespudsere og rengøringsfirmaer.",
+  },
+  {
+    q: "Hvor lang tid tager det at komme i gang?",
+    a: "Du kan sende dit første tilbud samme dag. Vi sætter resten op sammen med dig på 30 minutter, og det koster ikke noget.",
+  },
+  {
+    q: "Skal jeg skifte telefonnummer eller regnskabsprogram?",
+    a: "Nej. Du beholder dit nummer og dit regnskabsprogram. Bruger du Billy, kommer fakturaerne automatisk derover. Flere regnskabsprogrammer er på vej.",
+  },
+  {
+    q: "Hvad sker der, når de 3 måneder er gået?",
+    a: "Du får en mail 14 dage før. Der bliver ikke lukket for noget, og du har ikke oplyst et kort, så der trækkes ikke penge af sig selv.",
   },
   {
     q: "Kan Toolboks registrere mine medarbejderes arbejdstid?",
     a: "Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres. Registreringerne skal gemmes i 5 år. Toolboks har timeregistrering med eksport til løn. Er du i tvivl om reglerne, så spørg din brancheorganisation eller en rådgiver.",
   },
   {
-    q: "Kan jeg samle beskeder fra kunderne?",
-    a: "Ja. E-mail, SMS, Messenger og Instagram lander i samme indbakke i Toolboks.",
-  },
-  {
     q: "Får jeg en hjemmeside?",
-    a: "Ja. Du får en gratis hjemmeside, hvor kunder kan sende en forespørgsel. Forespørgslerne kommer ind i din indbakke.",
+    a: "Ja. Vi laver en hjemmeside til dig eller kobler din nuværende på, så henvendelser lander i Toolboks.",
   },
 ];
 

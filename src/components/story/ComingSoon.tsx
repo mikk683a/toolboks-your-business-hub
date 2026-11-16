@@ -8,9 +8,9 @@ export const COMING_SOON = [
     text: "Du kan ikke tage telefonen, når du står i en have. Idéen er, at en digital assistent skriver en SMS til den, der ringede. Den spørger, hvad opgaven er, og kan foreslå et besøg.",
   },
   {
-    key: "udkast",
-    title: "Udkast til tilbud ud fra dine egne priser",
-    text: "Idéen er, at Toolboks laver et udkast til et tilbud ud fra de priser, du selv har lagt ind. Du læser det igennem og sender det selv.",
+    key: "sociale",
+    title: "Beskeder fra Messenger og Instagram",
+    text: "Idéen er, at beskeder fra din Facebook-side og Instagram lander i samme indbakke som resten. Vi venter på godkendelse fra Meta.",
   },
   {
     key: "kontrol",
@@ -79,24 +79,17 @@ const ComingSoon = () => {
             </Bubble>
           </>
         )} />
-      {/* b: draft quote from own prices */}
+      {/* b: Messenger and Instagram in the same inbox */}
       <Card {...COMING_SOON[1]} render={(s) => (
           <>
             <Appear on={s}>
-              <div className="rounded-lg border border-border bg-card px-2 py-1.5">
-                <div className="font-semibold">Dine priser</div>
-                <div className="text-muted-foreground">Timepris, kørsel, materialer</div>
-              </div>
+              <Chip tone="primary">Messenger</Chip>
             </Appear>
-            <Appear on={s} delay={0.4}>
-              <div className="rounded-lg border border-dashed border-primary bg-primary/5 px-2 py-1.5">
-                <div className="mb-1 font-semibold text-primary">Udkast til tilbud</div>
-                <div className="h-1.5 w-4/5 rounded bg-primary/20" />
-                <div className="mt-1 h-1.5 w-3/5 rounded bg-primary/20" />
-              </div>
-            </Appear>
-            <Appear on={s} delay={0.8}>
-              <div className="text-muted-foreground">Du læser det igennem og sender det selv.</div>
+            <Bubble on={s} delay={0.3} side="l">
+              Hvad koster hækklipning af 30 meter?
+            </Bubble>
+            <Appear on={s} delay={0.7}>
+              <div className="text-muted-foreground">Lander under Kunder sammen med SMS og e-mail.</div>
             </Appear>
           </>
         )} />
