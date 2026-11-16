@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FEATURE_BLURBS, FEATURE_PAGES, featurePath } from "@/lib/features";
 import { TRADES, tradePath } from "@/lib/trades";
 import { TOOLS, toolPath } from "@/lib/tools";
+import { COMPANY } from "@/lib/company";
 
 const APP_URL = "https://app.toolboks.dk";
 
@@ -99,7 +100,8 @@ const Footer = () => (
 
       <div className="border-t border-border pt-8">
         <p className="text-muted-foreground text-sm text-center md:text-left">
-          © {new Date().getFullYear()} Toolboks. Alle rettigheder forbeholdes.
+          © {new Date().getFullYear()} {COMPANY.name} · CVR {COMPANY.cvr}{COMPANY.address ? ` · ${COMPANY.address}` : ""} ·{" "}
+          <a href={`mailto:${COMPANY.email}`} className="hover:text-foreground">{COMPANY.email}</a>
         </p>
       </div>
     </div>
