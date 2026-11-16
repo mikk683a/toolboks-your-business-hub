@@ -4,10 +4,8 @@ import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import BranchesSection from "@/components/BranchesSection";
-import { ComingSoonSection, TuesdayStory } from "@/components/HomeStories";
 import WhereTimeGoes from "@/components/WhereTimeGoes";
 import WholeBusiness from "@/components/WholeBusiness";
-import IntegrationsStrip from "@/components/IntegrationsStrip";
 import PricingSection from "@/components/PricingSection";
 import HomeFaq, { HOME_FAQ } from "@/components/HomeFaq";
 import CTASection from "@/components/CTASection";
@@ -26,12 +24,9 @@ const Index = () => {
         <Navbar />
         <main>
           <HeroSection />
-          <TuesdayStory />
           <WhereTimeGoes />
-          <FeaturesSection />
           <WholeBusiness />
-          <ComingSoonSection />
-          <IntegrationsStrip />
+          <FeaturesSection />
           <BranchesSection />
           <TestimonialsSection />
           <PricingSection />

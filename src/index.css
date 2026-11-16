@@ -183,3 +183,6 @@
   85% { opacity: 1; }
   100% { offset-distance: 100%; opacity: 0; }
 }
+
+/* The hosting adds an "Edit with Lovable" badge to the published page. It does not belong on the firm's site. */
+#lovable-badge { display: none !important; }

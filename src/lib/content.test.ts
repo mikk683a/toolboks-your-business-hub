@@ -132,8 +132,7 @@ describe("coming soon features stay out of present-tense copy", () => {
     expect(llms.slice(0, idx)).not.toMatch(upcoming);
   });
   it("does not name unsupported payroll systems as integrations", () => {
-    const all = fs.readFileSync("public/llms.txt", "utf-8") + fs.readFileSync("src/components/IntegrationsStrip.tsx", "utf-8");
-    expect(all).not.toMatch(/Danløn|DataLøn|Zenegy/i);
+    expect(fs.readFileSync("public/llms.txt", "utf-8")).not.toMatch(/Danløn|DataLøn|Zenegy/i);
   });
   it("lists exactly six trades in the footer data", () => {
     expect(TRADES.length).toBe(6);
@@ -151,12 +150,5 @@ describe("bookkeeping integrations", () => {
     const idx = llms.indexOf("## Kommer snart");
     expect(llms.slice(0, idx)).not.toMatch(/Dinero|e-conomic/i);
     expect(llms.slice(idx)).toMatch(/Dinero/);
-  });
-  it("marks Dinero and e-conomic as coming soon in the strip", () => {
-    const strip = fs.readFileSync("src/components/IntegrationsStrip.tsx", "utf-8");
-    expect(strip).toMatch(/name: "Billy", live: true/);
-    expect(strip).toMatch(/name: "Dinero", live: false/);
-    expect(strip).toMatch(/name: "e-conomic", live: false/);
-    expect(strip).toMatch(/Kommer snart/);
   });
 });
