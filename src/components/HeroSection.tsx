@@ -48,9 +48,9 @@ const HeroSection = () => {
                 Opret gratis konto
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button variant="heroOutline" size="xl" onClick={() => document.getElementById("saadan-virker-det")?.scrollIntoView({ behavior: "smooth" })}>
+              <Button variant="heroOutline" size="xl" onClick={() => document.getElementById("en-tirsdag")?.scrollIntoView({ behavior: "smooth" })}>
                 <Play className="w-5 h-5" />
-                Se, hvordan det virker
+                Se en dag med Toolboks
               </Button>
             </div>
 

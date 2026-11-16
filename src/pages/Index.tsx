@@ -4,7 +4,9 @@ import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import BranchesSection from "@/components/BranchesSection";
-import { ComingSoonSection, DayStory, FlowStory, InboxStory } from "@/components/HomeStories";
+import { ComingSoonSection, TuesdayStory } from "@/components/HomeStories";
+import WhereTimeGoes from "@/components/WhereTimeGoes";
+import WholeBusiness from "@/components/WholeBusiness";
 import IntegrationsStrip from "@/components/IntegrationsStrip";
 import PricingSection from "@/components/PricingSection";
 import HomeFaq, { HOME_FAQ } from "@/components/HomeFaq";
@@ -24,10 +26,10 @@ const Index = () => {
         <Navbar />
         <main>
           <HeroSection />
+          <TuesdayStory />
+          <WhereTimeGoes />
           <FeaturesSection />
-          <InboxStory />
-          <FlowStory />
-          <DayStory />
+          <WholeBusiness />
           <ComingSoonSection />
           <IntegrationsStrip />
           <BranchesSection />
