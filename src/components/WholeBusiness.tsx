@@ -150,10 +150,10 @@ const WholeBusiness = () => {
               );
             })}
           </ol>
-          {/* The point of the two lines down: nothing the firm already uses has to be replaced. */}
+          {/* The firm does not set any of this up alone: website and the links to its own systems are done together with us. */}
           <p className="mt-8 rounded-2xl border border-border bg-card p-5 text-foreground xl:absolute xl:bottom-0 xl:left-0 xl:mt-0 xl:max-w-md">
-            <span className="block font-semibold">Du beholder de systemer, du har.</span>
-            <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">Fakturaer og timer går selv over i dit regnskabsprogram og dit lønsystem, så du ikke taster noget to gange.</span>
+            <span className="block font-semibold">Vi sætter det hele op sammen med dig.</span>
+            <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">Vi hjælper med din hjemmeside og kobler Toolboks på det regnskabsprogram og lønsystem, du bruger i dag. Du skal ikke skifte noget ud.</span>
           </p>
         </div>
       </div>
