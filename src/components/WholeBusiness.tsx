@@ -4,11 +4,13 @@
 // while the section is on screen. With no JavaScript, on the server and with
 // reduced motion it shows the settled picture: everything filled.
 import { useEffect, useState, type CSSProperties } from "react";
-import { Calendar, Clock, FileText, Globe, Hammer, Inbox, MessageCircle, MessagesSquare, PhoneForwarded, Receipt, type LucideIcon } from "lucide-react";
+import { Calendar, Clock, FileText, Globe, Hammer, Inbox, MessageCircle, MessagesSquare, PhoneForwarded, Receipt, RefreshCw, type LucideIcon } from "lucide-react";
 import { useLive, usePrefersReducedMotion } from "@/components/story/primitives";
 
 interface Channel { label: string; text: string; Icon: LucideIcon }
-interface Station { label: string; text: string; tag: string; Icon: LucideIcon; works?: string[] }
+interface Partner { name: string; /** Path to the partner's own logo file. Until it is there, the name is shown. */ logo?: string }
+interface Sync { what: string; to: Partner[] }
+interface Station { label: string; text: string; tag: string; Icon: LucideIcon; sync?: Sync }
 
 const CHANNELS_IN: Channel[] = [
   { label: "Telefon", text: "Assistenten svarer med en SMS", Icon: PhoneForwarded },
@@ -17,15 +19,15 @@ const CHANNELS_IN: Channel[] = [
   { label: "Hjemmeside", text: "Bookinglink og prisberegner", Icon: Globe },
 ];
 
-// Each step says what the owner gets out of it. The last two point at the
-// systems the firm already uses: Toolboks hands over to them, it does not replace them.
+// Each step says what the owner gets out of it. The last two are drawn with a
+// line on to the systems the firm already uses: Toolboks hands over to them.
 const CHAIN: Station[] = [
   { label: "Henvendelse", text: "Alle henvendelser samlet ét sted, så ingen kunde bliver glemt.", tag: "Anne, hæk 30 m", Icon: Inbox },
   { label: "Tilbud", text: "AI skriver udkastet ud fra dine egne priser. Kunden svarer med ét tryk.", tag: "Kunden sagde ja", Icon: FileText },
   { label: "Planlægning", text: "AI kigger i din kalender og finder den tid, der giver mindst kørsel.", tag: "Tirsdag kl. 8", Icon: Calendar },
   { label: "Job", text: "Dagens rute i den rigtige rækkefølge. Billeder før og efter ligger på jobbet.", tag: "Før og efter", Icon: Hammer },
-  { label: "Faktura", text: "Klar, når jobbet er færdigt, og sendt over i dit regnskabsprogram.", tag: "Sendt og bogført", Icon: Receipt, works: ["Billy", "Dinero", "e-conomic"] },
-  { label: "Timer og løn", text: "Stempling på mobilen. Godkendte timer går direkte til dit lønsystem.", tag: "Timer sendt til løn", Icon: Clock, works: ["Danløn", "DataLøn", "Zenegy"] },
+  { label: "Faktura", text: "Klar, når jobbet er færdigt, og sendt over i dit regnskabsprogram.", tag: "Sendt og bogført", Icon: Receipt, sync: { what: "Fakturaer", to: [{ name: "Billy" }, { name: "Dinero" }, { name: "e-conomic" }] } },
+  { label: "Timer og løn", text: "Stempling på mobilen. Godkendte timer går direkte til dit lønsystem.", tag: "Timer sendt til løn", Icon: Clock, sync: { what: "Timer", to: [{ name: "Danløn" }, { name: "DataLøn" }, { name: "Zenegy" }] } },
 ];
 
 const LAST = CHAIN.length - 1;
@@ -34,6 +36,12 @@ const ROW = 52, GAP = 12, MID = (CHANNELS_IN.length * ROW + (CHANNELS_IN.length 
 
 const Tag = ({ on, children, className = "" }: { on: boolean; children: string; className?: string }) => (
   <span className={`inline-block rounded-full bg-accent/15 px-2.5 py-1 text-xs font-semibold text-accent transition-all duration-500 ${on ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"} ${className}`}>{children}</span>
+);
+
+const PartnerTile = ({ p, lit }: { p: Partner; lit: boolean }) => (
+  <li className={`flex h-10 items-center justify-center rounded-lg border bg-card px-3 text-sm font-medium transition-colors duration-500 ${lit ? "border-primary/40 text-foreground" : "border-border text-muted-foreground"}`}>
+    {p.logo ? <img src={p.logo} alt={p.name} loading="lazy" className="max-h-5 w-auto" /> : p.name}
+  </li>
 );
 
 const WholeBusiness = () => {
@@ -62,7 +70,7 @@ const WholeBusiness = () => {
           <p className="text-lg text-muted-foreground">Du skriver kundens oplysninger én gang. Resten følger med hele vejen, helt over i det regnskabsprogram og lønsystem, du bruger i dag.</p>
         </header>
 
-        <div ref={ref} data-play={run ? "true" : "false"} className="mx-auto max-w-xl xl:mx-0 xl:flex xl:max-w-none xl:items-start">
+        <div ref={ref} data-play={run ? "true" : "false"} className="relative mx-auto max-w-xl xl:mx-0 xl:flex xl:max-w-none xl:items-start">
           {/* Where the customer comes from */}
           <ul aria-label="Her kommer kunderne fra" className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:w-64 xl:shrink-0 xl:grid-cols-1">
             {CHANNELS_IN.map((c) => (
@@ -115,20 +123,38 @@ const WholeBusiness = () => {
                   <div className="min-w-0 pt-1 xl:pt-4">
                     <h3 className="font-semibold text-foreground"><span className="mr-1.5 tabular-nums text-muted-foreground">{i + 1}.</span>{s.label}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
-                    {s.works && (
-                      <div className="mt-2">
-                        <p className="mb-1 text-xs font-semibold text-foreground">Spiller sammen med</p>
-                        <ul className="flex flex-wrap gap-1.5 xl:justify-center">
-                          {s.works.map((w) => <li key={w} className="rounded-md border border-border bg-card px-2 py-0.5 text-xs font-medium text-foreground">{w}</li>)}
+                    {/* mobile: the line on to the firm's own systems */}
+                    {s.sync && (
+                      <div className="mt-3 xl:hidden">
+                        <span className={`inline-flex items-center gap-1 rounded-full border bg-card px-2 py-0.5 text-[11px] font-semibold transition-colors duration-500 ${reached ? "border-primary/40 text-primary" : "border-border text-muted-foreground"}`}><RefreshCw className="h-3 w-3" aria-hidden="true" />{s.sync.what}</span>
+                        <ul aria-label={`${s.sync.what} går videre til`} className={`ml-3 mt-0 flex flex-wrap gap-2 border-l-2 pb-1 pl-3 pt-3 transition-colors duration-500 ${reached ? "border-primary/40" : "border-border"}`}>
+                          {s.sync.to.map((p) => <PartnerTile key={p.name} p={p} lit={reached} />)}
                         </ul>
                       </div>
                     )}
                     <Tag on={reached} className="mt-2 xl:hidden">{s.tag}</Tag>
                   </div>
+                  {/* desktop: a line from the step down to the firm's own systems, with what travels along it */}
+                  {s.sync && (
+                    <div className="hidden w-full flex-1 flex-col items-center xl:flex">
+                      <div aria-hidden="true" className={`relative mt-3 min-h-[72px] w-0.5 flex-1 transition-colors duration-500 ${reached ? "bg-primary/40" : "bg-border"}`}>
+                        {run && reached && <span className="tbx-anim absolute left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-primary" style={{ animation: "tbx-drop 2.2s infinite ease-in" }} />}
+                        <span className={`absolute left-1/2 top-1/2 inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 whitespace-nowrap rounded-full border bg-card px-2 py-0.5 text-[11px] font-semibold transition-colors duration-500 ${reached ? "border-primary/40 text-primary" : "border-border text-muted-foreground"}`}><RefreshCw className="h-3 w-3" />{s.sync.what}</span>
+                      </div>
+                      <ul aria-label={`${s.sync.what} går videre til`} className={`w-full space-y-1.5 rounded-xl border p-2 transition-colors duration-500 ${reached ? "border-primary/40 bg-primary/5" : "border-border bg-transparent"}`}>
+                        {s.sync.to.map((p) => <PartnerTile key={p.name} p={p} lit={reached} />)}
+                      </ul>
+                    </div>
+                  )}
                 </li>
               );
             })}
           </ol>
+          {/* The point of the two lines down: nothing the firm already uses has to be replaced. */}
+          <p className="mt-8 rounded-2xl border border-border bg-card p-5 text-foreground xl:absolute xl:bottom-0 xl:left-0 xl:mt-0 xl:max-w-md">
+            <span className="block font-semibold">Du beholder de systemer, du har.</span>
+            <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">Fakturaer og timer går selv over i dit regnskabsprogram og dit lønsystem, så du ikke taster noget to gange.</span>
+          </p>
         </div>
       </div>
     </section>
