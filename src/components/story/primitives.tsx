@@ -191,7 +191,7 @@ const TABS = [
   { label: "Hjem", Icon: Home },
   { label: "Kunder", Icon: Users },
   { label: "Kalender", Icon: Calendar },
-  { label: "Penge", Icon: Wallet },
+  { label: "Økonomi", Icon: Wallet },
 ];
 
 /** App shaped phone: status bar, Toolboks header, content, bottom tabs. Exposed as one image with a text label. */

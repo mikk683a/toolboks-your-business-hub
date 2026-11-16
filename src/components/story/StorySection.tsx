@@ -4,6 +4,9 @@ import { Phone, useLive, usePrefersReducedMotion } from "./primitives";
 export interface StoryStep {
   title: string;
   text: string;
+  /** Running story: when it happens ("Kl. 10.12") and where the owner is. */
+  time?: string;
+  scene?: string;
 }
 
 export interface PhoneState {
@@ -206,6 +209,12 @@ const StorySection = ({ id, eyebrow, title, intro, steps, mockLabel, renderMock,
                       {i + 1}
                     </span>
                     <div>
+                      {s.time && (
+                        <p className="mb-2 flex flex-wrap items-center gap-2 text-sm">
+                          <span className="rounded-full bg-foreground px-2.5 py-0.5 font-bold tabular-nums text-background">{s.time}</span>
+                          {s.scene && <span className="text-muted-foreground">{s.scene}</span>}
+                        </p>
+                      )}
                       <h3 className="mb-1.5 text-xl font-semibold text-foreground">{s.title}</h3>
                       <p className="leading-relaxed text-muted-foreground">{s.text}</p>
                     </div>

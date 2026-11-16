@@ -9,7 +9,7 @@ const APP_URL = "https://app.toolboks.dk";
 
 const productLinks = [
   { name: "Funktioner", href: "/#features" },
-  { name: "Se det i brug", href: "/#alle-kunder" },
+  { name: "Se det i brug", href: "/#en-tirsdag" },
   { name: "Priser", href: "/#pricing" },
   { name: "Opret gratis konto", href: "/#signup" },
 ];
