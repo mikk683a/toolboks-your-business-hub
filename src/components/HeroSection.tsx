@@ -11,9 +11,9 @@ const scrollToSignup = () => {
 
 const HeroSection = () => {
   const benefits = [
-    "Håndter kunder & jobs ét sted",
-    "Send tilbud og fakturaer",
-    "Gratis onboarding. Vi sætter det op.",
+    "3 måneder gratis, uden kort",
+    "Vi sætter det op sammen med dig",
+    "Ingen binding",
   ];
 
   return (
@@ -29,19 +29,18 @@ const HeroSection = () => {
           >
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              Nu i tidlig adgang. 3 måneder gratis
+              Til firmaer, der kører ud til kunder
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-              Styr din{" "}
-              <span className="text-gradient">servicevirksomhed</span>{" "}
-              fra mobilen
+              Mist ikke kunden,{" "}
+              <span className="text-gradient">mens du står på stigen</span>
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Toolboks er admin-værktøjet til små servicevirksomheder, der kører ud til kunder.
-              Håndter forespørgsler, send tilbud, planlæg jobs med køretid, registrer timer og send fakturaer.
-              Det koster {PRICE_LINE}, og de første {TRIAL_MONTHS} måneder er gratis, uden kort.
+              Toolboks samler alt, kunderne skriver og ringer om, laver tilbuddet ud fra dine priser
+              og finder en tid, der passer i ruten. Du godkender fra mobilen.
+              {" "}{PRICE_LINE.charAt(0).toUpperCase() + PRICE_LINE.slice(1)}. De første {TRIAL_MONTHS} måneder er gratis.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
@@ -49,9 +48,9 @@ const HeroSection = () => {
                 Opret gratis konto
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button variant="heroOutline" size="xl" onClick={() => document.getElementById("alle-kunder")?.scrollIntoView({ behavior: "smooth" })}>
+              <Button variant="heroOutline" size="xl" onClick={() => document.getElementById("saadan-virker-det")?.scrollIntoView({ behavior: "smooth" })}>
                 <Play className="w-5 h-5" />
-                Se demo
+                Se, hvordan det virker
               </Button>
             </div>
 

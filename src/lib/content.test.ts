@@ -39,7 +39,12 @@ describe("copy rules", () => {
     expect(allText).not.toMatch(/[–—]/);
   });
   it("never mentions the old prices", () => {
-    expect(allText).not.toMatch(/\b149\b|\b299\b/);
+    expect(allText).not.toMatch(/\b149\b|\b299\b|pr\. bruger/);
+  });
+  // 16 Nov 2026: only promise what works today.
+  it("does not promise payment links, reminders, Messenger or Instagram, and says kunde, not lead", () => {
+    expect(allText).not.toMatch(/betalingslink|betalingspåmindelse|automatiske påmindelser|\blead/i);
+    expect(allText.replace(/Messenger og Instagram er på vej/g, "")).not.toMatch(/Messenger|Instagram/);
   });
 });
 
@@ -73,25 +78,25 @@ describe("price from one source", () => {
     "public/llms.txt",
     "index.html",
   ];
-  it("never hard-codes a price other than the single price", () => {
+  it("never hard-codes a price other than the firm price and the price per extra employee", () => {
     for (const f of files) {
       const text = fs.readFileSync(f, "utf-8");
       for (const m of text.matchAll(/(\d[\d.]*)\s*kr\b/g)) {
-        expect(m[1], `${f}: ${m[0]}`).toBe("49");
+        expect(["249", "49"], `${f}: ${m[0]}`).toContain(m[1]);
       }
     }
   });
   it("uses the shared price constants in trades, FAQ and pricing", () => {
     for (const f of ["src/lib/trades.ts", "src/components/HomeFaq.tsx", "src/components/PricingSection.tsx"]) {
-      expect(fs.readFileSync(f, "utf-8"), f).not.toMatch(/\b49 kr\b/);
+      expect(fs.readFileSync(f, "utf-8"), f).not.toMatch(/\b(49|249) kr\b/);
     }
   });
   it("states the price in the offer JSON-LD with a unit and VAT flag", async () => {
     const { softwareJsonLd } = await import("../components/Seo");
     const spec = (softwareJsonLd.offers as { priceSpecification: Record<string, unknown> }).priceSpecification;
-    expect(spec.unitText).toBe("pr. bruger pr. måned");
+    expect(spec.unitText).toBe("pr. måned for firmaet, op til 2 medarbejdere");
     expect(spec.valueAddedTaxIncluded).toBe(false);
-    expect(spec.price).toBe("49");
+    expect(spec.price).toBe("249");
   });
 });
 
@@ -104,7 +109,8 @@ describe("time registration wording", () => {
 });
 
 describe("coming soon features stay out of present-tense copy", () => {
-  const upcoming = /digital assistent|AI-tilbud|udkast til tilbud|svarer, når du ikke/i;
+  // AI quote drafts went live in November 2026 (AI_QUOTE_ENABLED), so they are no longer "upcoming".
+  const upcoming = /digital assistent|svarer, når du ikke/i;
   const files = [
     "index.html",
     "src/components/Seo.tsx",

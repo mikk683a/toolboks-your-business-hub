@@ -7,30 +7,30 @@ export const INBOX_STORY = {
   intro:
     "Kunderne skriver, hvor det passer dem. Du slipper for at tjekke fire steder. Her er et eksempel med opdigtede kunder.",
   mockLabel:
-    "Eksempel på Toolboks indbakke med opdigtede kunder. Beskeder fra e-mail, SMS, Messenger og Instagram står i én liste, og et svar skrives i samme app.",
+    "Eksempel på Toolboks indbakke med opdigtede kunder. Beskeder fra flere steder står i én liste, og et svar skrives i samme app.",
   steps: [
     { title: "En e-mail kommer ind", text: "Hanne fra Køge skriver på e-mail. Beskeden står i indbakken med det samme." },
     { title: "En SMS kommer ind", text: "Jesper skriver en SMS. Den lander i samme liste." },
-    { title: "En besked på Messenger", text: "Mette skriver på Messenger. Du behøver ikke åbne en ny app." },
-    { title: "En besked på Instagram", text: "Camilla skriver på Instagram. Også den står i samme indbakke." },
+    { title: "En henvendelse fra hjemmesiden", text: "Mette udfylder formularen på din hjemmeside. Du behøver ikke åbne en ny app." },
+    { title: "En booking fra dit link", text: "Camilla vælger en tid til besigtigelse. Også den står i samme indbakke." },
     { title: "Du svarer fra samme sted", text: "Du trykker på samtalen og svarer. Svaret går tilbage til kunden den vej, hun skrev." },
   ] as StoryStep[],
 };
 
 export const FLOW_STORY = {
   id: "fra-forespoergsel-til-betalt",
-  eyebrow: "Fra forespørgsel til betalt",
+  eyebrow: "Fra henvendelse til betalt",
   title: "Fra første besked til betalt faktura",
   intro: "Samme oplysninger følger kunden hele vejen. Du skriver dem kun én gang. Her er et eksempel.",
   mockLabel:
-    "Eksempel på et forløb i Toolboks: forespørgsel, tilbud på SMS, kunden accepterer, job i kalenderen, faktura med betalingslink og betalt.",
+    "Eksempel på et forløb i Toolboks: henvendelse, tilbud på SMS, kunden accepterer, job i kalenderen, faktura, når jobbet er færdigt og betalt.",
   steps: [
-    { title: "Forespørgslen kommer ind", text: "En kunde skriver, at hun gerne vil have to træer fældet." },
+    { title: "Henvendelsen kommer ind", text: "En kunde skriver, at hun gerne vil have to træer fældet." },
     { title: "Tilbuddet sendes på SMS", text: "Du laver tilbuddet og sender det på SMS. Kunden får et link." },
     { title: "Kunden trykker Acceptér", text: "Kunden åbner linket og trykker Acceptér. Du behøver ikke vente på en underskrift." },
     { title: "Jobbet lander i kalenderen", text: "Det accepterede tilbud kan blive til et job i din kalender." },
-    { title: "Fakturaen sendes med betalingslink", text: "Når jobbet er færdigt, laves fakturaen. Kunden betaler via linket." },
-    { title: "Betalt", text: "Du kan se, at fakturaen er betalt. Hvis ikke, kan Toolboks sende en påmindelse." },
+    { title: "Fakturaen er klar", text: "Når jobbet er færdigt, er fakturaen lavet. Du sender den med ét tryk." },
+    { title: "Betalt", text: "Du markerer fakturaen som betalt og kan altid se, hvem der mangler." },
   ] as StoryStep[],
 };
 

@@ -36,7 +36,7 @@ const inbox: { ch: ChannelKey; name: string; text: string; time: string }[] = [
   { ch: "email", name: "Hanne, Køge", text: "Hej, kan I fælde to grantræer?", time: "09.38" },
   { ch: "sms", name: "Jesper, Roskilde", text: "Er I ledige i næste uge?", time: "09.39" },
   { ch: "messenger", name: "Mette, Næstved", text: "Hvad koster vinduespudsning?", time: "09.40" },
-  { ch: "instagram", name: "Camilla, Ringsted", text: "Kan I se på haven?", time: "09.41" },
+  { ch: "instagram", name: "Camilla, Ringsted", text: "Besigtigelse torsdag kl. 10.15", time: "09.41" },
 ];
 
 const REPLY = "Hej Hanne. Ja, vi kan komme torsdag.";
@@ -194,7 +194,7 @@ export const FlowMock = ({ active }: { active: number }) => {
           <Pop>
             <Card
               Icon={Check}
-              title="Forespørgsel"
+              title="Henvendelse"
               sub="Hej, kan I fælde to grantræer?"
               tone={`${CHANNELS.email.soft}`}
               right={
@@ -322,7 +322,7 @@ export const FlowMock = ({ active }: { active: number }) => {
         <div className="mb-1 rounded-xl border border-border bg-card px-2.5 py-2">
           <div className="mb-1.5 flex items-center justify-between text-[11px] font-semibold">
             <span>Forløb</span>
-            <span className="text-muted-foreground">{["Forespørgsel", "Tilbud", "Accepteret", "Job", "Faktura", "Betalt"][active]}</span>
+            <span className="text-muted-foreground">{["Henvendelse", "Tilbud", "Accepteret", "Job", "Faktura", "Betalt"][active]}</span>
           </div>
           <div className="flex gap-1">
             {[0, 1, 2, 3, 4, 5].map((i) => (

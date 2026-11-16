@@ -29,10 +29,10 @@ export const TRADES: Trade[] = [
     audience: "træfældere",
     title: "Administration for træfældere og arborister | Toolboks",
     description:
-      "Tilbud på SMS, planlægning med køretid og faktura med betalingslink til træfældere. Brug tiden på træerne, ikke på papirarbejdet. 3 måneder gratis.",
+      "Tilbud på SMS, planlægning med køretid og faktura til træfældere. Brug tiden på træerne, ikke på papirarbejdet. 3 måneder gratis.",
     h1: "Administration til træfældere",
     intro:
-      "Du står i en have med en motorsav, og telefonen ringer. Toolboks samler forespørgsler, tilbud, kalender og faktura, så papirarbejdet ikke kommer til at ligge i weekenden.",
+      "Du står i en have med en motorsav, og telefonen ringer. Toolboks samler henvendelser, tilbud, kalender og faktura, så papirarbejdet ikke kommer til at ligge i weekenden.",
     problemsHeading: "Det bruger træfældere tid på",
     problems: [
       "Kunder ringer, mens du er oppe i træet, og du glemmer at ringe tilbage.",
@@ -43,7 +43,7 @@ export const TRADES: Trade[] = [
     features: [
       {
         key: "forespoergsler",
-        text: "Forespørgsler fra hjemmesiden og beskeder lander i en indbakke. Du ser dem samlet, også de der kom, mens du arbejdede.",
+        text: "Henvendelser fra hjemmesiden og beskeder lander i en indbakke. Du ser dem samlet, også de der kom, mens du arbejdede.",
       },
       {
         key: "planlaegning",
@@ -59,7 +59,7 @@ export const TRADES: Trade[] = [
       },
       {
         key: "faktura",
-        text: "Når jobbet er færdigt, laves fakturaen med betalingslink. Toolboks sender påmindelser, hvis der mangler betaling.",
+        text: "Når jobbet er færdigt, er fakturaen lavet. Du sender den med ét tryk og kan se, hvem der har betalt.",
       },
     ],
     faq: [
@@ -87,7 +87,7 @@ export const TRADES: Trade[] = [
     audience: "haveservicefirmaer",
     title: "Administration for haveservice og havemænd | Toolboks",
     description:
-      "Planlæg mange små havejobs med køretid, send tilbud og faktura med betalingslink. Til haveservice. 3 måneder gratis.",
+      "Planlæg mange små havejobs med køretid, send tilbud og faktura fra mobilen. Til haveservice. 3 måneder gratis.",
     h1: "Administration til haveservice",
     intro:
       "Haveservice er mange små jobs hos mange kunder. Det betyder mange adresser, mange fakturaer og mange beskeder. Toolboks holder styr på det, så du kan holde fokus på haven.",
@@ -96,7 +96,7 @@ export const TRADES: Trade[] = [
       "Mange små jobs på en dag giver meget kørsel mellem kunderne.",
       "Kunder skriver for at flytte en tid eller bestille en ekstra opgave.",
       "Mange små fakturaer er nemme at glemme, og kunder glemmer at betale dem.",
-      "Sæsonen er travl, og nye forespørgsler bliver liggende.",
+      "Sæsonen er travl, og nye henvendelser bliver liggende.",
     ],
     features: [
       {
@@ -105,7 +105,7 @@ export const TRADES: Trade[] = [
       },
       {
         key: "beskeder",
-        text: "Kunderne skriver på e-mail, SMS, Messenger eller Instagram. Du svarer fra samme indbakke og finder samtalen igen næste gang.",
+        text: "Kunderne ringer, skriver en SMS eller bruger din hjemmeside. Du svarer fra samme indbakke og finder samtalen igen næste gang.",
       },
       {
         key: "tilbud",
@@ -113,11 +113,11 @@ export const TRADES: Trade[] = [
       },
       {
         key: "faktura",
-        text: "Fakturaen laves, når jobbet er færdigt, med betalingslink og automatiske påmindelser.",
+        text: "Fakturaen laves, når jobbet er færdigt. Du sender den med ét tryk og kan se, hvem der har betalt.",
       },
       {
         key: "hjemmeside",
-        text: "En gratis hjemmeside giver nye kunder et sted at sende deres forespørgsel.",
+        text: "En gratis hjemmeside giver nye kunder et sted at sende deres henvendelse.",
       },
     ],
     faq: [
@@ -131,7 +131,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Kan jeg samle kundernes beskeder?",
-        a: "Ja. E-mail, SMS, Messenger og Instagram lander i samme indbakke.",
+        a: "Ja. SMS, e-mail og henvendelser fra din hjemmeside lander i samme indbakke.",
       },
       {
         q: "Skal jeg bruge et betalingskort for at prøve?",
@@ -175,17 +175,17 @@ export const TRADES: Trade[] = [
       },
       {
         key: "faktura",
-        text: "Faktura med betalingslink, når besøget er afsluttet. Påmindelser sendes automatisk.",
+        text: "Fakturaen er lavet, når besøget er afsluttet. Du sender den med ét tryk.",
       },
     ],
     faq: [
       {
         q: "Kan jeg få akutte henvendelser ind hurtigt?",
-        a: "Ja. Forespørgsler fra hjemmesiden og beskeder fra kunder kommer ind i samme indbakke.",
+        a: "Ja. Henvendelser fra hjemmesiden og beskeder fra kunder kommer ind i samme indbakke.",
       },
       {
         q: "Kan jeg se hele samtalen med kunden i forbindelse med en opfølgning?",
-        a: "Beskeder på e-mail, SMS, Messenger og Instagram er samlet ét sted, så du kan finde dem igen.",
+        a: "Beskeder på SMS og e-mail er samlet ét sted, så du kan finde dem igen.",
       },
       {
         q: "Kan jeg planlægge flere besøg i samme område?",
@@ -203,13 +203,13 @@ export const TRADES: Trade[] = [
     audience: "firmaer, der laver algerens",
     title: "Administration for algerens og facaderens | Toolboks",
     description:
-      "Tilbud på SMS, kalender med køretid og faktura med betalingslink til algerens og facaderens. Mindre papirarbejde, flere jobs. 3 måneder gratis.",
+      "Tilbud på SMS, kalender med køretid og faktura til algerens og facaderens. Mindre papirarbejde, flere jobs. 3 måneder gratis.",
     h1: "Administration til algerens",
     intro:
-      "Algerens er sæsonarbejde med mange forespørgsler på de samme få uger. Toolboks hjælper dig med at svare hurtigt, få tilbud ud og flytte jobs i kalenderen, når planen ændrer sig.",
+      "Algerens er sæsonarbejde med mange henvendelser på de samme få uger. Toolboks hjælper dig med at svare hurtigt, få tilbud ud og flytte jobs i kalenderen, når planen ændrer sig.",
     problemsHeading: "Det bruger algerensere tid på",
     problems: [
-      "Forespørgslerne kommer i bølger, når det bliver forår og efterår.",
+      "Henvendelserne kommer i bølger, når det bliver forår og efterår.",
       "Kunden vil have en pris hurtigt, og ofte ud fra et billede eller en adresse.",
       "Vejret ændrer planen, og så skal kunder have besked om en ny tid.",
       "Fakturering bliver liggende i travle perioder.",
@@ -217,7 +217,7 @@ export const TRADES: Trade[] = [
     features: [
       {
         key: "forespoergsler",
-        text: "Når forespørgslerne vælter ind, ligger de samlet i en indbakke. Du kan se dem alle og svare i rækkefølge.",
+        text: "Når henvendelserne vælter ind, ligger de samlet i en indbakke. Du kan se dem alle og svare i rækkefølge.",
       },
       {
         key: "tilbud",
@@ -233,12 +233,12 @@ export const TRADES: Trade[] = [
       },
       {
         key: "faktura",
-        text: "Faktura med betalingslink, når jobbet er færdigt. Toolboks sender påmindelser.",
+        text: "Fakturaen er lavet, når jobbet er færdigt. Du sender den med ét tryk.",
       },
     ],
     faq: [
       {
-        q: "Kan jeg håndtere mange forespørgsler på en gang?",
+        q: "Kan jeg håndtere mange henvendelser på en gang?",
         a: "Ja. De ligger samlet i en indbakke, så du kan tage dem en ad gangen.",
       },
       {
@@ -261,7 +261,7 @@ export const TRADES: Trade[] = [
     audience: "vinduespudsere",
     title: "Administration for vinduespudsere | Toolboks",
     description:
-      "Planlæg mange små jobs om dagen med køretid, saml kundernes beskeder og send faktura med betalingslink. Til vinduespudsere. 3 måneder gratis.",
+      "Planlæg mange små jobs om dagen med køretid, saml kundernes beskeder og send faktura fra mobilen. Til vinduespudsere. 3 måneder gratis.",
     h1: "Administration til vinduespudsere",
     intro:
       "En vinduespudser har mange kunder på en dag og kører mellem dem hele tiden. Toolboks hjælper dig med at finde tider i kalenderen, hvor køretiden til nabojobs er regnet med, og samle beskeder og fakturaer.",
@@ -287,7 +287,7 @@ export const TRADES: Trade[] = [
       },
       {
         key: "faktura",
-        text: "Fakturaer med betalingslink og automatiske påmindelser, så du ikke skal bruge aftenen på småbeløb.",
+        text: "Fakturaen er lavet, når jobbet er færdigt, så du ikke skal bruge aftenen på småbeløb.",
       },
       {
         key: "timer",
@@ -309,7 +309,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Kan kunder bestille via en hjemmeside?",
-        a: "Ja. Du får en gratis hjemmeside, og forespørgsler derfra kommer ind i din indbakke.",
+        a: "Ja. Du får en gratis hjemmeside, og henvendelser derfra kommer ind i din indbakke.",
       },
     ],
   },
@@ -319,7 +319,7 @@ export const TRADES: Trade[] = [
     audience: "rengøringsfirmaer",
     title: "Administration for rengøringsfirmaer | Toolboks",
     description:
-      "Planlæg rengøringsopgaver med køretid, registrer medarbejdernes arbejdstid og send faktura med betalingslink. Til rengøringsfirmaer. 3 måneder gratis.",
+      "Planlæg rengøringsopgaver med køretid, registrer medarbejdernes arbejdstid og send faktura fra mobilen. Til rengøringsfirmaer. 3 måneder gratis.",
     h1: "Administration til rengøringsfirmaer",
     intro:
       "I et rengøringsfirma er det medarbejdernes tid, der er varen. Derfor skal timer, planer og fakturaer passe sammen. Toolboks samler det i ét system.",
@@ -341,7 +341,7 @@ export const TRADES: Trade[] = [
       },
       {
         key: "beskeder",
-        text: "Kunder skriver på e-mail, SMS, Messenger eller Instagram. Du svarer fra samme indbakke.",
+        text: "Kunder ringer, skriver en SMS eller bruger din hjemmeside. Du svarer fra samme indbakke.",
       },
       {
         key: "tilbud",
@@ -349,7 +349,7 @@ export const TRADES: Trade[] = [
       },
       {
         key: "faktura",
-        text: "Faktura med betalingslink og automatiske påmindelser, så du ikke selv skal jage betaling.",
+        text: "Fakturaen er lavet, når jobbet er færdigt, og du kan se, hvem der mangler at betale.",
       },
     ],
     faq: [

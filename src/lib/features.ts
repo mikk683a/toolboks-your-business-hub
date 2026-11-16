@@ -25,7 +25,7 @@ export interface FeatureBlurb {
 export const FEATURE_BLURBS: Record<FeatureKey, FeatureBlurb> = {
   forespoergsler: {
     key: "forespoergsler",
-    name: "Forespørgsler ét sted",
+    name: "Henvendelser ét sted",
     href: "/funktioner/beskeder",
     short: "Nye henvendelser lander i en indbakke, så ingen bliver glemt.",
   },
@@ -43,9 +43,9 @@ export const FEATURE_BLURBS: Record<FeatureKey, FeatureBlurb> = {
   },
   faktura: {
     key: "faktura",
-    name: "Faktura med betalingslink",
+    name: "Faktura, når jobbet er færdigt",
     href: "/funktioner/faktura",
-    short: "Fakturaen laves, når jobbet er færdigt. Toolboks sender påmindelser.",
+    short: "Fakturaen laves, når jobbet er færdigt. Du sender den med ét tryk.",
   },
   timer: {
     key: "timer",
@@ -57,12 +57,12 @@ export const FEATURE_BLURBS: Record<FeatureKey, FeatureBlurb> = {
     key: "beskeder",
     name: "Alle beskeder samlet",
     href: "/funktioner/beskeder",
-    short: "E-mail, SMS, Messenger og Instagram i samme indbakke.",
+    short: "SMS, e-mail og henvendelser fra hjemmesiden i samme indbakke.",
   },
   hjemmeside: {
     key: "hjemmeside",
     name: "Gratis hjemmeside",
-    short: "Du får en hjemmeside, hvor kunder kan sende en forespørgsel.",
+    short: "Du får en hjemmeside, hvor kunder kan sende en henvendelse.",
   },
 };
 
@@ -217,8 +217,8 @@ export const FEATURE_PAGES: FeaturePage[] = [
     howHeading: "Sådan hjælper Toolboks",
     how: [
       {
-        title: "Fra forespørgsel til tilbud",
-        text: "Forespørgslen ligger i indbakken. Du laver tilbuddet derfra, så kundens oplysninger allerede er udfyldt.",
+        title: "Fra henvendelse til tilbud",
+        text: "Henvendelsen ligger i indbakken. Du laver tilbuddet derfra, så kundens oplysninger allerede er udfyldt.",
       },
       {
         title: "PDF på SMS og e-mail",
@@ -255,32 +255,32 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "faktura",
     key: "faktura",
-    title: "Faktura med betalingslink og påmindelser | Toolboks",
+    title: "Faktura, når jobbet er færdigt | Toolboks",
     description:
-      "Fakturaen laves, når jobbet er færdigt. Kunden betaler via et betalingslink, og Toolboks sender påmindelser, hvis der ikke bliver betalt. 3 måneder gratis.",
-    h1: "Faktura, der sendes og følges op",
+      "Fakturaen laves, når jobbet er færdigt. Kunden får den på SMS eller e-mail med dit kontonummer og MobilePay-nummer. 3 måneder gratis.",
+    h1: "Fakturaen er lavet, når jobbet er færdigt",
     intro:
-      "Mange små virksomheder får penge for sent, fordi fakturaen først bliver lavet i weekenden. Toolboks laver den, når jobbet er færdigt, og minder kunden om at betale.",
+      "Mange små virksomheder får penge for sent, fordi fakturaen først bliver lavet i weekenden. Toolboks laver den, når jobbet er færdigt, så du kan sende den, mens du står hos kunden.",
     problemHeading: "Hvorfor pengene kommer for sent",
     problems: [
       "Fakturaen bliver udskudt til en dag, hvor der er tid.",
       "Kunden skal selv finde kontonummer og skrive den rigtige tekst.",
-      "Du føler dig akavet, når du skal minde en kunde om en faktura.",
+      "Du skal skrive de samme oplysninger igen, som du allerede skrev i tilbuddet.",
       "Du kan ikke hurtigt se, hvem der mangler at betale.",
     ],
     howHeading: "Sådan hjælper Toolboks",
     how: [
       {
-        title: "Faktura, når jobbet er færdigt",
+        title: "Lavet for dig",
         text: "Når du markerer jobbet som færdigt, laves fakturaen ud fra tilbuddet og jobbet.",
       },
       {
-        title: "Betalingslink",
-        text: "Kunden får et betalingslink sammen med fakturaen og kan betale med det samme.",
+        title: "Lige til at betale",
+        text: "Kunden får et link til fakturaen med dit kontonummer og MobilePay-nummer.",
       },
       {
-        title: "Automatiske påmindelser",
-        text: "Hvis fakturaen ikke er betalt, sender Toolboks en påmindelse for dig.",
+        title: "Over i dit regnskab",
+        text: "Bruger du Billy, kommer fakturaen automatisk derover. Flere regnskabsprogrammer er på vej.",
       },
       {
         title: "Overblik",
@@ -293,12 +293,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
         a: "Ja. Når jobbet er markeret som færdigt, laves fakturaen for dig.",
       },
       {
-        q: "Kan kunden betale direkte fra fakturaen?",
-        a: "Ja. Fakturaen har et betalingslink.",
+        q: "Hvordan betaler kunden?",
+        a: "Kunden får et link til fakturaen med dit kontonummer og MobilePay-nummer og betaler, som hun plejer.",
       },
       {
-        q: "Hvem sender påmindelserne?",
-        a: "Toolboks sender betalingspåmindelser for dig, så du ikke selv skal ringe efter pengene.",
+        q: "Sender Toolboks rykkere?",
+        a: "Nej. Du kan se, hvem der mangler at betale. Rykkere sender du selv eller fra dit regnskabsprogram.",
       },
       {
         q: "Hvad koster det?",
@@ -309,28 +309,28 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "beskeder",
     key: "beskeder",
-    title: "Alle kundebeskeder ét sted: e-mail, SMS, Messenger | Toolboks",
+    title: "Alle kundebeskeder ét sted: SMS og e-mail | Toolboks",
     description:
-      "Saml e-mail, SMS, Messenger og Instagram i én indbakke. Ingen forespørgsler går tabt, og hele holdet ved, hvad kunden har skrevet. 3 måneder gratis.",
+      "Saml SMS, e-mail og henvendelser fra din hjemmeside i én indbakke. Ingen henvendelser går tabt, og hele holdet ved, hvad kunden har skrevet. 3 måneder gratis.",
     h1: "Alle kundebeskeder ét sted",
     intro:
-      "Kunderne skriver, hvor det passer dem. Nogle på e-mail, nogle på SMS, nogle på Messenger eller Instagram. I Toolboks lander det hele i samme indbakke.",
+      "Kunderne skriver, hvor det passer dem. Nogle ringer, nogle skriver en SMS, nogle bruger formularen på din hjemmeside. I Toolboks lander det hele i samme indbakke.",
     problemHeading: "Det sker, når beskederne er spredt",
     problems: [
-      "En kunde skriver på Messenger, mens du kigger i din e-mail.",
+      "En kunde skriver en SMS, mens du kigger i din e-mail.",
       "Du svarer fra din private telefon, og kollegaen ved ikke, hvad du har lovet.",
-      "En ny forespørgsel bliver liggende, fordi den kom på Instagram.",
+      "En ny henvendelse bliver liggende, fordi den kom, mens du stod på en stige.",
       "Du kan ikke finde den SMS, hvor kunden skrev adressen.",
     ],
     howHeading: "Sådan hjælper Toolboks",
     how: [
       {
         title: "Én indbakke",
-        text: "E-mail, SMS, Messenger og Instagram kommer ind samme sted.",
+        text: "SMS, e-mail og henvendelser fra din hjemmeside kommer ind samme sted.",
       },
       {
-        title: "Forespørgsler fra hjemmesiden",
-        text: "Forespørgsler fra din hjemmeside lander i samme indbakke som kundernes beskeder.",
+        title: "Henvendelser fra hjemmesiden",
+        text: "Henvendelser fra din hjemmeside lander i samme indbakke som kundernes beskeder.",
       },
       {
         title: "Hele holdet kan se med",
@@ -344,15 +344,15 @@ export const FEATURE_PAGES: FeaturePage[] = [
     faq: [
       {
         q: "Hvilke kanaler kan jeg samle?",
-        a: "E-mail, SMS, Messenger og Instagram.",
+        a: "SMS, e-mail, din hjemmeside, dit bookinglink og din prisberegner. Messenger og Instagram er på vej.",
       },
       {
         q: "Kan jeg svare kunden fra Toolboks?",
         a: "Ja. Du læser og svarer i samme indbakke.",
       },
       {
-        q: "Får jeg også forespørgsler fra min hjemmeside?",
-        a: "Ja. Forespørgsler fra webformular og booking-link lander i samme indbakke.",
+        q: "Får jeg også henvendelser fra min hjemmeside?",
+        a: "Ja. Henvendelser fra webformular og booking-link lander i samme indbakke.",
       },
       {
         q: "Hvad koster det?",

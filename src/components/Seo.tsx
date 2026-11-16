@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { DEFAULT_OG_IMAGE, PRICE_PER_USER, SITE_NAME, SITE_URL, TRIAL_MONTHS, absoluteUrl } from "@/lib/site";
+import { DEFAULT_OG_IMAGE, PRICE_FIRM, SITE_NAME, SITE_URL, TRIAL_MONTHS, absoluteUrl } from "@/lib/site";
 import type { Faq } from "@/lib/features";
 
 export const organizationJsonLd = {
@@ -21,25 +21,25 @@ export const softwareJsonLd = {
   operatingSystem: "Web",
   inLanguage: "da-DK",
   description:
-    "Admin-app til små servicevirksomheder: forespørgsler, tilbud, kalender med køretid, jobs, faktura, timeregistrering og kundebeskeder samlet ét sted.",
+    "Admin-app til små servicevirksomheder: henvendelser, tilbud, kalender med køretid, jobs, faktura, timeregistrering og kundebeskeder samlet ét sted.",
   featureList: [
-    "Forespørgsler fra hjemmeside og beskeder i én indbakke",
+    "Henvendelser fra telefon, hjemmeside, bookinglink og prisberegner i én indbakke",
     "Tilbud på SMS og e-mail",
     "Kalender med forslag til tider ud fra køretid",
-    "Faktura med betalingslink og påmindelser",
+    "Faktura, når jobbet er færdigt",
     "Timeregistrering med CSV-eksport til løn",
-    "E-mail, SMS, Messenger og Instagram samlet",
+    "SMS, e-mail og hjemmeside i samme indbakke",
     "Gratis hjemmeside til kunder",
   ],
   offers: {
     "@type": "Offer",
-    price: String(PRICE_PER_USER),
+    price: String(PRICE_FIRM),
     priceCurrency: "DKK",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: String(PRICE_PER_USER),
+      price: String(PRICE_FIRM),
       priceCurrency: "DKK",
-      unitText: "pr. bruger pr. måned",
+      unitText: "pr. måned for firmaet, op til 2 medarbejdere",
       billingDuration: 1,
       billingIncrement: 1,
       valueAddedTaxIncluded: false,
