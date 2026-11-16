@@ -1,4 +1,4 @@
-import { Wrench } from "lucide-react";
+import { BriefcaseBusiness } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FEATURE_BLURBS, FEATURE_PAGES, featurePath } from "@/lib/features";
 import { TRADES, tradePath } from "@/lib/trades";
@@ -26,8 +26,8 @@ const Footer = () => (
       <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10 mb-12">
         <div className="sm:col-span-2 lg:col-span-2">
           <Link to="/" className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-hero-gradient flex items-center justify-center">
-              <Wrench className="w-5 h-5 text-primary-foreground" />
+            <div className="w-10 h-10 rounded-xl bg-[#0b6fb0] flex items-center justify-center">
+              <BriefcaseBusiness className="w-6 h-6 text-white" strokeWidth={2.2} />
             </div>
             <span className="text-xl font-bold text-foreground">Toolboks</span>
           </Link>
