@@ -10,25 +10,25 @@ interface Pain { key: string; label: string; Icon: LucideIcon; before: string[];
 
 export const PAINS: Pain[] = [
   {
-    key: "kunder", label: "At svare kunder", Icon: Inbox,
+    key: "kunder", label: "Kommunikation med kunder", Icon: Inbox,
     before: ["Kunden skriver, mens du arbejder.", "Du ser det først om aftenen.", "Hun har fundet en anden."],
     after: ["Henvendelsen lander i Toolboks.", "Du får en SMS med det samme.", "Du svarer, før hun ringer videre."],
     href: "/funktioner/beskeder", link: "Se, hvordan kunderne samles",
   },
   {
-    key: "tilbud", label: "At skrive tilbud", Icon: FileText,
+    key: "tilbud", label: "Tilbud", Icon: FileText,
     before: ["Du skriver tilbuddet søndag aften.", "Du leder efter, hvad du tog sidst.", "Kunden svarer aldrig."],
     after: ["Udkastet er lavet ud fra dine priser.", "Du sender det på SMS fra bilen.", "Kunden siger ja med ét tryk."],
     href: "/funktioner/tilbud", link: "Se, hvordan tilbud virker",
   },
   {
-    key: "plan", label: "At planlægge", Icon: Calendar,
+    key: "plan", label: "Planlægning", Icon: Calendar,
     before: ["Du regner selv køretiden ud.", "To jobs ligger i hver sin ende af byen.", "En medarbejder ringer og spørger, hvor han skal hen."],
     after: ["Toolboks foreslår tid og medarbejder.", "Dagens jobs står i den korteste rækkefølge.", "Alle ser deres egen dag på mobilen."],
     href: "/funktioner/planlaegning", link: "Se, hvordan planlægning virker",
   },
   {
-    key: "faktura", label: "At fakturere", Icon: Receipt,
+    key: "faktura", label: "Fakturering", Icon: Receipt,
     before: ["Fakturaen venter til weekenden.", "Du skriver det samme som i tilbuddet.", "Du ved ikke, hvem der mangler at betale."],
     after: ["Fakturaen er lavet, når jobbet er færdigt.", "Den aftalte pris står der allerede.", "Du kan se, hvem der har betalt."],
     href: "/funktioner/faktura", link: "Se, hvordan faktura virker",
