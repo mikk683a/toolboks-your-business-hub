@@ -3,7 +3,7 @@ import { motion } from "@/lib/motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Loader2, MailCheck } from "lucide-react";
-import { APP_URL, TRIAL_MONTHS } from "@/lib/site";
+import { APP_URL, TRIAL_LINE } from "@/lib/site";
 import { MIN_PASSWORD, createAccount, providerUrl, type LoginProvider } from "@/lib/signup";
 
 const field = "w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition";
@@ -47,7 +47,7 @@ const CTASection = () => {
             Klar til at komme i gang?
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Opret din konto her. Gratis i {TRIAL_MONTHS} måneder, uden betalingskort og uden binding.
+            Opret din konto her. {TRIAL_LINE.charAt(0).toUpperCase() + TRIAL_LINE.slice(1)}, og uden binding.
           </p>
         </motion.div>
 

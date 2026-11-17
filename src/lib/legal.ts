@@ -1,4 +1,5 @@
 import { COMPANY } from "./company";
+import { INCLUDED_EMPLOYEES, PRICE_EXTRA_EMPLOYEE, PRICE_FIRM, PRICE_SOLO, SEASON_TRIAL_END_TEXT, TRIAL_MONTHS } from "./site";
 
 export interface LegalSection {
   heading: string;
@@ -99,15 +100,16 @@ const privacy: LegalDoc = {
 
 const terms: LegalDoc = {
   title: "Vilkår",
-  updated: "16. november 2026",
+  updated: "17. november 2026",
   intro: "Vilkårene gælder, når et firma bruger Toolboks. Kort sagt: du betaler pr. måned, kan stoppe når du vil, og dine data er dine.",
   sections: [
     { heading: "Aftalen", paragraphs: [`Aftalen er mellem dit firma og ${who}. Toolboks sælger kun til virksomheder.`] },
     {
       heading: "Pris og prøveperiode",
       list: [
-        "Toolboks koster 249 kr. pr. måned ekskl. moms for firmaet med op til 2 medarbejdere. Hver ekstra medarbejder koster 49 kr. pr. måned ekskl. moms.",
-        "De første 3 måneder er gratis. Det kræver ikke betalingskort.",
+        `Toolboks koster ${PRICE_SOLO} kr. pr. måned ekskl. moms, hvis du er alene i firmaet, og ${PRICE_FIRM} kr. pr. måned ekskl. moms, hvis I er op til ${INCLUDED_EMPLOYEES} personer. Hver person derudover koster ${PRICE_EXTRA_EMPLOYEE} kr. pr. måned ekskl. moms.`,
+        `Opretter du dig før 1. marts 2027, er Toolboks gratis til ${SEASON_TRIAL_END_TEXT}. Ellers er de første ${TRIAL_MONTHS} måneder gratis. Det kræver ikke betalingskort.`,
+        "Laver vi en hjemmeside til dig, er hjemmesiden og domænet dine, også hvis du stopper med Toolboks.",
         "Tilvalg som \"Toolboks svarer\" har deres egen pris, som står i appen, før du slår dem til.",
         "Prisændringer varsles mindst 30 dage før.",
       ],

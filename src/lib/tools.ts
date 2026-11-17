@@ -1,3 +1,4 @@
+import { TRIAL_FAQ } from "./site";
 import type { Faq } from "./features";
 
 export interface ToolMeta {
@@ -94,7 +95,7 @@ export const TOOL_FAQ: Record<string, Faq[]> = {
     },
     {
       q: "Er beløbet en besparelse, hvis jeg bruger Toolboks?",
-      a: "Nej. Beløbet viser, hvad tiden koster i dag. Hvor meget tid du kan spare, afhænger af din hverdag. Du kan prøve Toolboks gratis i 3 måneder.",
+      a: `Nej. Beløbet viser, hvad tiden koster i dag. Hvor meget tid du kan spare, afhænger af din hverdag. ${TRIAL_FAQ}`,
     },
   ],
 };

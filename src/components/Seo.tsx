@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { DEFAULT_OG_IMAGE, PRICE_FIRM, SITE_NAME, SITE_URL, TRIAL_MONTHS, absoluteUrl } from "@/lib/site";
+import { DEFAULT_OG_IMAGE, PRICE_SOLO, SITE_NAME, SITE_URL, TRIAL_LINE, absoluteUrl } from "@/lib/site";
 import type { Faq } from "@/lib/features";
 
 export const organizationJsonLd = {
@@ -29,22 +29,22 @@ export const softwareJsonLd = {
     "Faktura, når jobbet er færdigt",
     "Timeregistrering med CSV-eksport til løn",
     "SMS, e-mail og hjemmeside i samme indbakke",
-    "Gratis hjemmeside til kunder",
+    "Ny hjemmeside og løbende arbejde med Google",
   ],
   offers: {
     "@type": "Offer",
-    price: String(PRICE_FIRM),
+    price: String(PRICE_SOLO),
     priceCurrency: "DKK",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: String(PRICE_FIRM),
+      price: String(PRICE_SOLO),
       priceCurrency: "DKK",
-      unitText: "pr. måned for firmaet, op til 2 medarbejdere",
+      unitText: "pr. måned, fra",
       billingDuration: 1,
       billingIncrement: 1,
       valueAddedTaxIncluded: false,
     },
-    description: `Pr. bruger pr. måned, ekskl. moms. De første ${TRIAL_MONTHS} måneder er gratis, uden kort.`,
+    description: `Fra-pris pr. måned ekskl. moms for et firma med én person. ${TRIAL_LINE.charAt(0).toUpperCase() + TRIAL_LINE.slice(1)}.`,
     url: `${SITE_URL}/#pricing`,
   },
 };

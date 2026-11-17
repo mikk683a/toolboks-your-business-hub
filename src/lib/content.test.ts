@@ -78,25 +78,25 @@ describe("price from one source", () => {
     "public/llms.txt",
     "index.html",
   ];
-  it("never hard-codes a price other than the two package prices and the price per extra employee", () => {
+  it("never hard-codes a price other than the solo, firm and extra-person prices", () => {
     for (const f of files) {
       const text = fs.readFileSync(f, "utf-8");
       for (const m of text.matchAll(/(\d[\d.]*)\s*kr\b/g)) {
-        expect(["249", "49", "449"], `${f}: ${m[0]}`).toContain(m[1]);
+        expect(["199", "249", "49"], `${f}: ${m[0]}`).toContain(m[1]);
       }
     }
   });
   it("uses the shared price constants in trades, FAQ and pricing", () => {
     for (const f of ["src/lib/trades.ts", "src/components/HomeFaq.tsx", "src/components/PricingSection.tsx"]) {
-      expect(fs.readFileSync(f, "utf-8"), f).not.toMatch(/\b(49|249|449) kr\b/);
+      expect(fs.readFileSync(f, "utf-8"), f).not.toMatch(/\b(49|199|249) kr\b/);
     }
   });
   it("states the price in the offer JSON-LD with a unit and VAT flag", async () => {
     const { softwareJsonLd } = await import("../components/Seo");
     const spec = (softwareJsonLd.offers as { priceSpecification: Record<string, unknown> }).priceSpecification;
-    expect(spec.unitText).toBe("pr. måned for firmaet, op til 2 medarbejdere");
+    expect(spec.unitText).toBe("pr. måned, fra");
     expect(spec.valueAddedTaxIncluded).toBe(false);
-    expect(spec.price).toBe("249");
+    expect(spec.price).toBe("199");
   });
 });
 
@@ -150,5 +150,31 @@ describe("bookkeeping integrations", () => {
     const idx = llms.indexOf("## Kommer snart");
     expect(llms.slice(0, idx)).not.toMatch(/Dinero|e-conomic/i);
     expect(llms.slice(idx)).toMatch(/Dinero/);
+  });
+});
+
+describe("Klar til sæsonen (17 Nov 2026)", () => {
+  it("prices a firm by the number of people, the owner included", async () => {
+    const { priceForTeam } = await import("./site");
+    expect(priceForTeam(1)).toBe(199);
+    expect(priceForTeam(2)).toBe(249);
+    expect(priceForTeam(4)).toBe(347);
+    expect(priceForTeam(10)).toBe(641);
+  });
+  it("keeps the season offer open until 1 March 2027 only", async () => {
+    const { seasonOfferOpen } = await import("./site");
+    expect(seasonOfferOpen(new Date("2026-11-17T12:00:00+01:00"))).toBe(true);
+    expect(seasonOfferOpen(new Date("2027-02-28T23:59:00+01:00"))).toBe(true);
+    expect(seasonOfferOpen(new Date("2027-03-01T00:00:00+01:00"))).toBe(false);
+  });
+  it("has one package and no second package price anywhere", () => {
+    for (const f of ["src/components/PricingSection.tsx", "src/lib/site.ts", "public/llms.txt"]) {
+      const t = fs.readFileSync(f, "utf-8");
+      expect(t, f).not.toMatch(/449|Synlighed/);
+    }
+  });
+  it("says the website and the domain are the customer's", () => {
+    expect(fs.readFileSync("src/components/HomeFaq.tsx", "utf-8")).toContain("Hjemmesiden og domænet er dine");
+    expect(fs.readFileSync("src/lib/legal.ts", "utf-8")).toContain("hjemmesiden og domænet dine");
   });
 });
