@@ -78,17 +78,17 @@ describe("price from one source", () => {
     "public/llms.txt",
     "index.html",
   ];
-  it("never hard-codes a price other than the firm price and the price per extra employee", () => {
+  it("never hard-codes a price other than the two package prices and the price per extra employee", () => {
     for (const f of files) {
       const text = fs.readFileSync(f, "utf-8");
       for (const m of text.matchAll(/(\d[\d.]*)\s*kr\b/g)) {
-        expect(["249", "49"], `${f}: ${m[0]}`).toContain(m[1]);
+        expect(["249", "49", "449"], `${f}: ${m[0]}`).toContain(m[1]);
       }
     }
   });
   it("uses the shared price constants in trades, FAQ and pricing", () => {
     for (const f of ["src/lib/trades.ts", "src/components/HomeFaq.tsx", "src/components/PricingSection.tsx"]) {
-      expect(fs.readFileSync(f, "utf-8"), f).not.toMatch(/\b(49|249) kr\b/);
+      expect(fs.readFileSync(f, "utf-8"), f).not.toMatch(/\b(49|249|449) kr\b/);
     }
   });
   it("states the price in the offer JSON-LD with a unit and VAT flag", async () => {
