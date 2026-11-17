@@ -2,7 +2,7 @@
 
 > Toolboks er en dansk admin-app til små servicevirksomheder med 1 til 20 medarbejdere, der kører ud til kunder. Den samler henvendelser, tilbud, kalender med køretid, jobs, faktura, timeregistrering og kundebeskeder ét sted.
 
-Pris: 249 kr pr. måned for firmaet med op til 2 medarbejdere. 49 kr pr. ekstra medarbejder. De første 3 måneder er gratis, og man skal ikke oplyse betalingskort for at starte. Prisen er ekskl. moms. App: https://app.toolboks.dk
+Pris: 249 kr pr. måned for firmaet med op til 2 medarbejdere. 49 kr pr. ekstra medarbejder. De første 3 måneder er gratis, og man skal ikke oplyse betalingskort for at starte. En ny hjemmeside er med i prisen. Prisen er ekskl. moms. Pakken Toolboks + Synlighed koster 449 kr pr. måned: alt i Toolboks, og Toolboks holder hjemmesiden opdateret og styrer SEO og sociale medier. App: https://app.toolboks.dk
 
 ## Hvad Toolboks kan
 
