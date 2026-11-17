@@ -2,47 +2,35 @@ import { useState } from "react";
 import { motion } from "@/lib/motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
+import { ArrowRight, Loader2, MailCheck } from "lucide-react";
+import { APP_URL, TRIAL_MONTHS } from "@/lib/site";
+import { MIN_PASSWORD, createAccount, providerUrl, type LoginProvider } from "@/lib/signup";
 
-const SUPABASE_URL = "https://baspsmhbbwxjrvcyahnp.supabase.co";
-const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJhc3BzbWhiYnd4anJ2Y3lhaG5wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1NTQzNDMsImV4cCI6MjA1NjEzMDM0M30.nvzB-s-2h1e5CRNn8E_ANjwo8Ap4DKqlAdUWUaxvKdA";
+const field = "w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition";
+const PROVIDERS: { id: LoginProvider; name: string; cls: string }[] = [
+  { id: "apple", name: "Apple", cls: "bg-foreground text-background hover:bg-foreground/90" },
+  { id: "google", name: "Google", cls: "border border-border bg-card text-foreground hover:bg-secondary" },
+  { id: "microsoft", name: "Microsoft", cls: "border border-border bg-card text-foreground hover:bg-secondary" },
+];
 
+// The same form as "Opret konto" in the app: it creates the account right away.
 const CTASection = () => {
-  const [name, setName] = useState("");
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [company, setCompany] = useState("");
   const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [sentTo, setSentTo] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
-
-    try {
-      const res = await fetch(`${SUPABASE_URL}/functions/v1/landing-signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey: SUPABASE_ANON_KEY,
-          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-        },
-        body: JSON.stringify({ name, email, phone }),
-      });
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || "Noget gik galt");
-      }
-
-      setSubmitted(true);
-    } catch (err: any) {
-      setError(err.message || "Noget gik galt. Prøv igen.");
-    } finally {
-      setLoading(false);
-    }
+    const problem = await createAccount({ fullName, email, password, company });
+    setLoading(false);
+    if (problem) setError(problem);
+    else setSentTo(email.trim());
   };
 
   return (
@@ -59,7 +47,7 @@ const CTASection = () => {
             Klar til at komme i gang?
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Opret dig gratis, uden kreditkort og uden binding. Vi kontakter dig og sætter det hele op.
+            Opret din konto her. Gratis i {TRIAL_MONTHS} måneder, uden betalingskort og uden binding.
           </p>
         </motion.div>
 
@@ -70,84 +58,68 @@ const CTASection = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="max-w-md mx-auto bg-card rounded-3xl border border-border shadow-lg p-8"
         >
-          {submitted ? (
-            <div className="text-center py-8">
+          {sentTo ? (
+            <div className="text-center py-6" role="status">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-accent" />
+                <MailCheck className="w-8 h-8 text-accent" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Tak, {name.split(" ")[0]}!</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Tjek din e-mail</h3>
               <p className="text-muted-foreground">
-                Tak! Du hører fra os inden for 1 hverdagsdag. Tjek din email for næste skridt.
+                Vi har sendt et bekræftelseslink til <strong className="break-all text-foreground">{sentTo}</strong>. Åbn linket, så er du inde i Toolboks. Tjek også din spammappe.
               </p>
+              <a href={`${APP_URL}/auth`} className="mt-5 inline-block font-semibold text-primary underline-offset-4 hover:underline">Har du allerede bekræftet? Log ind</a>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
-                  Navn <span className="text-destructive">*</span>
-                </label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Dit fulde navn"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
-                />
+            <>
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                <div>
+                  <label htmlFor="signup-name" className="block text-sm font-medium text-foreground mb-1.5">Fulde navn</label>
+                  <input id="signup-name" type="text" autoComplete="name" value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="Dit navn" required className={field} />
+                </div>
+                <div>
+                  <label htmlFor="signup-email" className="block text-sm font-medium text-foreground mb-1.5">E-mail</label>
+                  <input id="signup-email" type="email" autoComplete="email" inputMode="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="din@email.dk" required className={field} />
+                </div>
+                <div>
+                  <label htmlFor="signup-password" className="block text-sm font-medium text-foreground mb-1.5">Adgangskode</label>
+                  <input id="signup-password" type="password" autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder={`Mindst ${MIN_PASSWORD} tegn`} minLength={MIN_PASSWORD} required className={field} />
+                </div>
+                <div>
+                  <label htmlFor="signup-company" className="block text-sm font-medium text-foreground mb-1.5">Firmanavn</label>
+                  <input id="signup-company" type="text" autoComplete="organization" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Jensens Haveservice" required className={field} />
+                </div>
+
+                {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
+
+                <Button type="submit" variant="hero" size="xl" className="w-full" disabled={loading}>
+                  {loading ? (
+                    <><Loader2 className="w-5 h-5 animate-spin" /> Opretter…</>
+                  ) : (
+                    <>Opret konto <ArrowRight className="w-5 h-5" /></>
+                  )}
+                </Button>
+              </form>
+
+              <p className="my-5 flex items-center gap-3 text-sm text-muted-foreground" aria-hidden="true"><span className="h-px flex-1 bg-border" />eller<span className="h-px flex-1 bg-border" /></p>
+
+              <div className="space-y-2.5">
+                {PROVIDERS.map((p) => (
+                  <a key={p.id} href={providerUrl(p.id)} className={`flex h-12 w-full items-center justify-center rounded-xl text-sm font-semibold transition-colors ${p.cls}`}>
+                    Fortsæt med {p.name}
+                  </a>
+                ))}
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
-                  Email <span className="text-destructive">*</span>
-                </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="din@email.dk"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
-                  Telefon <span className="text-muted-foreground text-xs">(valgfrit)</span>
-                </label>
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+45 12 34 56 78"
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
-                />
-              </div>
-
-              {error && (
-                <p className="text-sm text-destructive">{error}</p>
-              )}
-
-              <Button
-                type="submit"
-                variant="hero"
-                size="xl"
-                className="w-full"
-                disabled={loading}
-              >
-                {loading ? (
-                  <><Loader2 className="w-5 h-5 animate-spin" /> Sender...</>
-                ) : (
-                  <>Opret gratis konto <ArrowRight className="w-5 h-5" /></>
-                )}
-              </Button>
-
-              <p className="text-center text-xs text-muted-foreground pt-1">
-                Ved at tilmelde dig accepterer du vores{" "}
+              <p className="text-center text-xs text-muted-foreground pt-5">
+                Ved at oprette en konto accepterer du vores{" "}
                 <Link to="/vilkaar" className="underline hover:text-foreground">vilkår</Link>{" "}
                 og{" "}
                 <Link to="/privatliv" className="underline hover:text-foreground">privatlivspolitik</Link>.
               </p>
-            </form>
+              <p className="text-center text-sm text-muted-foreground pt-3">
+                Har du allerede en konto? <a href={`${APP_URL}/auth`} className="font-semibold text-primary underline-offset-4 hover:underline">Log ind</a>
+              </p>
+            </>
           )}
         </motion.div>
 

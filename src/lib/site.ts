@@ -1,6 +1,10 @@
 export const SITE_URL = "https://toolboks.dk";
 export const APP_URL = "https://app.toolboks.dk";
 export const SITE_NAME = "Toolboks";
+// The app's backend and its public (publishable) key. The signup form on the
+// front page creates the account straight in the app, with the same fields.
+export const APP_AUTH_URL = "https://saybnismxzpjkahlymnm.supabase.co/auth/v1";
+export const APP_PUBLIC_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNheWJuaXNteHpwamthaGx5bW5tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkyNDM5NDksImV4cCI6MjA3NDgxOTk0OX0.vALexWvL7XVH32yg8je0UZjh38cTi7BSF1_ERnFiwcY";
 
 // Pricing: one source of truth for the whole site.
 // Decided 16 Nov 2026: one price per firm incl. two employees, 49 per extra employee.
