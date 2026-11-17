@@ -120,7 +120,7 @@ const HeroSection = () => {
                   <span className="rounded-full bg-foreground px-2.5 py-0.5 text-sm font-bold tabular-nums text-background">{scene.time}</span>
                   <span className="font-semibold text-foreground">{scene.title}</span>
                 </p>
-                <p className="mx-auto mt-1.5 min-h-[4.5rem] max-w-xs text-sm leading-relaxed text-muted-foreground">{scene.text}</p>
+                <p className="mx-auto mt-1.5 min-h-[5.75rem] max-w-xs text-sm leading-relaxed text-muted-foreground">{scene.text}</p>
                 <div className="flex items-center justify-center">
                   {STEPS.map((s, i) => (
                     <button key={s.title} type="button" tabIndex={-1} className="flex h-8 w-7 items-center justify-center" onClick={() => setActive(i)}>

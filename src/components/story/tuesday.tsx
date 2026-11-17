@@ -13,11 +13,11 @@ export const TUESDAY_STORY = {
   title: "Fra første kunde om morgenen til fyraften uden kontorarbejde",
   intro: "Følg Jens fra Jens Haveservice en helt almindelig tirsdag. Kunderne og tallene er opdigtede. Det, appen gør, er det, den gør i dag.",
   mockLabel:
-    "Eksempel på en dag i Toolboks med opdigtede kunder: dagens rute, en ny henvendelse med SMS til ejeren, et tilbud regnet ud fra husets mål i BBR og egne priser, kunden der siger ja, et forslag til tid og medarbejder, og en faktura der er klar.",
+    "Eksempel på en dag i Toolboks med opdigtede kunder: dagens rute, en ny henvendelse med SMS til ejeren, et udkast til et tilbud lavet med AI ud fra data om ejendommen fra BBR og egne priser, kunden der siger ja, et forslag til tid og medarbejder, og en faktura der er klar.",
   steps: [
     { time: "Kl. 6.45", scene: "Kaffe i varevognen", title: "Dagens rute er lagt", text: "Tre jobs står i den rækkefølge, der giver mindst kørsel. Du trykker Vis vej og kører." },
     { time: "Kl. 10.12", scene: "Du står på en stige i Vanløse", title: "En ny kunde skriver", text: "Hanne har brugt dit bookinglink. Du får en SMS med det samme, så hun ikke når at ringe til den næste." },
-    { time: "Kl. 10.14", scene: "Stadig på stigen", title: "Tilbuddet regner sig selv ud", text: "Toolboks henter husets mål fra BBR og regner tilbuddet ud med dine egne priser. Du skal ikke køre ud og måle op." },
+    { time: "Kl. 10.14", scene: "Stadig på stigen", title: "Et udkast til tilbuddet ligger klar", text: "Toolboks henter data om ejendommen fra offentlige kilder som BBR og holder dem sammen med din egen prisliste. AI laver et udkast, som du retter og sender." },
     { time: "Kl. 12.30", scene: "Frokost", title: "Hanne siger ja", text: "Hun trykker Acceptér på sin telefon. Du har prisen på skrift og skal ikke ringe og rykke." },
     { time: "Kl. 12.31", scene: "Samme frokost", title: "Jobbet finder selv sin plads", text: "Toolboks foreslår Mads torsdag kl. 10.15, fordi han alligevel er i Frederiksberg. Du trykker Godkend." },
     { time: "Kl. 15.40", scene: "Sidste job er færdigt", title: "Fakturaen er lavet", text: "Du afslutter jobbet, og fakturaen ligger klar med den aftalte pris. Du sender den og kører hjem." },
@@ -168,7 +168,7 @@ const Quote = () => {
   return (
     <>
       <Head title="Tilbud til Hanne" chip="Udkast" />
-      <div className="mb-2 flex items-center gap-1.5 text-[12px] font-semibold text-primary"><Sparkles className="h-3.5 w-3.5" /> Regnet ud fra BBR og din prisliste {!done && <TypingDots />}</div>
+      <div className="mb-2 flex items-center gap-1.5 text-[12px] font-semibold text-primary"><Sparkles className="h-3.5 w-3.5" /> AI-udkast ud fra BBR og din prisliste {!done && <TypingDots />}</div>
       <div className="space-y-1.5">
         {lines.map((l, i) => (
           <Box key={l.n} className={shown(i) > 0 ? "" : "opacity-0"}>
