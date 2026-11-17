@@ -1,4 +1,6 @@
-import { PRICE_LINE, TRIAL_LINE } from "./site";
+import { PRICE_LINE, TRIAL_FAQ, TRIAL_SENTENCE } from "./site";
+
+const cap = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 
 export interface Faq {
   q: string;
@@ -88,7 +90,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     key: "planlaegning",
     title: "Planlægning med køretid til servicefirmaer | Toolboks",
     description:
-      "Fælles kalender til holdet og forslag til tider, hvor køretiden er regnet med. Planlæg flere jobs om dagen uden at spilde tid i bilen. 3 måneder gratis.",
+      `Fælles kalender til holdet og forslag til tider, hvor køretiden er regnet med. Planlæg flere jobs om dagen uden at spilde tid i bilen. ${TRIAL_SENTENCE}`,
     h1: "Planlægning med køretid",
     intro:
       "Når du kører ud til kunder, er køretiden en del af arbejdsdagen. Toolboks lægger den med i planen, så du ikke aftaler to jobs, der ligger for langt fra hinanden.",
@@ -133,7 +135,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         q: "Hvad koster det?",
-        a: `${PRICE_LINE}. ${TRIAL_LINE}.`,
+        a: `${cap(PRICE_LINE)}. ${TRIAL_FAQ}`,
       },
     ],
   },
@@ -142,7 +144,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     key: "timer",
     title: "Timeregistrering for små virksomheder | Toolboks",
     description:
-      "Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system til daglig arbejdstid. Med Toolboks registrerer du tiden og eksporterer til løn. 3 måneder gratis.",
+      `Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system til daglig arbejdstid. Med Toolboks registrerer du tiden og eksporterer til løn. ${TRIAL_SENTENCE}`,
     h1: "Timeregistrering, der er nem at holde styr på",
     intro:
       "Som arbejdsgiver skal du som udgangspunkt kunne registrere, hvor længe dine medarbejdere arbejder hver dag. Toolboks gør det enkelt, og du kan sende timerne videre til lønkørslen.",
@@ -203,7 +205,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     key: "tilbud",
     title: "Send tilbud på SMS og e-mail | Toolboks",
     description:
-      "Lav tilbud som PDF og send dem på SMS eller e-mail. Kunden siger ja med ét tryk på et link. Ingen kort ved tilmelding, 3 måneder gratis.",
+      `Lav tilbud som PDF og send dem på SMS eller e-mail. Kunden siger ja med ét tryk på et link. Ingen kort ved tilmelding, ${TRIAL_SENTENCE}`,
     h1: "Tilbud kunden kan sige ja til med ét tryk",
     intro:
       "Et tilbud, der ligger i en mappe på computeren, er ikke solgt endnu. Med Toolboks sender du tilbuddet med det samme, og kunden svarer fra telefonen.",
@@ -248,7 +250,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         q: "Hvad koster det?",
-        a: `${PRICE_LINE}. ${TRIAL_LINE}.`,
+        a: `${cap(PRICE_LINE)}. ${TRIAL_FAQ}`,
       },
     ],
   },
@@ -257,7 +259,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     key: "faktura",
     title: "Faktura, når jobbet er færdigt | Toolboks",
     description:
-      "Fakturaen laves, når jobbet er færdigt. Kunden får den på SMS eller e-mail med dit kontonummer og MobilePay-nummer. 3 måneder gratis.",
+      `Fakturaen laves, når jobbet er færdigt. Kunden får den på SMS eller e-mail med dit kontonummer og MobilePay-nummer. ${TRIAL_SENTENCE}`,
     h1: "Fakturaen er lavet, når jobbet er færdigt",
     intro:
       "Mange små virksomheder får penge for sent, fordi fakturaen først bliver lavet i weekenden. Toolboks laver den, når jobbet er færdigt, så du kan sende den, mens du står hos kunden.",
@@ -302,7 +304,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         q: "Hvad koster det?",
-        a: `${PRICE_LINE}. ${TRIAL_LINE}.`,
+        a: `${cap(PRICE_LINE)}. ${TRIAL_FAQ}`,
       },
     ],
   },
@@ -311,7 +313,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     key: "beskeder",
     title: "Alle kundebeskeder ét sted: SMS og e-mail | Toolboks",
     description:
-      "Saml SMS, e-mail og henvendelser fra din hjemmeside i én indbakke. Ingen henvendelser går tabt, og hele holdet ved, hvad kunden har skrevet. 3 måneder gratis.",
+      `Saml SMS, e-mail og henvendelser fra din hjemmeside i én indbakke. Ingen henvendelser går tabt, og hele holdet ved, hvad kunden har skrevet. ${TRIAL_SENTENCE}`,
     h1: "Alle kundebeskeder ét sted",
     intro:
       "Kunderne skriver, hvor det passer dem. Nogle ringer, nogle skriver en SMS, nogle bruger formularen på din hjemmeside. I Toolboks lander det hele i samme indbakke.",
@@ -356,7 +358,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         q: "Hvad koster det?",
-        a: `${PRICE_LINE}. ${TRIAL_LINE}.`,
+        a: `${cap(PRICE_LINE)}. ${TRIAL_FAQ}`,
       },
     ],
   },

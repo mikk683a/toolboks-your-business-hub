@@ -9,18 +9,18 @@ export const HOME_FAQ: Faq[] = [
   },
   {
     q: "Hvem er Toolboks til?",
-    a: "Firmaer med 1 til 20 medarbejdere, der kører ud til kunder. For eksempel træfældere, haveservice, skadedyrsbekæmpere, algerens, vinduespudsere og rengøringsfirmaer.",
+    a: "Først og fremmest træfældere, haveservice og skadedyrsbekæmpere. Toolboks passer også til andre firmaer med 1 til 20 personer, der kører ud til kunder, fx algerens.",
   },
   {
     q: "Hvor lang tid tager det at komme i gang?",
-    a: "Du kan sende dit første tilbud samme dag. Vi sætter resten op sammen med dig på 30 minutter, og det koster ikke noget.",
+    a: "Du kan sende dit første tilbud samme dag. Resten sætter vi op for dig: dine priser fra et billede af en gammel faktura, dine kunder og dit regnskabsprogram. Det koster ikke noget.",
   },
   {
     q: "Skal jeg skifte telefonnummer eller regnskabsprogram?",
-    a: "Nej. Du beholder dit nummer og dit regnskabsprogram. Bruger du Billy, kommer fakturaerne automatisk derover. Flere regnskabsprogrammer er på vej.",
+    a: "Nej. Du beholder dit nummer og dit regnskabsprogram. Bruger du Billy, kommer fakturaerne automatisk derover. Flere regnskabsprogrammer er ved at blive testet.",
   },
   {
-    q: "Hvad sker der, når de 3 måneder er gået?",
+    q: "Hvad sker der, når den gratis periode er slut?",
     a: "Du får en mail 14 dage før. Der bliver ikke lukket for noget, og du har ikke oplyst et kort, så der trækkes ikke penge af sig selv.",
   },
   {
@@ -29,7 +29,15 @@ export const HOME_FAQ: Faq[] = [
   },
   {
     q: "Får jeg en hjemmeside?",
-    a: "Ja. Vi laver en hjemmeside til dig eller kobler din nuværende på, så henvendelser lander i Toolboks.",
+    a: "Ja. Vi laver en ny hjemmeside til dig eller kobler din nuværende på, så henvendelser lander i Toolboks. Hver måned holder vi den opdateret til Google ud fra dine egne jobs. Det er med i prisen.",
+  },
+  {
+    q: "Hvem ejer hjemmesiden?",
+    a: "Det gør du. Hjemmesiden og domænet er dine, også hvis du stopper med Toolboks.",
+  },
+  {
+    q: "Skriver AI mine tilbud?",
+    a: "AI laver et udkast med dine egne priser og data om ejendommen fra BBR. Tilbuddet sendes først, når du har godkendt prisen.",
   },
 ];
 

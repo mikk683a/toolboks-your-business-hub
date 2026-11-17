@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, CheckCircle } from "lucide-react";
 import { motion } from "@/lib/motion";
-import { PRICE_LINE, TRIAL_MONTHS } from "@/lib/site";
+import { BOOKING_URL, TRIAL_LINE, seasonOfferOpen } from "@/lib/site";
 import { useEffect, useState } from "react";
 import { FloatingPhone, useLive, usePrefersReducedMotion } from "@/components/story/primitives";
 import { TUESDAY_STORY, TuesdayMock } from "@/components/story/tuesday";
@@ -36,8 +36,8 @@ const HeroSection = () => {
   const ps = phoneState(active);
 
   const benefits = [
-    "3 måneder gratis, uden kort",
-    "Vi sætter det op sammen med dig",
+    TRIAL_LINE.charAt(0).toUpperCase() + TRIAL_LINE.slice(1),
+    "Vi sætter det hele op for dig",
     "Ingen binding",
   ];
 
@@ -54,7 +54,7 @@ const HeroSection = () => {
           >
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              Til firmaer, der kører ud til kunder
+              Til træfældere, haveservice og skadedyrsbekæmpere
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
@@ -63,21 +63,29 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
-              Toolboks samler alt, kunderne skriver og ringer om, laver tilbuddet ud fra dine priser
-              og finder en tid, der passer i ruten. Du godkender fra mobilen.
-              {" "}{PRICE_LINE.charAt(0).toUpperCase() + PRICE_LINE.slice(1)}. De første {TRIAL_MONTHS} måneder er gratis.
+              {seasonOfferOpen()
+                ? "Vi bygger din nye hjemmeside og sætter Toolboks op for dig i vinter. "
+                : "Vi bygger din nye hjemmeside og sætter Toolboks op for dig. "}
+              Når en kunde skriver, får du en SMS, og et tilbud med dine egne priser venter på, at du godkender det.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <Button variant="hero" size="xl" onClick={scrollToSignup}>
-                Opret gratis konto
-                <ArrowRight className="w-5 h-5" />
+              <Button variant="hero" size="xl" asChild>
+                <a href={BOOKING_URL} target="_blank" rel="noreferrer">
+                  {seasonOfferOpen() ? "Book en plads før sæsonen" : "Book et gratis opstartskald"}
+                  <ArrowRight className="w-5 h-5" />
+                </a>
               </Button>
               <Button variant="heroOutline" size="xl" onClick={() => document.getElementById("en-tirsdag")?.scrollIntoView({ behavior: "smooth" })}>
                 <Play className="w-5 h-5" />
                 Se en dag med Toolboks
               </Button>
             </div>
+            <p className="-mt-4 mb-8 text-sm text-center lg:text-left">
+              <button type="button" onClick={scrollToSignup} className="min-h-[44px] font-semibold text-primary underline-offset-4 hover:underline">
+                Eller opret en konto selv
+              </button>
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               {benefits.map((benefit, index) => (

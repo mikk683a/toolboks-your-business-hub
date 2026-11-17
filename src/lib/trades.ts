@@ -1,5 +1,7 @@
 import type { Faq, FeatureKey } from "./features";
-import { PRICE_LINE } from "./site";
+import { PRICE_EXTRA_LINE, PRICE_LINE, TRIAL_FAQ, TRIAL_SENTENCE } from "./site";
+
+const cap = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 
 export interface TradeFeature {
   key: FeatureKey;
@@ -29,7 +31,7 @@ export const TRADES: Trade[] = [
     audience: "træfældere",
     title: "Administration for træfældere og arborister | Toolboks",
     description:
-      "Tilbud på SMS, planlægning med køretid og faktura til træfældere. Brug tiden på træerne, ikke på papirarbejdet. 3 måneder gratis.",
+      `Tilbud på SMS, planlægning med køretid og faktura til træfældere. Brug tiden på træerne, ikke på papirarbejdet. ${TRIAL_SENTENCE}`,
     h1: "Administration til træfældere",
     intro:
       "Du står i en have med en motorsav, og telefonen ringer. Toolboks samler henvendelser, tilbud, kalender og faktura, så papirarbejdet ikke kommer til at ligge i weekenden.",
@@ -77,7 +79,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster Toolboks til et lille fældehold?",
-        a: `${PRICE_LINE}. De første 3 måneder er gratis, og du skal ikke oplyse kort.`,
+        a: `${cap(PRICE_LINE)}. ${TRIAL_FAQ}`,
       },
     ],
   },
@@ -87,7 +89,7 @@ export const TRADES: Trade[] = [
     audience: "haveservicefirmaer",
     title: "Administration for haveservice og havemænd | Toolboks",
     description:
-      "Planlæg mange små havejobs med køretid, send tilbud og faktura fra mobilen. Til haveservice. 3 måneder gratis.",
+      `Planlæg mange små havejobs med køretid, send tilbud og faktura fra mobilen. Til haveservice. ${TRIAL_SENTENCE}`,
     h1: "Administration til haveservice",
     intro:
       "Haveservice er mange små jobs hos mange kunder. Det betyder mange adresser, mange fakturaer og mange beskeder. Toolboks holder styr på det, så du kan holde fokus på haven.",
@@ -135,7 +137,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Skal jeg bruge et betalingskort for at prøve?",
-        a: `Nej. De første 3 måneder er gratis, og du skal ikke oplyse kort. Bagefter koster det ${PRICE_LINE}.`,
+        a: `Nej. ${TRIAL_FAQ} Bagefter koster det ${PRICE_LINE}.`,
       },
     ],
   },
@@ -145,7 +147,7 @@ export const TRADES: Trade[] = [
     audience: "skadedyrsbekæmpere",
     title: "Administration for skadedyrsbekæmpere | Toolboks",
     description:
-      "Mange små opgaver om dagen, akutte henvendelser og opfølgning hos kunder. Planlæg med køretid, saml beskeder og send faktura. 3 måneder gratis.",
+      `Mange små opgaver om dagen, akutte henvendelser og opfølgning hos kunder. Planlæg med køretid, saml beskeder og send faktura. ${TRIAL_SENTENCE}`,
     h1: "Administration til skadedyrsbekæmpere",
     intro:
       "Som skadedyrsbekæmper har du mange besøg på en dag, og nogle kunder har det hastigt. Toolboks hjælper dig med at svare hurtigt, planlægge køretid og følge op på hver sag.",
@@ -193,7 +195,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster det?",
-        a: `${PRICE_LINE}. De første 3 måneder er gratis, og du skal ikke oplyse kort.`,
+        a: `${cap(PRICE_LINE)}. ${TRIAL_FAQ}`,
       },
     ],
   },
@@ -203,7 +205,7 @@ export const TRADES: Trade[] = [
     audience: "firmaer, der laver algerens",
     title: "Administration for algerens og facaderens | Toolboks",
     description:
-      "Tilbud på SMS, kalender med køretid og faktura til algerens og facaderens. Mindre papirarbejde, flere jobs. 3 måneder gratis.",
+      `Tilbud på SMS, kalender med køretid og faktura til algerens og facaderens. Mindre papirarbejde, flere jobs. ${TRIAL_SENTENCE}`,
     h1: "Administration til algerens",
     intro:
       "Algerens er sæsonarbejde med mange henvendelser på de samme få uger. Toolboks hjælper dig med at svare hurtigt, få tilbud ud og flytte jobs i kalenderen, når planen ændrer sig.",
@@ -251,7 +253,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster det?",
-        a: `${PRICE_LINE}. De første 3 måneder er gratis, og du skal ikke oplyse kort.`,
+        a: `${cap(PRICE_LINE)}. ${TRIAL_FAQ}`,
       },
     ],
   },
@@ -261,7 +263,7 @@ export const TRADES: Trade[] = [
     audience: "vinduespudsere",
     title: "Administration for vinduespudsere | Toolboks",
     description:
-      "Planlæg mange små jobs om dagen med køretid, saml kundernes beskeder og send faktura fra mobilen. Til vinduespudsere. 3 måneder gratis.",
+      `Planlæg mange små jobs om dagen med køretid, saml kundernes beskeder og send faktura fra mobilen. Til vinduespudsere. ${TRIAL_SENTENCE}`,
     h1: "Administration til vinduespudsere",
     intro:
       "En vinduespudser har mange kunder på en dag og kører mellem dem hele tiden. Toolboks hjælper dig med at finde tider i kalenderen, hvor køretiden til nabojobs er regnet med, og samle beskeder og fakturaer.",
@@ -305,7 +307,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Er det for dyrt, når jeg kun har små jobs?",
-        a: `Toolboks koster ${PRICE_LINE}. De første 3 måneder er gratis, så du kan se, om det sparer dig tid.`,
+        a: `Toolboks koster ${PRICE_LINE}. ${TRIAL_FAQ}`,
       },
       {
         q: "Kan kunder bestille via en hjemmeside?",
@@ -319,7 +321,7 @@ export const TRADES: Trade[] = [
     audience: "rengøringsfirmaer",
     title: "Administration for rengøringsfirmaer | Toolboks",
     description:
-      "Planlæg rengøringsopgaver med køretid, registrer medarbejdernes arbejdstid og send faktura fra mobilen. Til rengøringsfirmaer. 3 måneder gratis.",
+      `Planlæg rengøringsopgaver med køretid, registrer medarbejdernes arbejdstid og send faktura fra mobilen. Til rengøringsfirmaer. ${TRIAL_SENTENCE}`,
     h1: "Administration til rengøringsfirmaer",
     intro:
       "I et rengøringsfirma er det medarbejdernes tid, der er varen. Derfor skal timer, planer og fakturaer passe sammen. Toolboks samler det i ét system.",
@@ -367,7 +369,7 @@ export const TRADES: Trade[] = [
       },
       {
         q: "Hvad koster det til et firma med ti ansatte?",
-        a: `${PRICE_LINE} for de brugere, du opretter. De første 3 måneder er gratis.`,
+        a: `${cap(PRICE_LINE)}. ${cap(PRICE_EXTRA_LINE)}. ${TRIAL_FAQ}`,
       },
     ],
   },

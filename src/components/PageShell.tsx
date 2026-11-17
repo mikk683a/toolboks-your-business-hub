@@ -82,7 +82,7 @@ export const SignupCta = ({ heading = "Prøv Toolboks gratis" }: { heading?: str
   <section className="mt-14 rounded-3xl bg-secondary/40 border border-border p-8 text-center">
     <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">{heading}</h2>
     <p className="text-muted-foreground mb-6">
-      {TRIAL_LINE.charAt(0).toUpperCase() + TRIAL_LINE.slice(1)}. Bagefter {PRICE_LINE}. Ingen binding.
+      {TRIAL_LINE.charAt(0).toUpperCase() + TRIAL_LINE.slice(1)}. Bagefter koster det {PRICE_LINE}. Ingen binding.
     </p>
     <Button variant="hero" size="xl" asChild>
       <a href="/#signup">
