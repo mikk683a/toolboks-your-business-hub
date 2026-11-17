@@ -1,7 +1,7 @@
 // "En tirsdag med Toolboks": one running story, six scenes, one phone.
 // Each scene is its own screen. The last scene is the final, static state
 // (server render, no JS and reduced motion all show it).
-import { Bell, CalendarCheck, Car, Check, FileText, MapPin, Receipt, Send, Sparkles } from "lucide-react";
+import { Bell, Building2, CalendarCheck, Car, Check, FileText, MapPin, Receipt, Send, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "@/lib/motion";
 import { Appear, Chip, Count, DrawCheck, Tap, Typed, TypingDots, usePrefersReducedMotion } from "./primitives";
@@ -13,11 +13,11 @@ export const TUESDAY_STORY = {
   title: "Fra første kunde om morgenen til fyraften uden kontorarbejde",
   intro: "Følg Jens fra Jens Haveservice en helt almindelig tirsdag. Kunderne og tallene er opdigtede. Det, appen gør, er det, den gør i dag.",
   mockLabel:
-    "Eksempel på en dag i Toolboks med opdigtede kunder: dagens rute, en ny henvendelse med SMS til ejeren, et tilbud lavet ud fra egne priser, kunden der siger ja, et forslag til tid og medarbejder, og en faktura der er klar.",
+    "Eksempel på en dag i Toolboks med opdigtede kunder: dagens rute, en ny henvendelse med SMS til ejeren, et tilbud regnet ud fra husets mål i BBR og egne priser, kunden der siger ja, et forslag til tid og medarbejder, og en faktura der er klar.",
   steps: [
     { time: "Kl. 6.45", scene: "Kaffe i varevognen", title: "Dagens rute er lagt", text: "Tre jobs står i den rækkefølge, der giver mindst kørsel. Du trykker Vis vej og kører." },
     { time: "Kl. 10.12", scene: "Du står på en stige i Vanløse", title: "En ny kunde skriver", text: "Hanne har brugt dit bookinglink. Du får en SMS med det samme, så hun ikke når at ringe til den næste." },
-    { time: "Kl. 10.14", scene: "Stadig på stigen", title: "Tilbuddet skriver sig selv", text: "Toolboks laver et udkast ud fra dine egne priser. Du retter én linje og sender det på SMS." },
+    { time: "Kl. 10.14", scene: "Stadig på stigen", title: "Tilbuddet regner sig selv ud", text: "Toolboks henter husets mål fra BBR og regner tilbuddet ud med dine egne priser. Du skal ikke køre ud og måle op." },
     { time: "Kl. 12.30", scene: "Frokost", title: "Hanne siger ja", text: "Hun trykker Acceptér på sin telefon. Du har prisen på skrift og skal ikke ringe og rykke." },
     { time: "Kl. 12.31", scene: "Samme frokost", title: "Jobbet finder selv sin plads", text: "Toolboks foreslår Mads torsdag kl. 10.15, fordi han alligevel er i Frederiksberg. Du trykker Godkend." },
     { time: "Kl. 15.40", scene: "Sidste job er færdigt", title: "Fakturaen er lavet", text: "Du afslutter jobbet, og fakturaen ligger klar med den aftalte pris. Du sender den og kører hjem." },
@@ -79,12 +79,25 @@ const Box = ({ children, className = "" }: { children: React.ReactNode; classNam
   <div className={`rounded-xl border border-border bg-card px-2.5 py-2 ${className}`}>{children}</div>
 );
 
+// What the building register says about the customer's house. The roof is an
+// estimate (footprint × pitch), and the app labels it as one too.
+const Bbr = () => (
+  <div className="mt-2 flex items-start gap-2 rounded-xl border border-primary/30 bg-primary/5 px-2.5 py-2">
+    <Building2 className="mt-0.5 h-4 w-4 flex-none text-primary" />
+    <div className="text-[12px] leading-snug">
+      <span className="font-bold text-primary">Hentet fra BBR</span><br />
+      Bebygget areal 136 m², tegltag, bygget 1962.<br />
+      <span className="font-semibold">Tag anslået til ca. 170 m².</span>
+    </div>
+  </div>
+);
+
 /* 1: the day's route */
 const Route = () => {
   const p = useEnter(1800, 150);
   const jobs = [
     { t: "8.00", n: "Hækklipning", a: "Vanløse" },
-    { t: "10.30", n: "Fældning af birk", a: "Frederiksberg" },
+    { t: "10.30", n: "Fliserens", a: "Frederiksberg" },
     { t: "13.15", n: "Stubfræsning", a: "Lyngby" },
   ];
   return (
@@ -122,17 +135,20 @@ const Inquiry = () => {
     <Appear on={p > 0.05} from="down">
       <div className="mb-2 flex items-start gap-2 rounded-2xl bg-foreground px-3 py-2 text-background shadow-lg">
         <Bell className="mt-0.5 h-4 w-4 flex-none" />
-        <div className="text-[12px] leading-snug"><span className="font-bold">SMS fra Toolboks</span><br />Hanne Jensen har booket besigtigelse torsdag kl. 10.15. Opgave: fældning af birk.</div>
+        <div className="text-[12px] leading-snug"><span className="font-bold">SMS fra Toolboks</span><br />Hanne Jensen har skrevet via dit bookinglink. Opgave: algebehandling af tag.</div>
       </div>
     </Appear>
     <Appear on={p > 0.4} from="right">
       <Box className="border-primary">
         <div className="flex items-center justify-between"><span className="font-bold">Hanne Jensen</span><Chip tone="warning">Bookinglink</Chip></div>
         <div className="text-[12px] text-muted-foreground">Peter Bangs Vej 120, Frederiksberg</div>
-        <div className="mt-1 text-[12px]">Birk på ca. 12 meter skal fældes og køres væk.</div>
+        <div className="mt-1 text-[12px]">Taget er grønt af alger. Hvad koster det at få det renset?</div>
       </Box>
     </Appear>
-    <Appear on={p > 0.75}>
+    <Appear on={p > 0.6}>
+      <Bbr />
+    </Appear>
+    <Appear on={p > 0.85}>
       <div className="mt-2 flex h-10 items-center justify-center gap-1.5 rounded-lg bg-primary font-semibold text-primary-foreground"><Sparkles className="h-4 w-4" /> Lav tilbud med AI</div>
     </Appear>
   </>
@@ -143,8 +159,8 @@ const Inquiry = () => {
 const Quote = () => {
   const p = useEnter(2800, 250);
   const lines = [
-    { n: "Fældning af birk, 12 m", v: 4800 },
-    { n: "Bortkørsel, 1 læs", v: 1200 },
+    { n: "Algebehandling af tag", how: "170 m² fra BBR × 30 kr", v: 5100 },
+    { n: "Rens af tagrender", v: 900 },
     { n: "Kørsel", v: 400 },
   ];
   const shown = (i: number) => Math.min(1, Math.max(0, p * 3.4 - i));
@@ -152,7 +168,7 @@ const Quote = () => {
   return (
     <>
       <Head title="Tilbud til Hanne" chip="Udkast" />
-      <div className="mb-2 flex items-center gap-1.5 text-[12px] font-semibold text-primary"><Sparkles className="h-3.5 w-3.5" /> Lavet ud fra din prisliste {!done && <TypingDots />}</div>
+      <div className="mb-2 flex items-center gap-1.5 text-[12px] font-semibold text-primary"><Sparkles className="h-3.5 w-3.5" /> Regnet ud fra BBR og din prisliste {!done && <TypingDots />}</div>
       <div className="space-y-1.5">
         {lines.map((l, i) => (
           <Box key={l.n} className={shown(i) > 0 ? "" : "opacity-0"}>
@@ -160,6 +176,7 @@ const Quote = () => {
               <span className="min-w-0 truncate font-semibold"><Typed text={l.n} p={shown(i)} /></span>
               <span className="flex-none tabular-nums">{shown(i) >= 1 ? `${l.v.toLocaleString("da-DK")} kr` : ""}</span>
             </div>
+            {l.how && <div className={`text-[11px] font-semibold text-primary transition-opacity duration-300 ${shown(i) >= 1 ? "" : "opacity-0"}`}>{l.how}</div>}
           </Box>
         ))}
       </div>
@@ -182,7 +199,7 @@ const Accept = () => {
       <Head title="Hannes telefon" chip="Tilbud" />
       <Box>
         <div className="mb-1 flex items-center gap-2"><FileText className="h-4 w-4 text-primary" /><span className="font-semibold">Tilbud fra Jens Haveservice</span></div>
-        <div className="text-[12px] text-muted-foreground">Fældning af birk, bortkørsel og kørsel</div>
+        <div className="text-[12px] text-muted-foreground">Algebehandling af tag, tagrender og kørsel</div>
         <div className="mt-1 text-lg font-bold">8.000 kr inkl. moms</div>
       </Box>
       <div className="relative mt-2 h-11">
@@ -209,7 +226,7 @@ const Plan = () => {
       <Appear on={p > 0.02}>
         <Box className="border-2 border-primary/50">
           <div className="mb-1 flex items-center gap-1.5 text-[11px] font-bold text-primary"><CalendarCheck className="h-3.5 w-3.5" /> FORSLAG TIL NYT JOB</div>
-          <div className="font-semibold">Hanne Jensen: fældning af birk</div>
+          <div className="font-semibold">Hanne Jensen: algebehandling af tag</div>
           <div className="mt-1 text-lg font-bold">Mads, torsdag kl. 10.15</div>
           <div className="text-[12px] text-muted-foreground">Mads er tættest på den dag: <Count to={8} p={Math.min(1, p * 2)} /> min. kørsel til jobbet.</div>
         </Box>
@@ -225,7 +242,7 @@ const Plan = () => {
       <Appear on={approved}>
         <div className="mt-2 flex items-center gap-2.5 rounded-xl border border-border bg-card px-2.5 py-2">
           <span className="flex h-10 w-9 flex-none flex-col items-center justify-center rounded-lg bg-primary text-primary-foreground"><span className="text-[9px] leading-none">Tor</span><span className="text-[15px] font-bold leading-none">19</span></span>
-          <span><span className="block font-semibold">Kl. 10.15, Mads</span><span className="block text-[12px] text-muted-foreground">Fældning af birk, Frederiksberg</span></span>
+          <span><span className="block font-semibold">Kl. 10.15, Mads</span><span className="block text-[12px] text-muted-foreground">Algebehandling af tag, Frederiksberg</span></span>
         </div>
       </Appear>
     </>
