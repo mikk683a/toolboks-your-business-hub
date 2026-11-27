@@ -220,3 +220,15 @@ describe("guides", () => {
     expect(g.note).toMatch(/ikke juridisk rådgivning/);
   });
 });
+
+describe("Mål dit tag", () => {
+  it("stays out of the sitemap until the roof-public function is switched on", async () => {
+    const { ROOF_TOOL, ROOF_TOOL_LIVE } = await import("./tools");
+    const path = `/vaerktoej/${ROOF_TOOL.slug}`;
+    expect(ROOF_TOOL.title.length).toBeLessThanOrEqual(70);
+    expect(ROOF_TOOL.description.length).toBeLessThanOrEqual(165);
+    if (ROOF_TOOL_LIVE) expect(ALL_ROUTES).toContain(path);
+    else expect(ALL_ROUTES).not.toContain(path);
+  });
+});
+

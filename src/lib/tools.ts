@@ -10,7 +10,24 @@ export interface ToolMeta {
   teaser: string;
 }
 
-export const TOOLS: ToolMeta[] = [
+/**
+ * Gratis "Mål dit tag". The page exists at /vaerktoej/maal-dit-tag but stays out
+ * of the tool list, sitemap and llms.txt (and is noindex) until the app's
+ * roof-public function is switched on. Then set ROOF_TOOL_LIVE to true and add
+ * the page to public/llms.txt; the content test checks both.
+ */
+export const ROOF_TOOL_LIVE = false;
+export const ROOF_TOOL: ToolMeta = {
+  slug: "maal-dit-tag",
+  name: "Mål dit tag",
+  title: "Mål dit tag fra luftfoto | Gratis værktøj",
+  description:
+    "Skriv en adresse og se taget på luftfoto med areal og hældning fra Danmarks Højdemodel. Gratis, uden login. Til tagdækkere og husejere.",
+  h1: "Mål dit tag fra luftfoto",
+  teaser: "Skriv en adresse og se tagets areal og hældning på luftfoto. Fra Danmarks Højdemodel.",
+};
+
+const BASE_TOOLS: ToolMeta[] = [
   {
     slug: "timepris",
     name: "Timepris-beregner",
@@ -39,6 +56,8 @@ export const TOOLS: ToolMeta[] = [
     teaser: "Regn ud, hvad tiden på tilbud, fakturaer og beskeder koster, når den tid ikke kan faktureres.",
   },
 ];
+
+export const TOOLS: ToolMeta[] = ROOF_TOOL_LIVE ? [ROOF_TOOL, ...BASE_TOOLS] : BASE_TOOLS;
 
 export const toolPath = (slug: string) => `/vaerktoej/${slug}`;
 export const getTool = (slug: string) => TOOLS.find((t) => t.slug === slug)!;

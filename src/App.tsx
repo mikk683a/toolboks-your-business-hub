@@ -20,6 +20,7 @@ import { GUIDES } from "./lib/guides";
 import TimeprisTool from "./pages/tools/TimeprisTool";
 import DaekningsgradTool from "./pages/tools/DaekningsgradTool";
 import AdminTidTool from "./pages/tools/AdminTidTool";
+import MaalDitTagTool from "./pages/tools/MaalDitTagTool";
 import { FEATURE_PAGES } from "./lib/features";
 
 const queryClient = new QueryClient();
@@ -60,6 +61,7 @@ export const AppRoutes = () => (
     <Route path="/vaerktoej/timepris" element={<TimeprisTool />} />
     <Route path="/vaerktoej/daekningsgrad" element={<DaekningsgradTool />} />
     <Route path="/vaerktoej/admin-tid" element={<AdminTidTool />} />
+    <Route path="/vaerktoej/maal-dit-tag" element={<MaalDitTagTool />} />
     <Route path="/privatliv" element={<LegalPage title="Privatlivspolitik" path="/privatliv" />} />
     <Route path="/vilkaar" element={<LegalPage title="Vilkår" path="/vilkaar" />} />
     <Route path="/databehandleraftale" element={<LegalPage title="Databehandleraftale" path="/databehandleraftale" />} />
