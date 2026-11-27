@@ -14,6 +14,9 @@ import FeaturePage from "./pages/FeaturePage";
 import AlternativePage from "./pages/AlternativePage";
 import { ALTERNATIVES } from "./lib/alternatives";
 import ToolsIndex from "./pages/ToolsIndex";
+import GuidesIndex from "./pages/GuidesIndex";
+import GuidePage from "./pages/GuidePage";
+import { GUIDES } from "./lib/guides";
 import TimeprisTool from "./pages/tools/TimeprisTool";
 import DaekningsgradTool from "./pages/tools/DaekningsgradTool";
 import AdminTidTool from "./pages/tools/AdminTidTool";
@@ -48,6 +51,10 @@ export const AppRoutes = () => (
     ))}
     {ALTERNATIVES.map((a) => (
       <Route key={a.slug} path={`/alternativ/${a.slug}`} element={<AlternativePage slug={a.slug} />} />
+    ))}
+    <Route path="/guider" element={<GuidesIndex />} />
+    {GUIDES.map((g) => (
+      <Route key={g.slug} path={`/guider/${g.slug}`} element={<GuidePage slug={g.slug} />} />
     ))}
     <Route path="/vaerktoej" element={<ToolsIndex />} />
     <Route path="/vaerktoej/timepris" element={<TimeprisTool />} />

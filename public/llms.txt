@@ -49,6 +49,15 @@ Sammenligning af pris, binding og indhold med andre systemer. Oplysningerne er h
 - [Alternativ til Apacta](https://toolboks.dk/alternativ/apacta)
 - [Alternativ til Ordrestyring](https://toolboks.dk/alternativ/ordrestyring)
 - [Alternativ til Minuba](https://toolboks.dk/alternativ/minuba)
+- [Alternativ til Håndværker AI](https://toolboks.dk/alternativ/haandvaerker-ai)
+
+## Guider
+
+Korte guider med kilder. Ikke juridisk rådgivning.
+
+- [Timepris for håndværkere: sådan regner du den ud](https://toolboks.dk/guider/timepris-for-haandvaerkere)
+- [Registrering af arbejdstid: reglerne for små firmaer](https://toolboks.dk/guider/registrering-af-arbejdstid)
+- [Pris på nyt tagpap pr. m²](https://toolboks.dk/guider/tagpap-pris-pr-m2)
 
 ## Gratis værktøjer
 

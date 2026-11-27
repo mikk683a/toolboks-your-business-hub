@@ -2,6 +2,7 @@ import { FEATURE_PAGES, featurePath } from "./features";
 import { TOOLS, toolPath } from "./tools";
 import { TRADES, tradePath } from "./trades";
 import { ALTERNATIVES, alternativePath } from "./alternatives";
+import { GUIDES, guidePath } from "./guides";
 
 export const LEGAL_ROUTES = ["/privatliv", "/vilkaar", "/databehandleraftale"];
 
@@ -14,6 +15,8 @@ export const ALL_ROUTES: string[] = [
   "/vaerktoej",
   ...TOOLS.map((t) => toolPath(t.slug)),
   ...ALTERNATIVES.map((a) => alternativePath(a.slug)),
+  "/guider",
+  ...GUIDES.map((g) => guidePath(g.slug)),
 ];
 
 /** Routes written to static HTML at build time: the indexable ones plus the (noindex) legal pages. */

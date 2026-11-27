@@ -58,7 +58,7 @@ const AlternativePage = ({ slug: slugProp }: { slug?: string }) => {
             <a href={alt.source.url} rel="nofollow noopener" target="_blank" className="underline underline-offset-4">
               {alt.source.label}
             </a>{" "}
-            den {CHECKED}. Priser og vilkår kan have ændret sig siden.
+            den {alt.checked ?? CHECKED}. Priser og vilkår kan have ændret sig siden.
           </p>
         </section>
 
