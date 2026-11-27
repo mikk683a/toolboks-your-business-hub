@@ -373,6 +373,64 @@ export const TRADES: Trade[] = [
       },
     ],
   },
+  {
+    slug: "tag",
+    name: "Tag",
+    audience: "tagdækkere",
+    title: "Administration for tagdækkere og tagfirmaer | Toolboks",
+    description:
+      `Tilbud med tagmåling fra luftfoto, planlægning med køretid og timer til tagdækkere. Mindre kontor, flere tage. ${TRIAL_SENTENCE}`,
+    h1: "Administration til tagdækkere",
+    intro:
+      "Du står oppe på et tag, og telefonen ringer. Toolboks samler henvendelser, måler taget fra luftfoto, laver tilbuddet ud fra dine egne priser og holder styr på holdets dage og timer.",
+    problemsHeading: "Det bruger tagdækkere tid på",
+    problems: [
+      "Kunden ringer, mens du er oppe på taget, og du når ikke at ringe tilbage.",
+      "Du skal køre ud og måle op, før du kan give en pris, og tilbuddet bliver skrevet om aftenen.",
+      "Holdet skal vide, hvilket tag de skal på i morgen, og hvornår materialerne kommer.",
+      "Timer og fakturaer bliver samlet sammen sidst på måneden.",
+    ],
+    features: [
+      {
+        key: "tilbud",
+        text: "Skriv adressen, så måler Toolboks taget ud fra danske luftfotos og højdedata og regner arealet ud med hældning. Du retter fladerne, hvis du vil, og tilbuddet laves ud fra dine egne priser.",
+      },
+      {
+        key: "forespoergsler",
+        text: "Henvendelser fra hjemmesiden og beskeder lander i en indbakke, også dem der kom, mens du var oppe på et tag.",
+      },
+      {
+        key: "planlaegning",
+        text: "Se hver mands dag med rute og køretid mellem tagene. Store opgaver over flere dage ligger samlet i kalenderen.",
+      },
+      {
+        key: "timer",
+        text: "Holdet registrerer arbejdstid på mobilen, så timerne er klar til lønnen.",
+      },
+      {
+        key: "faktura",
+        text: "Når taget er færdigt, er fakturaen lavet ud fra tilbuddet. Du sender den med ét tryk.",
+      },
+    ],
+    faq: [
+      {
+        q: "Kan Toolboks måle taget uden at jeg kører derud?",
+        a: "Ja. Toolboks bruger danske luftfotos og højdedata fra Dataforsyningen og regner tagets areal ud med hældning. Du kan flytte hjørner og tegne flader om, før du sender tilbuddet. Tagmålingen sætter vi op sammen med dig på det gratis opstartsopkald.",
+      },
+      {
+        q: "Kan tilbuddet have en fast pris uden timer og antal?",
+        a: "Ja. En linje kan bare være opgaven og prisen ekskl. moms, fx nyt tagpap på garage. Du kan også skrive antal og enhed, hvis du vil.",
+      },
+      {
+        q: "Kan jeg se, hvor mine folk er i dag?",
+        a: "Ja. Du vælger en medarbejder og ser dagens opgaver, ruten og køretiden mellem dem.",
+      },
+      {
+        q: "Hvad koster det?",
+        a: `${cap(PRICE_LINE)}. ${cap(PRICE_EXTRA_LINE)}. ${TRIAL_FAQ}`,
+      },
+    ],
+  },
 ];
 
 export const tradePath = (slug: string) => `/brancher/${slug}`;

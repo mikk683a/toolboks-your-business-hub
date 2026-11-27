@@ -11,6 +11,8 @@ import LegalPage from "./pages/LegalPage";
 import TradesIndex from "./pages/TradesIndex";
 import TradePage from "./pages/TradePage";
 import FeaturePage from "./pages/FeaturePage";
+import AlternativePage from "./pages/AlternativePage";
+import { ALTERNATIVES } from "./lib/alternatives";
 import ToolsIndex from "./pages/ToolsIndex";
 import TimeprisTool from "./pages/tools/TimeprisTool";
 import DaekningsgradTool from "./pages/tools/DaekningsgradTool";
@@ -43,6 +45,9 @@ export const AppRoutes = () => (
     <Route path="/brancher/:slug" element={<TradePage />} />
     {FEATURE_PAGES.map((f) => (
       <Route key={f.slug} path={`/funktioner/${f.slug}`} element={<FeaturePage slug={f.slug} />} />
+    ))}
+    {ALTERNATIVES.map((a) => (
+      <Route key={a.slug} path={`/alternativ/${a.slug}`} element={<AlternativePage slug={a.slug} />} />
     ))}
     <Route path="/vaerktoej" element={<ToolsIndex />} />
     <Route path="/vaerktoej/timepris" element={<TimeprisTool />} />

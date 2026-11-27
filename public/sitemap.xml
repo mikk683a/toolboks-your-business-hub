@@ -25,6 +25,9 @@
     <loc>https://toolboks.dk/brancher/rengoering</loc>
   </url>
   <url>
+    <loc>https://toolboks.dk/brancher/tag</loc>
+  </url>
+  <url>
     <loc>https://toolboks.dk/funktioner/planlaegning</loc>
   </url>
   <url>
@@ -50,5 +53,14 @@
   </url>
   <url>
     <loc>https://toolboks.dk/vaerktoej/admin-tid</loc>
+  </url>
+  <url>
+    <loc>https://toolboks.dk/alternativ/apacta</loc>
+  </url>
+  <url>
+    <loc>https://toolboks.dk/alternativ/ordrestyring</loc>
+  </url>
+  <url>
+    <loc>https://toolboks.dk/alternativ/minuba</loc>
   </url>
 </urlset>

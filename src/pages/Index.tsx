@@ -16,8 +16,8 @@ const Index = () => {
   return (
     <>
       <Seo
-        title="Toolboks | Mist ikke kunden, mens du står på stigen"
-        description="Ny hjemmeside og en app, der svarer kunden, mens du arbejder. Til træfældere, haveservice og skadedyrsbekæmpere. Vi sætter det op for dig. Fra 199 kr pr. måned. Gratis til 1. juni 2027."
+        title="Toolboks | App til håndværkere og servicefirmaer"
+        description="Ny hjemmeside og en app til tilbud, kalender med køretid, timer og faktura. Til tag, træfældning, haveservice, rengøring og flere. Fra 199 kr pr. måned."
         path="/"
         jsonLd={[organizationJsonLd, softwareJsonLd, faqJsonLd(HOME_FAQ)]}
       />
