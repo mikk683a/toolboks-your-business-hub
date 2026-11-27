@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import Seo, { breadcrumbJsonLd, faqJsonLd } from "@/components/Seo";
-import { Breadcrumbs, Container, FaqList, PageHeader, PageShell, SignupCta } from "@/components/PageShell";
+import { Breadcrumbs, Container, FaqList, PageHeader, PageShell, RelatedGuides, SignupCta } from "@/components/PageShell";
 import { FEATURE_BLURBS, FEATURE_PAGES, featurePath } from "@/lib/features";
 import NotFound from "./NotFound";
 
@@ -72,6 +72,7 @@ const FeaturePage = ({ slug }: { slug: string }) => {
           </section>
         )}
 
+        <RelatedGuides path={path} />
         <FaqList faq={page.faq} />
         <SignupCta />
 

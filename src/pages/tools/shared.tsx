@@ -2,7 +2,7 @@ import { useCallback, useState, type ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Check, Link2 } from "lucide-react";
 import Seo, { breadcrumbJsonLd, faqJsonLd } from "@/components/Seo";
-import { Breadcrumbs, Container, FaqList, PageHeader, PageShell, SignupCta } from "@/components/PageShell";
+import { Breadcrumbs, Container, FaqList, PageHeader, PageShell, RelatedGuides, SignupCta } from "@/components/PageShell";
 import { Button } from "@/components/ui/button";
 import { TOOLS, TOOL_FAQ, getTool, toolPath } from "@/lib/tools";
 
@@ -146,6 +146,7 @@ export const ToolLayout = ({
           det, du taster.
         </p>
         <section className="mt-12 space-y-4 text-foreground leading-relaxed">{explanation}</section>
+        <RelatedGuides path={path} />
         <FaqList faq={faq} />
         <SignupCta heading="Spar tid på admin med Toolboks" />
         <section className="mt-14">

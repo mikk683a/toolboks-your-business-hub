@@ -53,11 +53,12 @@ Sammenligning af pris, binding og indhold med andre systemer. Oplysningerne er h
 
 ## Guider
 
-Korte guider med kilder. Ikke juridisk rådgivning.
+Korte guider med kilder. Ikke juridisk rådgivning eller skatterådgivning.
 
 - [Timepris for håndværkere: sådan regner du den ud](https://toolboks.dk/guider/timepris-for-haandvaerkere)
 - [Registrering af arbejdstid: reglerne for små firmaer](https://toolboks.dk/guider/registrering-af-arbejdstid)
 - [Pris på nyt tagpap pr. m²](https://toolboks.dk/guider/tagpap-pris-pr-m2)
+- [Servicefradrag 2026: det skal du vide som servicefirma](https://toolboks.dk/guider/servicefradrag)
 
 ## Gratis værktøjer
 

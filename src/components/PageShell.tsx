@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import type { Faq } from "@/lib/features";
 import { PRICE_LINE, TRIAL_LINE } from "@/lib/site";
+import { guidePath, guidesLinkingTo } from "@/lib/guides";
 
 export const PageShell = ({ children }: { children: ReactNode }) => (
   <div className="min-h-screen bg-background flex flex-col">
@@ -92,3 +93,24 @@ export const SignupCta = ({ heading = "Prøv Toolboks gratis" }: { heading?: str
     </Button>
   </section>
 );
+
+/** "Læs også": the guides that link to this page. Renders nothing when none do. */
+export const RelatedGuides = ({ path }: { path: string }) => {
+  const guides = guidesLinkingTo(path);
+  if (guides.length === 0) return null;
+  return (
+    <section className="mt-12" aria-labelledby="guides-heading">
+      <h2 id="guides-heading" className="text-xl font-bold text-foreground mb-4">Læs også</h2>
+      <ul className="grid gap-3 md:grid-cols-2">
+        {guides.map((g) => (
+          <li key={g.slug}>
+            <Link to={guidePath(g.slug)} className="block bg-card border border-border rounded-2xl p-5 shadow-card hover:shadow-card-hover transition-shadow">
+              <span className="font-semibold text-foreground">{g.name}</span>
+              <span className="block text-sm text-muted-foreground mt-1">{g.teaser}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+};
