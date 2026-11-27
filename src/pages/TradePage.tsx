@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { Check } from "lucide-react";
 import Seo, { breadcrumbJsonLd, faqJsonLd } from "@/components/Seo";
-import { Breadcrumbs, Container, FaqList, PageHeader, PageShell, SignupCta } from "@/components/PageShell";
+import { Breadcrumbs, Container, FaqList, PageHeader, PageShell, RelatedGuides, SignupCta } from "@/components/PageShell";
 import { FEATURE_BLURBS } from "@/lib/features";
 import { TRADES, getTrade, tradePath } from "@/lib/trades";
 import NotFound from "./NotFound";
@@ -74,6 +74,7 @@ const TradePage = ({ slug: slugProp }: { slug?: string }) => {
           </div>
         </section>
 
+        <RelatedGuides path={path} />
         <FaqList faq={trade.faq} />
         <SignupCta />
 

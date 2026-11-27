@@ -269,7 +269,105 @@ export const GUIDES: Guide[] = [
       { label: "Beregn dækningsgrad", to: "/vaerktoej/daekningsgrad" },
     ],
   },
+  {
+    slug: "servicefradrag",
+    name: "Servicefradrag 2026",
+    title: "Servicefradrag 2026: det skal du vide som servicefirma | Toolboks",
+    description:
+      "Servicefradrag i 2026: beløb, hvilke opgaver der giver fradrag, og hvad der skal stå på fakturaen, så kunden kan bruge fradraget.",
+    h1: "Servicefradrag 2026: det skal du vide som servicefirma",
+    intro:
+      "Servicefradraget gør dit arbejde billigere for private kunder. Kender du reglerne, kan du bruge det, når du sælger, og lave fakturaen, så kunden kan få fradraget uden besvær.",
+    teaser: "Beløb, opgaver der giver fradrag, og hvad der skal stå på fakturaen.",
+    note: "Siden er ikke skatterådgivning. Reglerne står på skat.dk, og det er kunden, der selv indberetter fradraget.",
+    sections: [
+      {
+        h2: "Hvor meget er servicefradraget i 2026?",
+        paragraphs: [
+          "I 2026 kan hver person over 18 år i husstanden få servicefradrag for op til 18.300 kroner. Fradraget er værd cirka 26 procent. Betaler kunden 1.000 kroner i arbejdsløn, sparer kunden altså cirka 260 kroner i skat.",
+          "Der er også et håndværkerfradrag på op til 9.000 kroner pr. person i 2026. Det gælder grøn istandsættelse af boligen og er et andet fradrag end servicefradraget.",
+        ],
+      },
+      {
+        h2: "Hvilke opgaver giver servicefradrag?",
+        paragraphs: ["Fradraget gælder arbejde i kundens hjem. Blandt andet:"],
+        bullets: [
+          "Rengøring af boligen",
+          "Vinduespudsning, indvendig og udvendig",
+          "Almindeligt havearbejde som græsslåning, klipning af hæk, beskæring af buske og træer, fliserensning og snerydning",
+          "I 2025 til 2027 også træfældning, bortskaffelse af væltede træer, ny græsplæne og rensning af tagrender",
+          "Reparation af hårde hvidevarer i hjemmet",
+        ],
+      },
+      {
+        h2: "Det gælder ikke",
+        paragraphs: [
+          "Der er kun fradrag for arbejdsløn, ikke for materialer. Nyanlæg af have giver ikke fradrag. Kunden kan heller ikke få fradrag for arbejde, kunden selv har lavet.",
+        ],
+      },
+      {
+        h2: "Det skal være på plads, før kunden kan bruge fradraget",
+        paragraphs: [
+          "Kunden skal kunne dokumentere arbejdet med en faktura, og arbejdet skal betales digitalt, uanset beløb. Arbejde udført i 2026 skal være betalt senest 28. februar 2027.",
+          "Kunden indberetter selv fradraget i TastSelv med betalingsdato, dit CVR-nummer og arbejdslønnen uden moms. Skat lægger selv momsen til.",
+        ],
+      },
+      {
+        h2: "Sådan laver du fakturaen",
+        paragraphs: [
+          "Gør det nemt for kunden. Så bliver fradraget et salgsargument og ikke et spørgsmål, du skal svare på bagefter.",
+        ],
+        bullets: [
+          "Skriv arbejdsløn og materialer på hver sin linje",
+          "Skriv arbejdslønnen både med og uden moms",
+          "Skriv dit CVR-nummer, adressen hvor arbejdet er udført, og datoen",
+          "Bed om betaling med bankoverførsel, MobilePay eller kort, ikke kontant",
+        ],
+      },
+      {
+        h2: "Brug fradraget i dit tilbud",
+        paragraphs: [
+          "Mange kunder kender ikke fradraget. Skriv i tilbuddet, hvor meget af prisen der er arbejdsløn, og hvad kunden cirka kan spare. Regn fradraget med cirka 26 procent af arbejdslønnen med moms.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Hvor meget er servicefradraget i 2026?",
+        a: "Op til 18.300 kroner pr. person over 18 år i husstanden. Fradraget er værd cirka 26 procent.",
+      },
+      {
+        q: "Kan kunden få fradrag, hvis de betaler kontant?",
+        a: "Nej. Arbejdet skal betales digitalt, uanset beløb.",
+      },
+      {
+        q: "Skal kunden indberette med eller uden moms?",
+        a: "Uden moms og kun arbejdslønnen. Skat lægger selv momsen til.",
+      },
+      {
+        q: "Giver træfældning servicefradrag?",
+        a: "Ja, i 2025 til 2027 giver træfældning og bortskaffelse af væltede træer servicefradrag.",
+      },
+    ],
+    sources: [
+      { label: "skat.dk: Servicefradrag", url: "https://skat.dk/servicefradrag" },
+      { label: "skat.dk: Håndværkerfradrag", url: "https://skat.dk/skat.aspx?oid=2234759" },
+      { label: "Bolius: Håndværkerfradrag og servicefradrag", url: "https://www.bolius.dk/haandvaerkerfradrag-og-servicefradrag-alt-du-skal-vide" },
+      { label: "Bolius: Servicefradrag, alt du skal vide", url: "https://www.bolius.dk/servicefradrag-alt-du-skal-vide" },
+      { label: "BDO: Fradrag for udgifter til hushjælp (marts 2026)", url: "https://www.bdo.dk/getattachment/8fe26292-4fd0-492a-9f4c-c4e0486fe745/Fradrag-for-udgifter-til-hushj%c3%a6lp-Servicefradrag.pdf?lang=da-DK" },
+    ],
+    related: [
+      { label: "Toolboks til haveservice", to: "/brancher/haveservice" },
+      { label: "Toolboks til træfældning", to: "/brancher/traefaeldning" },
+      { label: "Toolboks til vinduespudsere", to: "/brancher/vinduespudser" },
+      { label: "Toolboks til rengøring", to: "/brancher/rengoering" },
+      { label: "Toolboks til algerens", to: "/brancher/algerens" },
+      { label: "Faktura i Toolboks", to: "/funktioner/faktura" },
+    ],
+  },
 ];
 
 export const guidePath = (slug: string) => `/guider/${slug}`;
 export const getGuide = (slug: string | undefined) => GUIDES.find((g) => g.slug === slug);
+/** Guides that link to a page, so the page can link back ("Læs også"). */
+export const guidesLinkingTo = (path: string) => GUIDES.filter((g) => g.related.some((r) => r.to === path));

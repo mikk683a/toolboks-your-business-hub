@@ -52,7 +52,7 @@ describe("routes and sitemap", () => {
   it("lists every indexable route once and keeps the legal pages out of the sitemap", () => {
     expect(new Set(ALL_ROUTES).size).toBe(ALL_ROUTES.length);
     for (const r of LEGAL_ROUTES) expect(ALL_ROUTES).not.toContain(r);
-    expect(ALL_ROUTES.length).toBe(1 + 1 + 7 + 5 + 1 + 3 + 4 + 1 + 3);
+    expect(ALL_ROUTES.length).toBe(1 + 1 + 7 + 5 + 1 + 3 + 4 + 1 + 4);
   });
   it("still prerenders the legal pages", () => {
     for (const r of LEGAL_ROUTES) expect(PRERENDER_ROUTES).toContain(r);
@@ -198,7 +198,7 @@ describe("alternative pages", () => {
 describe("guides", () => {
   it("are sourced, sized for search and free of dashes", async () => {
     const { GUIDES, GUIDES_UPDATED } = await import("./guides");
-    expect(GUIDES.map((g) => g.slug).sort()).toEqual(["registrering-af-arbejdstid", "tagpap-pris-pr-m2", "timepris-for-haandvaerkere"]);
+    expect(GUIDES.map((g) => g.slug).sort()).toEqual(["registrering-af-arbejdstid", "servicefradrag", "tagpap-pris-pr-m2", "timepris-for-haandvaerkere"]);
     expect(GUIDES_UPDATED).toMatch(/2026/);
     for (const g of GUIDES) {
       expect(g.title.length, g.slug).toBeLessThanOrEqual(70);
