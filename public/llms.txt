@@ -1,6 +1,6 @@
 # Toolboks
 
-> Toolboks er en dansk admin-app til små servicevirksomheder med 1 til 20 medarbejdere, der kører ud til kunder. Den samler henvendelser, tilbud, kalender med køretid, jobs, faktura, timeregistrering og kundebeskeder ét sted.
+> Toolboks er en dansk app til håndværkere og små servicevirksomheder med 1 til 20 medarbejdere, der kører ud til kunder. Den samler henvendelser, tilbud, kalender med køretid, jobs, faktura, timeregistrering og kundebeskeder ét sted.
 
 Pris (én pakke): 199 kr pr. måned, hvis man er alene i firmaet, og 249 kr, hvis man er op til 2 personer. 49 kr pr. måned for hver person over 2. Priserne er ekskl. moms. En ny hjemmeside og løbende arbejde med Google er med i prisen. Hjemmesiden og domænet tilhører kunden, også hvis kunden stopper. Opretter man sig før 1. marts 2027, er Toolboks gratis til 1. juni 2027. Ellers er de første 3 måneder gratis. Man skal ikke oplyse betalingskort for at starte. Ingen binding. App: https://app.toolboks.dk
 
@@ -11,6 +11,9 @@ Pris (én pakke): 199 kr pr. måned, hvis man er alene i firmaet, og 249 kr, hvi
 - Planlægning: fælles kalender for holdet og forslag til tider, hvor køretiden er regnet med.
 - Faktura: fakturaen laves, når jobbet er færdigt, og sendes på SMS eller e-mail. Kan sendes videre til Billy.
 - Tilbud ud fra egne priser: Toolboks laver et udkast ud fra firmaets egen prisliste. Ejeren læser og sender selv.
+- Tagmåling fra luftfoto: til tagdækkere måler Toolboks taget ud fra danske luftfotos og højdedata fra Dataforsyningen og regner arealet ud med hældning. Sættes op sammen med Toolboks.
+- Medarbejderkalender: hver medarbejders dag med rute og køretid mellem opgaverne, også for medarbejdere uden login.
+- Eksempler fra egen branche: når man opretter sig med CVR-nummer, viser Toolboks eksempler på kunder, tilbud og jobs fra firmaets branche, som kan fjernes med ét tryk.
 - Timeregistrering: registrering af medarbejdernes daglige arbejdstid med eksport til løn. Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt have et system, hvor medarbejdernes daglige arbejdstid registreres. Registreringerne skal gemmes i 5 år. Ikke juridisk rådgivning.
 - Beskeder samlet: SMS, e-mail og henvendelser fra hjemmeside, bookinglink og prisberegner i samme indbakke.
 - Ny hjemmeside, hvor kunder kan sende en henvendelse. Toolboks holder den opdateret til Google hver måned.
@@ -37,6 +40,15 @@ Pris (én pakke): 199 kr pr. måned, hvis man er alene i firmaet, og 249 kr, hvi
 - [Skadedyrsbekæmper](https://toolboks.dk/brancher/skadedyrsbekaemper)
 - [Algerens](https://toolboks.dk/brancher/algerens)
 - [Rengøring](https://toolboks.dk/brancher/rengoering)
+- [Tag](https://toolboks.dk/brancher/tag)
+
+## Skift system
+
+Sammenligning af pris, binding og indhold med andre systemer. Oplysningerne er hentet fra deres egne prissider.
+
+- [Alternativ til Apacta](https://toolboks.dk/alternativ/apacta)
+- [Alternativ til Ordrestyring](https://toolboks.dk/alternativ/ordrestyring)
+- [Alternativ til Minuba](https://toolboks.dk/alternativ/minuba)
 
 ## Gratis værktøjer
 

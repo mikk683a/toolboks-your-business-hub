@@ -9,10 +9,10 @@ import { TRADES } from "./trades";
 const allText = JSON.stringify([TRADES, FEATURE_PAGES, TOOLS, TOOL_FAQ]);
 
 describe("trade data", () => {
-  it("has the 6 trades with unique slugs", () => {
+  it("has the 7 trades with unique slugs", () => {
     expect(TRADES.map((t) => t.slug).sort()).toEqual(
       [
-        "algerens", "haveservice", "rengoering", "skadedyrsbekaemper", "traefaeldning", "vinduespudser",
+        "algerens", "haveservice", "rengoering", "skadedyrsbekaemper", "tag", "traefaeldning", "vinduespudser",
       ].sort(),
     );
   });
@@ -52,7 +52,7 @@ describe("routes and sitemap", () => {
   it("lists every indexable route once and keeps the legal pages out of the sitemap", () => {
     expect(new Set(ALL_ROUTES).size).toBe(ALL_ROUTES.length);
     for (const r of LEGAL_ROUTES) expect(ALL_ROUTES).not.toContain(r);
-    expect(ALL_ROUTES.length).toBe(1 + 1 + 6 + 5 + 1 + 3);
+    expect(ALL_ROUTES.length).toBe(1 + 1 + 7 + 5 + 1 + 3 + 3);
   });
   it("still prerenders the legal pages", () => {
     for (const r of LEGAL_ROUTES) expect(PRERENDER_ROUTES).toContain(r);
@@ -64,7 +64,7 @@ describe("routes and sitemap", () => {
   it("is listed in robots.txt and llms.txt covers the pages", () => {
     expect(fs.readFileSync("public/robots.txt", "utf-8")).toContain("Sitemap: https://toolboks.dk/sitemap.xml");
     const llms = fs.readFileSync("public/llms.txt", "utf-8");
-    for (const r of ALL_ROUTES.filter((r) => r.startsWith("/brancher/") || r.startsWith("/funktioner/") || r.startsWith("/vaerktoej/"))) {
+    for (const r of ALL_ROUTES.filter((r) => r.startsWith("/brancher/") || r.startsWith("/funktioner/") || r.startsWith("/vaerktoej/") || r.startsWith("/alternativ/"))) {
       expect(llms).toContain(`https://toolboks.dk${r}`);
     }
   });
@@ -72,6 +72,7 @@ describe("routes and sitemap", () => {
 
 describe("price from one source", () => {
   const files = [
+    // alternatives.ts quotes other systems' own prices (in "kroner"), which are not ours.
     ...fs.readdirSync("src/lib").filter((f) => /\.tsx?$/.test(f) && !/\.test\./.test(f) && f !== "calculators.ts").map((f) => `src/lib/${f}`),
     ...fs.readdirSync("src/components").filter((f) => f.endsWith(".tsx")).map((f) => `src/components/${f}`),
     ...fs.readdirSync("src/pages").filter((f) => f.endsWith(".tsx")).map((f) => `src/pages/${f}`),
@@ -134,8 +135,8 @@ describe("coming soon features stay out of present-tense copy", () => {
   it("does not name unsupported payroll systems as integrations", () => {
     expect(fs.readFileSync("public/llms.txt", "utf-8")).not.toMatch(/Danløn|DataLøn|Zenegy/i);
   });
-  it("lists exactly six trades in the footer data", () => {
-    expect(TRADES.length).toBe(6);
+  it("lists exactly seven trades in the footer data", () => {
+    expect(TRADES.length).toBe(7);
   });
 });
 
@@ -176,5 +177,20 @@ describe("Klar til sæsonen (17 Nov 2026)", () => {
   it("says the website and the domain are the customer's", () => {
     expect(fs.readFileSync("src/components/HomeFaq.tsx", "utf-8")).toContain("Hjemmesiden og domænet er dine");
     expect(fs.readFileSync("src/lib/legal.ts", "utf-8")).toContain("hjemmesiden og domænet dine");
+  });
+});
+
+describe("alternative pages", () => {
+  it("are fair, sourced and sized for search", async () => {
+    const { ALTERNATIVES, CHECKED } = await import("./alternatives");
+    expect(ALTERNATIVES.map((a) => a.slug).sort()).toEqual(["apacta", "minuba", "ordrestyring"]);
+    expect(CHECKED).toMatch(/2026/);
+    for (const a of ALTERNATIVES) {
+      expect(a.title.length).toBeLessThanOrEqual(70);
+      expect(a.description.length).toBeLessThanOrEqual(165);
+      expect(a.source.url).toMatch(/^https:\/\//);
+      expect(a.suitsThem).toContain(a.name);
+      expect(JSON.stringify(a)).not.toMatch(/[–—]/);
+    }
   });
 });

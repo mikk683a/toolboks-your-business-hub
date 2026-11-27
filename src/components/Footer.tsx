@@ -2,6 +2,7 @@ import { BriefcaseBusiness } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FEATURE_BLURBS, FEATURE_PAGES, featurePath } from "@/lib/features";
 import { TRADES, tradePath } from "@/lib/trades";
+import { ALTERNATIVES, alternativePath } from "@/lib/alternatives";
 import { TOOLS, toolPath } from "@/lib/tools";
 import { COMPANY } from "@/lib/company";
 
@@ -23,7 +24,7 @@ const legalLinks = [
 const Footer = () => (
   <footer className="bg-card border-t border-border py-12 lg:py-16">
     <div className="container mx-auto px-4">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10 mb-12">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-7 gap-8 lg:gap-10 mb-12">
         <div className="sm:col-span-2 lg:col-span-2">
           <Link to="/" className="flex items-center gap-2 mb-4">
             <div className="w-10 h-10 rounded-xl bg-[#0b6fb0] flex items-center justify-center">
@@ -81,6 +82,17 @@ const Footer = () => (
             {TOOLS.map((t) => (
               <li key={t.slug}>
                 <Link to={toolPath(t.slug)} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{t.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-semibold text-foreground mb-4">Skift system</h4>
+          <ul>
+            {ALTERNATIVES.map((a) => (
+              <li key={a.slug}>
+                <Link to={alternativePath(a.slug)} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{a.h1}</Link>
               </li>
             ))}
           </ul>
