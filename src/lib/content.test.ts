@@ -52,7 +52,7 @@ describe("routes and sitemap", () => {
   it("lists every indexable route once and keeps the legal pages out of the sitemap", () => {
     expect(new Set(ALL_ROUTES).size).toBe(ALL_ROUTES.length);
     for (const r of LEGAL_ROUTES) expect(ALL_ROUTES).not.toContain(r);
-    expect(ALL_ROUTES.length).toBe(1 + 1 + 7 + 5 + 1 + 3 + 3);
+    expect(ALL_ROUTES.length).toBe(1 + 1 + 7 + 5 + 1 + 3 + 4 + 1 + 3);
   });
   it("still prerenders the legal pages", () => {
     for (const r of LEGAL_ROUTES) expect(PRERENDER_ROUTES).toContain(r);
@@ -64,7 +64,7 @@ describe("routes and sitemap", () => {
   it("is listed in robots.txt and llms.txt covers the pages", () => {
     expect(fs.readFileSync("public/robots.txt", "utf-8")).toContain("Sitemap: https://toolboks.dk/sitemap.xml");
     const llms = fs.readFileSync("public/llms.txt", "utf-8");
-    for (const r of ALL_ROUTES.filter((r) => r.startsWith("/brancher/") || r.startsWith("/funktioner/") || r.startsWith("/vaerktoej/") || r.startsWith("/alternativ/"))) {
+    for (const r of ALL_ROUTES.filter((r) => r.startsWith("/brancher/") || r.startsWith("/funktioner/") || r.startsWith("/vaerktoej/") || r.startsWith("/alternativ/") || r.startsWith("/guider/"))) {
       expect(llms).toContain(`https://toolboks.dk${r}`);
     }
   });
@@ -183,7 +183,7 @@ describe("Klar til sæsonen (17 Nov 2026)", () => {
 describe("alternative pages", () => {
   it("are fair, sourced and sized for search", async () => {
     const { ALTERNATIVES, CHECKED } = await import("./alternatives");
-    expect(ALTERNATIVES.map((a) => a.slug).sort()).toEqual(["apacta", "minuba", "ordrestyring"]);
+    expect(ALTERNATIVES.map((a) => a.slug).sort()).toEqual(["apacta", "haandvaerker-ai", "minuba", "ordrestyring"]);
     expect(CHECKED).toMatch(/2026/);
     for (const a of ALTERNATIVES) {
       expect(a.title.length).toBeLessThanOrEqual(70);
@@ -194,3 +194,41 @@ describe("alternative pages", () => {
     }
   });
 });
+
+describe("guides", () => {
+  it("are sourced, sized for search and free of dashes", async () => {
+    const { GUIDES, GUIDES_UPDATED } = await import("./guides");
+    expect(GUIDES.map((g) => g.slug).sort()).toEqual(["registrering-af-arbejdstid", "tagpap-pris-pr-m2", "timepris-for-haandvaerkere"]);
+    expect(GUIDES_UPDATED).toMatch(/2026/);
+    for (const g of GUIDES) {
+      expect(g.title.length, g.slug).toBeLessThanOrEqual(70);
+      expect(g.description.length, g.slug).toBeLessThanOrEqual(165);
+      expect(g.sources.length, g.slug).toBeGreaterThan(0);
+      for (const s of g.sources) expect(s.url).toMatch(/^https:\/\//);
+      expect(g.related.length, g.slug).toBeGreaterThan(0);
+      expect(JSON.stringify(g)).not.toMatch(/[–—]/);
+    }
+  });
+  it("links only to pages that exist", async () => {
+    const { GUIDES } = await import("./guides");
+    for (const g of GUIDES) for (const r of g.related) expect(ALL_ROUTES, `${g.slug} -> ${r.to}`).toContain(r.to);
+  });
+  it("uses the agreed wording for the working-time rule and says it is not legal advice", async () => {
+    const { getGuide } = await import("./guides");
+    const g = getGuide("registrering-af-arbejdstid")!;
+    expect(g.intro).toContain("Siden 1. juli 2024 skal arbejdsgivere som udgangspunkt");
+    expect(g.note).toMatch(/ikke juridisk rådgivning/);
+  });
+});
+
+describe("Mål dit tag", () => {
+  it("stays out of the sitemap until the roof-public function is switched on", async () => {
+    const { ROOF_TOOL, ROOF_TOOL_LIVE } = await import("./tools");
+    const path = `/vaerktoej/${ROOF_TOOL.slug}`;
+    expect(ROOF_TOOL.title.length).toBeLessThanOrEqual(70);
+    expect(ROOF_TOOL.description.length).toBeLessThanOrEqual(165);
+    if (ROOF_TOOL_LIVE) expect(ALL_ROUTES).toContain(path);
+    else expect(ALL_ROUTES).not.toContain(path);
+  });
+});
+

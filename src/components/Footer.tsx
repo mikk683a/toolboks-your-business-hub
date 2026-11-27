@@ -4,6 +4,7 @@ import { FEATURE_BLURBS, FEATURE_PAGES, featurePath } from "@/lib/features";
 import { TRADES, tradePath } from "@/lib/trades";
 import { ALTERNATIVES, alternativePath } from "@/lib/alternatives";
 import { TOOLS, toolPath } from "@/lib/tools";
+import { GUIDES, guidePath } from "@/lib/guides";
 import { COMPANY } from "@/lib/company";
 
 const APP_URL = "https://app.toolboks.dk";
@@ -82,6 +83,14 @@ const Footer = () => (
             {TOOLS.map((t) => (
               <li key={t.slug}>
                 <Link to={toolPath(t.slug)} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{t.name}</Link>
+              </li>
+            ))}
+          </ul>
+          <h4 className="font-semibold text-foreground mt-6 mb-4">Guider</h4>
+          <ul>
+            {GUIDES.map((g) => (
+              <li key={g.slug}>
+                <Link to={guidePath(g.slug)} className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground transition-colors">{g.name}</Link>
               </li>
             ))}
           </ul>
